@@ -1,0 +1,1590 @@
+{
+    "query": "http://gtr.gtr.ukri.org/gtr/api/funds?q=machine%20learning&f=fu.pro.t&sf=fu.sd&s=10",
+    "page": 1,
+    "size": 20,
+    "totalPages": 920,
+    "totalSize": 18398,
+    "project": [
+        {
+            "links": {
+                "link": [
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/954AD5FD-12E7-4FA9-8B71-313A4700D27A",
+                        "rel": "LEAD_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/954AD5FD-12E7-4FA9-8B71-313A4700D27A",
+                        "rel": "PARTICIPANT_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/funds/47700DD7-19D1-4EAF-BBCC-D60D1D7A2AB1",
+                        "rel": "FUND",
+                        "start": 1359676800000,
+                        "end": 1375228800000,
+                        "otherAttributes": {}
+                    }
+                ]
+            },
+            "id": "B24C9DA8-2594-49B4-A3F5-773091EE15B1",
+            "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/B24C9DA8-2594-49B4-A3F5-773091EE15B1",
+            "created": 1705651038000,
+            "identifiers": {
+                "identifier": [
+                    {
+                        "value": "750336",
+                        "type": "RCUK"
+                    }
+                ]
+            },
+            "title": "machine learning",
+            "status": "Closed",
+            "grantCategory": "Vouchers",
+            "leadFunder": "Innovate UK",
+            "abstractText": "University of Exeter - Computer Science Department",
+            "healthCategories": {
+                "healthCategory": []
+            },
+            "researchActivities": {
+                "researchActivity": []
+            },
+            "researchSubjects": {
+                "researchSubject": []
+            },
+            "researchTopics": {
+                "researchTopic": [
+                    {
+                        "id": "6CFA1E1F-F25C-4C23-8FE1-C47AE53E333E",
+                        "text": "Unclassified"
+                    }
+                ]
+            },
+            "rcukProgrammes": {
+                "rcukProgramme": []
+            },
+            "participantValues": {
+                "participant": [
+                    {
+                        "organisationId": "954AD5FD-12E7-4FA9-8B71-313A4700D27A",
+                        "organisationName": "C3 RESOURCES LIMITED",
+                        "role": "LEAD_PARTICIPANT",
+                        "projectCost": 5000.0,
+                        "grantOffer": 5000.0
+                    }
+                ]
+            }
+        },
+        {
+            "links": {
+                "link": [
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/C4511C34-99F9-46F1-A82F-06D549C39B9E",
+                        "rel": "SUPER_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/706570F4-3F82-4021-9CFF-E678742E2A6E",
+                        "rel": "SUPER_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/FD530D6D-408D-4D85-9321-76A8961604AA",
+                        "rel": "SUPER_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/62327D34-2AEC-47BF-986F-8D638C6A268B",
+                        "rel": "SUPER_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/9CCA8C9C-CCA0-488C-813E-F72A9F2F9EDB",
+                        "rel": "SUPER_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/3950BBC6-24AC-4FBD-A099-C8A3648B3BE8",
+                        "rel": "STUDENT_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/47649064-FCD1-4D7A-A5AA-31B69B9BDFFC",
+                        "rel": "LEAD_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/funds/3B53FE70-5BD9-4323-B4CD-0598924A84B1",
+                        "rel": "FUND",
+                        "start": 1506816000000,
+                        "end": 1648684800000,
+                        "otherAttributes": {}
+                    }
+                ]
+            },
+            "id": "1D3E6739-FB64-430B-BA16-1C3B0323AF05",
+            "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/1D3E6739-FB64-430B-BA16-1C3B0323AF05",
+            "created": 1705651038000,
+            "identifiers": {
+                "identifier": [
+                    {
+                        "value": "1923335",
+                        "type": "RCUK"
+                    }
+                ]
+            },
+            "title": "Machine Learning for Catalysis",
+            "status": "Closed",
+            "grantCategory": "Studentship",
+            "leadFunder": "NERC",
+            "abstractText": "This project falls within the EPSRC Synthetic Organic Chemistry research area.\nMachine Learning (ML), with its ability to predict and analyse trends that previous methods have failed to quantify, has become the preeminent modern method for the analysis of large data sets and revolutionised data science.\nHowever, the application of these methods within chemistry has been limited, as both the complexities of the systems and the small data sets available are non-trivial dilemmas. A fundamental requirement for ML programs to work is a data set that is both large in number and a representative sample of chemical space: a model failing both these criteria will tend to over-fit the model and so not be of use. Recently, the use of ML methods within chemistry has expanded by Sigman and Doyle using algorithms to predict reactivity. Using the data sets from both the Gouverneur group's work on Hydrogen Bonding Phase Transfer Catalysts and expanding upon the ML methods used in GT-Predict to predict glycosylation, reported by the Davis group, we aim to develop novel ML methods that can be utilised alongside other analysis techniques. We envisage that ML methods could be utilised in the understanding of catalytic reactions to develop better catalytic manifolds for key substrates. A variety of catalytic manifolds, from\nchiral small molecules to enzymes will be explored.\nWith the datasets from research present within the Gouverneur Group, we wish to develop a ML program that would both predict the enantioselectivity of a catalyst and facilitate its redesign to a more efficient structure. Fluorination of proteins and biological structures is the application of interest for the work. In this case, the limitations of representing protein structure in a vector form needs to be verified before being applied to a fluorination setting.\nPreviously, further advances to GT-Predict model gave rise to a new model GT-Predict-II which used the whole amino acid sequence of the protein to generate the input sequence of the program. Further study is now needed to use the model to predict which changes within the AA sequence would lead to a substrate selectivity change within the enzyme. Validating this model would solve a fundamental challenge facing molecular biology today- how changes in enzyme structure can explain changes in activity.\nUsing the knowledge obtained from the modelling of both families of enzymatic catalysts, along with that of small molecule chemistry we would aim to use the combined systems to build a model capable of understanding the fluorination of proteins along with the mechanisms of the Fluorinase enzyme. With a method to represent these structures in a vector format, the project will focus on the ability to implement ML techniques to a range of new synthetically relevant systems. With such wide applicability the models much be simple so as to be easy to implement and understand, this consideration will allow for ML techniques to become a toolkit for chemists to easily use alongside other traditional methods of chemical analysis.",
+            "potentialImpact": "This programme is focused on a new cohort-driven approach to the training of next-generation doctoral scientists in the practice of novel and efficient chemical synthesis coupled with an in-depth appreciation of its application to biology and medicine.\n\nThis collaborative academic-industrial SBM CDT will have long-term benefit to the chemical industry, including the pharmaceutical, agrochemical and fine chemical sectors. These industries will benefit through: (i) the potential to employ individuals trained with broad and relevant scientific and transferable skills; (ii) new approaches to the investigation of complex biological and medical problems through novel chemistry; and (iii) better and more efficient synthetic methods.\n\nWe will link the work of DSTL, and our pharmaceutical and agrochemical partners (GSK, UCB, Vertex, Evotec, Eisai, AstraZeneca, Syngenta, Novartis, Takeda, Sumitomo and Pfizer) through a common theme of synthesis training. The design and synthesis of new compounds is essential for disease treatment and prevention, and for maintaining food security. Synthesis contributes significantly to UK tax revenue and results in sustained employment across a number of sectors. Employers in the finance, law, health, academic, analytical, government, and teaching professions, for example, also recognise the value of the translational skill-sets possessed by synthesis postgraduates, which this programme will provide.\n\nThe SBM CDT training programme will adopt an IP-free model to enable completely free exchange of information, know-how and specific expertise between students and supervisors on different projects and across different industrial companies. This will lead to better knowledge creation through unfettered access to information from all academics, partners and students involved in the project. By focussing on basic science, we will engender genuine collaboration leading to enabling technology that will be of use across a wide range of industries.\n\nWe will train the next generation of multidisciplinary synthetic chemists with an appreciation of the impact of synthesis in biology and medicine. Their unconstrained view of synthesis will aid in new scientific discoveries leading to new products, which (with appropriate inward investment), can lead to the formation of new companies and new UK employment.\n\nWe will, in part through an alliance with the Defence, Science and Technology Laboratory, engage with policy-makers to influence future policy issues involving chemistry such as food security and the rise of antibiotic resistance (both of which are relevant to our programme and are important for society as a whole).\n\nOutreach and public engagement will be a key aspect of our programme; and all students in the proposed SBM CDT will take part in at least one outreach activity. Typical activities include: open days in the Chemistry Department through the 'Outreach Alchemists', engaging with the Oxfordshire Science Festival and participation in the various other activities already in place through the public engagement programme of the Department of Chemistry. \n\nThe research output of the students will be disseminated via high impact international publications and lectures; these will be of value to other academics in relevant fields and will be of value in the development of further research funding applications. Outreach activities and research output will also be advertised on a website dedicated to the proposed SBM programme.",
+            "healthCategories": {
+                "healthCategory": []
+            },
+            "researchActivities": {
+                "researchActivity": []
+            },
+            "researchSubjects": {
+                "researchSubject": []
+            },
+            "researchTopics": {
+                "researchTopic": [
+                    {
+                        "id": "6CFA1E1F-F25C-4C23-8FE1-C47AE53E333E",
+                        "text": "Unclassified"
+                    }
+                ]
+            },
+            "rcukProgrammes": {
+                "rcukProgramme": []
+            }
+        },
+        {
+            "links": {
+                "link": [
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/A1E312A3-9E17-406D-8AD8-038152A4FDEF",
+                        "rel": "SUPER_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/AFA2BDB4-0081-431E-B09D-7CD42264E324",
+                        "rel": "STUDENT_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/E7BE255A-5E4B-4E40-9A39-F1458486B92F",
+                        "rel": "LEAD_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/funds/38122C0A-F239-4EA2-B8F2-269551AA3420",
+                        "rel": "FUND",
+                        "start": 1601510400000,
+                        "end": 1711843200000,
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/40DE5F0F-A3C6-4256-81D6-544A9A3E9A00",
+                        "rel": "STUDENTSHIP_FROM",
+                        "start": 1569888000000,
+                        "end": 1727654400000,
+                        "otherAttributes": {}
+                    }
+                ]
+            },
+            "id": "D2A4AA30-FD63-4407-AFFA-168ADDC07B80",
+            "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/D2A4AA30-FD63-4407-AFFA-168ADDC07B80",
+            "created": 1705651038000,
+            "identifiers": {
+                "identifier": [
+                    {
+                        "value": "2403950",
+                        "type": "RCUK"
+                    }
+                ]
+            },
+            "title": "Quantum Machine Learning",
+            "status": "Active",
+            "grantCategory": "Studentship",
+            "leadFunder": "EPSRC",
+            "leadOrganisationDepartment": "London Centre for Nanotechnology",
+            "abstractText": "Investigate the use of quantum computers to complete tasks in machine learning. A particular focus will be the translation of tensor networks used in classical machine learning to quantum computers. It is anticipated that insights from the classical and quantum simulation of quantum systems using these methods will lead to new ways of training quantum machine learning circuits and how to deploy them on different computational systems.",
+            "healthCategories": {
+                "healthCategory": []
+            },
+            "researchActivities": {
+                "researchActivity": []
+            },
+            "researchSubjects": {
+                "researchSubject": []
+            },
+            "researchTopics": {
+                "researchTopic": [
+                    {
+                        "id": "6CFA1E1F-F25C-4C23-8FE1-C47AE53E333E",
+                        "text": "Unclassified"
+                    }
+                ]
+            },
+            "rcukProgrammes": {
+                "rcukProgramme": []
+            }
+        },
+        {
+            "links": {
+                "link": [
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/1BA910A6-890C-4232-8369-5A39291969E2",
+                        "rel": "PM_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/FB26CE6F-A68C-460A-B605-34E8BE9724BE",
+                        "rel": "LEAD_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/E04097D1-7386-4BEC-AB80-85F0EEB80CB2",
+                        "rel": "PARTICIPANT_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/E8C66154-79EA-4DA0-B6CC-107B17DE6851",
+                        "rel": "PARTICIPANT_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/35AB0616-859F-4B18-8A78-6077F4513083",
+                        "rel": "PARTICIPANT_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/C1D09C9B-8315-4101-AABC-C9550042D564",
+                        "rel": "PARTICIPANT_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/9E48F4E0-EBC2-40CF-BC26-812F6E44C433",
+                        "rel": "PARTICIPANT_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/FB26CE6F-A68C-460A-B605-34E8BE9724BE",
+                        "rel": "PARTICIPANT_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/funds/4BF647CD-C5EE-48B7-B959-6D2A0B546AA6",
+                        "rel": "FUND",
+                        "start": 1580515200000,
+                        "end": 1619740800000,
+                        "otherAttributes": {}
+                    }
+                ]
+            },
+            "id": "B228BE8E-22F5-418F-8EF7-1DF637BDD761",
+            "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/B228BE8E-22F5-418F-8EF7-1DF637BDD761",
+            "created": 1705651038000,
+            "identifiers": {
+                "identifier": [
+                    {
+                        "value": "105581",
+                        "type": "RCUK"
+                    }
+                ]
+            },
+            "title": "OS Machine Learning Metrics",
+            "status": "Closed",
+            "grantCategory": "Collaborative R&D",
+            "leadFunder": "Innovate UK",
+            "abstractText": "Ordnance Survey's research and development team routinely uses machine learning to extract new information from existing data sources. As machine learning is a relatively new field, there is a need to provide high-quality metrics to help understand the data quality of machine learning outputs.\n\nThis project will create a new range of tools and processes to describe and quantify the quality of Ordnance Survey's machine learning outputs. These tools and processes will use different testing methodologies as well as comparative assessments of networks to create benchmarks for accuracy. The project will establish a regulated quality control metric for Ordnance Survey's machine learning models to ensure its processes stand up to the growing accuracy requirements demanded by its widespread customer base.",
+            "healthCategories": {
+                "healthCategory": []
+            },
+            "researchActivities": {
+                "researchActivity": []
+            },
+            "researchSubjects": {
+                "researchSubject": []
+            },
+            "researchTopics": {
+                "researchTopic": [
+                    {
+                        "id": "6CFA1E1F-F25C-4C23-8FE1-C47AE53E333E",
+                        "text": "Unclassified"
+                    }
+                ]
+            },
+            "rcukProgrammes": {
+                "rcukProgramme": []
+            },
+            "participantValues": {
+                "participant": [
+                    {
+                        "organisationId": "E04097D1-7386-4BEC-AB80-85F0EEB80CB2",
+                        "organisationName": "NPL MANAGEMENT LIMITED",
+                        "role": "PARTICIPANT",
+                        "projectCost": 85458.0,
+                        "grantOffer": 0.0
+                    },
+                    {
+                        "organisationId": "E8C66154-79EA-4DA0-B6CC-107B17DE6851",
+                        "organisationName": "NPL MANAGEMENT LIMITED",
+                        "role": "PARTICIPANT",
+                        "projectCost": 0.0,
+                        "grantOffer": 0.0
+                    },
+                    {
+                        "organisationId": "35AB0616-859F-4B18-8A78-6077F4513083",
+                        "organisationName": "ORDNANCE SURVEY LIMITED",
+                        "role": "PARTICIPANT",
+                        "projectCost": 0.0,
+                        "grantOffer": 0.0
+                    },
+                    {
+                        "organisationId": "C1D09C9B-8315-4101-AABC-C9550042D564",
+                        "organisationName": "SCIENCE AND TECHNOLOGY FACILITIES COUNCIL",
+                        "role": "PARTICIPANT",
+                        "projectCost": 0.0,
+                        "grantOffer": 0.0
+                    },
+                    {
+                        "organisationId": "9E48F4E0-EBC2-40CF-BC26-812F6E44C433",
+                        "organisationName": "THE SCIENCE AND TECHNOLOGY FACILITIES COUNCIL",
+                        "role": "PARTICIPANT",
+                        "projectCost": 99972.0,
+                        "grantOffer": 0.0
+                    },
+                    {
+                        "organisationId": "FB26CE6F-A68C-460A-B605-34E8BE9724BE",
+                        "organisationName": "ORDNANCE SURVEY LTD",
+                        "role": "LEAD_PARTICIPANT",
+                        "projectCost": 52763.0,
+                        "grantOffer": 26381.5
+                    }
+                ]
+            }
+        },
+        {
+            "links": {
+                "link": [
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/CF1DF10D-DC46-4C37-A766-4769A7A374A8",
+                        "rel": "SUPER_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/8852320A-1892-4942-9796-A49EC62119F1",
+                        "rel": "STUDENT_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/BDFEBC9A-F2A6-4D58-9440-8482180BEA69",
+                        "rel": "LEAD_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/651CE24D-36A1-43C9-B1D3-AACB8479D285",
+                        "rel": "STUDENT_PP_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/funds/BFE45D9A-4590-4A56-96A2-747E36B4FB35",
+                        "rel": "FUND",
+                        "start": 1633046400000,
+                        "end": 1759190400000,
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/0D2D7D1E-C65F-4ABF-9938-59D2B0EA28A9",
+                        "rel": "STUDENTSHIP_FROM",
+                        "start": 1601510400000,
+                        "end": 1822262400000,
+                        "otherAttributes": {}
+                    }
+                ]
+            },
+            "id": "75568D21-B3AD-45F1-AA6A-21FE9C3D9645",
+            "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/75568D21-B3AD-45F1-AA6A-21FE9C3D9645",
+            "created": 1705651038000,
+            "identifiers": {
+                "identifier": [
+                    {
+                        "value": "2784948",
+                        "type": "RCUK"
+                    }
+                ]
+            },
+            "title": "UQ for Machine Learning",
+            "status": "Active",
+            "grantCategory": "Studentship",
+            "leadFunder": "EPSRC",
+            "leadOrganisationDepartment": "Mathematics",
+            "abstractText": "The objective of this project is to develop and apply novel statistical methods in order to integrate domain knowledge with data and lay the algorithmic foundations for digital twins in the context of high impact engineering applications. The topic is at the heart of an exciting area in modern computational applied m athematics, involving a close interplay between numerical analysis, statistics, inverse problems, data science, machine learning, data assimilation, and uncertainty quantification.",
+            "healthCategories": {
+                "healthCategory": []
+            },
+            "researchActivities": {
+                "researchActivity": []
+            },
+            "researchSubjects": {
+                "researchSubject": []
+            },
+            "researchTopics": {
+                "researchTopic": [
+                    {
+                        "id": "6CFA1E1F-F25C-4C23-8FE1-C47AE53E333E",
+                        "text": "Unclassified"
+                    }
+                ]
+            },
+            "rcukProgrammes": {
+                "rcukProgramme": []
+            }
+        },
+        {
+            "links": {
+                "link": [
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/E2F6775B-CEEC-4714-8367-0C95F4ABAC80",
+                        "rel": "PM_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/F2868377-6F3A-4000-BCA7-325262EB63F4",
+                        "rel": "LEAD_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/550CFE9A-F7BF-4359-ACDE-E92DE21EFF28",
+                        "rel": "PARTICIPANT_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/F2868377-6F3A-4000-BCA7-325262EB63F4",
+                        "rel": "PARTICIPANT_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/funds/C69C292A-81E4-411F-B3BD-A48A411C9E5A",
+                        "rel": "FUND",
+                        "start": 1498867200000,
+                        "end": 1522454400000,
+                        "otherAttributes": {}
+                    }
+                ]
+            },
+            "id": "84097E3D-A498-4693-A7BF-06BC89B1479F",
+            "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/84097E3D-A498-4693-A7BF-06BC89B1479F",
+            "created": 1705651038000,
+            "identifiers": {
+                "identifier": [
+                    {
+                        "value": "900056",
+                        "type": "RCUK"
+                    }
+                ]
+            },
+            "title": "Machine Learning Computational Lab",
+            "status": "Closed",
+            "grantCategory": "Centres",
+            "leadFunder": "Innovate UK",
+            "abstractText": "Awaiting Public Project Summary",
+            "healthCategories": {
+                "healthCategory": []
+            },
+            "researchActivities": {
+                "researchActivity": []
+            },
+            "researchSubjects": {
+                "researchSubject": []
+            },
+            "researchTopics": {
+                "researchTopic": [
+                    {
+                        "id": "6CFA1E1F-F25C-4C23-8FE1-C47AE53E333E",
+                        "text": "Unclassified"
+                    }
+                ]
+            },
+            "rcukProgrammes": {
+                "rcukProgramme": []
+            },
+            "participantValues": {
+                "participant": [
+                    {
+                        "organisationId": "550CFE9A-F7BF-4359-ACDE-E92DE21EFF28",
+                        "organisationName": "INNOVATE UK",
+                        "role": "PARTICIPANT",
+                        "projectCost": 0.0,
+                        "grantOffer": 0.0
+                    },
+                    {
+                        "organisationId": "F2868377-6F3A-4000-BCA7-325262EB63F4",
+                        "organisationName": "DIGITAL CATAPULT",
+                        "role": "LEAD_PARTICIPANT",
+                        "projectCost": 553000.0,
+                        "grantOffer": 553000.0
+                    }
+                ]
+            }
+        },
+        {
+            "links": {
+                "link": [
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/10A45748-96E0-4C74-9663-2140139ABA63",
+                        "rel": "PM_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/4B046188-D904-4358-BDAC-2A38DB6E7DB6",
+                        "rel": "LEAD_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/4B046188-D904-4358-BDAC-2A38DB6E7DB6",
+                        "rel": "PARTICIPANT_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/550CFE9A-F7BF-4359-ACDE-E92DE21EFF28",
+                        "rel": "PARTICIPANT_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/funds/72F47AF5-B66F-4098-833E-CA3C625CC422",
+                        "rel": "FUND",
+                        "start": 1585699200000,
+                        "end": 1596153600000,
+                        "otherAttributes": {}
+                    }
+                ]
+            },
+            "id": "CF89B6CF-0565-4D00-ABBA-EB807CBE5DBE",
+            "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/CF89B6CF-0565-4D00-ABBA-EB807CBE5DBE",
+            "created": 1705651038000,
+            "identifiers": {
+                "identifier": [
+                    {
+                        "value": "106305",
+                        "type": "RCUK"
+                    }
+                ]
+            },
+            "title": "Watermarking Machine Learning Models",
+            "status": "Closed",
+            "grantCategory": "Collaborative R&D",
+            "leadFunder": "Innovate UK",
+            "abstractText": "Awaiting Public Project Summary",
+            "healthCategories": {
+                "healthCategory": []
+            },
+            "researchActivities": {
+                "researchActivity": []
+            },
+            "researchSubjects": {
+                "researchSubject": []
+            },
+            "researchTopics": {
+                "researchTopic": [
+                    {
+                        "id": "6CFA1E1F-F25C-4C23-8FE1-C47AE53E333E",
+                        "text": "Unclassified"
+                    }
+                ]
+            },
+            "rcukProgrammes": {
+                "rcukProgramme": []
+            },
+            "participantValues": {
+                "participant": [
+                    {
+                        "organisationId": "4B046188-D904-4358-BDAC-2A38DB6E7DB6",
+                        "organisationName": "IMPERIAL COLLEGE LONDON",
+                        "role": "LEAD_PARTICIPANT",
+                        "projectCost": 13902.0,
+                        "grantOffer": 13902.0
+                    },
+                    {
+                        "organisationId": "550CFE9A-F7BF-4359-ACDE-E92DE21EFF28",
+                        "organisationName": "INNOVATE UK",
+                        "role": "PARTICIPANT",
+                        "projectCost": 0.0,
+                        "grantOffer": 0.0
+                    }
+                ]
+            }
+        },
+        {
+            "links": {
+                "link": [
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/3C174B54-2082-4D61-9A83-22B99F87443C",
+                        "rel": "SUPER_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/48BE0E6A-1EF5-4BA6-8A12-4E8C297209C2",
+                        "rel": "STUDENT_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/8C59383D-467C-4A3E-AF65-4B3F82FD1E27",
+                        "rel": "LEAD_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/funds/D8977FEB-0B19-4425-BECE-6C6BA9E1A38C",
+                        "rel": "FUND",
+                        "start": 1601510400000,
+                        "end": 1696032000000,
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/40968DBB-FDD0-4CAB-9400-AAB199ACBB03",
+                        "rel": "STUDENTSHIP_FROM",
+                        "start": 1506816000000,
+                        "end": 1822262400000,
+                        "otherAttributes": {}
+                    }
+                ]
+            },
+            "id": "AEC0E65B-9B18-434F-98D1-48E23D2F549F",
+            "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/AEC0E65B-9B18-434F-98D1-48E23D2F549F",
+            "created": 1705651038000,
+            "identifiers": {
+                "identifier": [
+                    {
+                        "value": "2616041",
+                        "type": "RCUK"
+                    }
+                ]
+            },
+            "title": "Towards educational machine learning",
+            "status": "Closed",
+            "grantCategory": "Studentship",
+            "leadFunder": "ESRC",
+            "leadOrganisationDepartment": "Computer Science and Technology",
+            "abstractText": "Natural language processing (NLP) is undergoing a paradigm shift with the rise of Transformer-based models (e.g. BERT, GPT-3, etc.) that are trained on broad data at scale and are adaptable to a wide range of downstream tasks via fine-tuning (Rogers et al., 2020). While these models dominate a plethora of standard benchmarks (Wang et al., 2019a), there remain central open questions on improving robustness (Bau et al., 2017; Madry et al., 2018), making training efficient (Kornblith et al., 2019; Raghu et al., 2020), and ensuring better generalisation (Zhang et al., 2017). A promising approach for addressing these issues is machine teaching (Zhu, 2015), in which meta-information about a task is provided to a model to better guide the training process and improve downstream performance.\nFor example, a common assumption in machine learning is that training data are generated by some uninformative process (i.e. i.i.d. sampling). This might be justified in certain cases (e.g. collecting naturally occurring examples). However, there are also instances where the generative process for the data is informative. For example, we might\nwant to helpfully teach a model by feeding it the right examples. Shafto et al. (2014) demonstrated that teaching data have very different properties and behaviour compared to uninformatively generated data. Thus, educating a machine learning model is an attempt to maximise certain outcomes of the learning process (e.g. re-weighting examples, designing loss functions, etc.) in relation to the tasks of interest. In other words, if two models use the same learning mechanism, the one that receives better education will perform better the tasks of interest. Therefore, there are many compelling reasons to study machine teaching for training models: (i) it gives insights into the intrinsic difficulty of teaching certain tasks; \n(ii) it provides a lower bound on the number of samples needed for training;\n(iii) teaching can be used to design models that better leverage highly informative samples.\nTherefore, the goal of this research proposal is to gain insights into the learning dynamics of deep neural networks and improve downstream performance by utilising task-specific meta-information to deliver supervision signals to guide the training process. In doing so, we intend to explore a wide range of applications, from lifelong learning, to automating data augmentation, to enabling faster learning with synthetic data. Ultimately, in this research proposal, we argue that equal attention, if not more, should be paid to machine teaching, besides viewing the inductive biases of the model, and/or the properties of the optimiser as central to the success of deep learning.",
+            "healthCategories": {
+                "healthCategory": []
+            },
+            "researchActivities": {
+                "researchActivity": []
+            },
+            "researchSubjects": {
+                "researchSubject": []
+            },
+            "researchTopics": {
+                "researchTopic": [
+                    {
+                        "id": "6CFA1E1F-F25C-4C23-8FE1-C47AE53E333E",
+                        "text": "Unclassified"
+                    }
+                ]
+            },
+            "rcukProgrammes": {
+                "rcukProgramme": []
+            }
+        },
+        {
+            "links": {
+                "link": [
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/19E77221-274C-488C-B360-C19F8CE05D0D",
+                        "rel": "SUPER_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/0047F420-C7D6-44C9-8C24-01D559E2D50B",
+                        "rel": "STUDENT_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/CE1E540C-192A-4906-A744-796BA2B220A8",
+                        "rel": "LEAD_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/591FCA53-15B2-4CA6-B5B3-D681F52E0374",
+                        "rel": "STUDENT_PP_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/funds/5E9034DA-5D62-47A4-A15C-615C8DF83A8B",
+                        "rel": "FUND",
+                        "start": 1633046400000,
+                        "end": 1759190400000,
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/1825F1A9-0AC3-48E5-AFCA-2CBC11B85C0E",
+                        "rel": "STUDENTSHIP_FROM",
+                        "start": 1554076800000,
+                        "end": 1822262400000,
+                        "otherAttributes": {}
+                    }
+                ]
+            },
+            "id": "2AF8C406-2FC6-49AC-B857-F01DF62232DF",
+            "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/2AF8C406-2FC6-49AC-B857-F01DF62232DF",
+            "created": 1705651038000,
+            "identifiers": {
+                "identifier": [
+                    {
+                        "value": "2599530",
+                        "type": "RCUK"
+                    }
+                ]
+            },
+            "title": "Scalable Online Machine Learning",
+            "status": "Active",
+            "grantCategory": "Studentship",
+            "leadFunder": "EPSRC",
+            "leadOrganisationDepartment": "Electrical Engineering and Electronics",
+            "abstractText": "The project relates to extending the state-of-the-art to enable machine learning to fully capitalise on the information present in never-ending data streams. The additional data that arrives over time contains information that should facilitate improved machine learning. Not using this information gives rise to consistent yet surprising errors: this typically occurs when the training data is small relative to the algorithm's empirical experience. Concept drift can also occur: the passage of time also provides scope for the phenomena that give rise to the data to change. The result of concept drift is that, even if the phenomena of interest do not change, because the statistical environment changes, the performance of the machine learning is prone to degrading. Furthermore, since the quantity of historic data is ever growing, given finite data storage and computational resources, innovative techniques are needed to summarise the information present in data and currently pertinent without requiring all the raw data ever received to be stored.\n\nThe proposed solution involves three novel components. First, to reduce the storage and computation that would otherwise be required, the pertinent data received up to the current time will be summarised in an adaptive tree-based data structure. This definition of this data structure will build on previous work on Approximate Bayesian Computation and involve approximating the information present in the raw data with summaries. Second, to ensure concept drift is catered for, these summaries will explicitly relate to the time-derivatives of the parameters that the machine learning is attempting to estimate. Finally, to maximise performance, previous related work involving variational inference, which will be extended to consider the aforementioned data structures, will also be adapted to consider numerical Bayesian inference.\n\nThe approach will be applied to real-world datasets involving combinations of: near-constant parameters for which concept drift is not relevant (e.g. related to rare events of interest); parameters that fluctuate smoothly over long timescales (e.g. diffusive spread of memes); sudden shifts in concepts (e.g. new memes appearing). Such datasets are anticipated to involve large and continually growing text corpuses (e.g. social media)",
+            "potentialImpact": "This CDT's focus on using &quot;Future Computing Systems&quot; to move &quot;Towards a Data-driven Future&quot; resonates strongly with two themes of non-academic organisation. In both themes, albeit for slightly different reasons, commodity data science is insufficient and there is a hunger both for the future leaders that this CDT will produce and the high-performance solutions that the students will develop.\n\nThe first theme is associated with defence and security. In this context, operational performance is of paramount importance. Government organisations (e.g., Dstl, GCHQ and the NCA) will benefit from our graduates' ability to configure many-core hardware to maximise the ability to extract value from the available data. The CDT's projects and graduates will achieve societal impact by enabling these government organisations to better protect the world's population from threats posed by, for example, international terrorism and organised crime. \n\nThere is then a supply chain of industrial organisations that deliver to government organisations (both in the UK and overseas). These industrial organisations (e.g., Cubica, Denbridge Marine, FeatureSpace, Leonardo, MBDA, Ordnance Survey, QinetiQ, RiskAware, Sintela, THALES (Aveillant) and Vision4ce) operate in a globally competitive marketplace where operational performance is a key driver. The skilled graduates that this CDT will provide (and the projects that will comprise the students' PhDs) are critical to these organisations' ability to develop and deliver high-performance products and services. We therefore anticipate economic impact to result from this CDT. \n\nThe second theme is associated with high-value and high-volume manufacturing. In these contexts, profit margins are very sensitive to operational costs. For example, a change to the configuration of a production line for an aerosol manufactured by Unilever might &quot;only&quot; cut costs by 1p for each aerosol, but when multiplied by half a billion aerosols each year, the impact on profit can be significant. In this context, industry (e.g., Renishaw, Rolls Royce, Schlumberger, ShopDirect and Unilever) is therefore motivated to optimise operational costs by learning from historic data. This CDT's graduates (and their projects) will help these organisations to perform such data-driven optimisation and thereby enable the CDT to achieve further economic impact.\n\nOther organisations (e.g., IBM) provide hardware, software and advice to those operating in these themes. The CDT's graduates will ensure these organisations can be globally competitive.\n\nThe specific organisations mentioned above are the CDT's current partners. These organisations have all agreed to co-fund studentships. That commitment indicates that, in the short term, they are likely to be the focus for the CDT's impact. However, other organisations are likely to benefit in the future. While two (Lockheed Martin and Arup) have articulated their support in letters that are attached to this proposal, we anticipate impact via a larger portfolio of organisations (e.g., via studentships but also via those organisations recruiting the CDT's graduates either immediately after the CDT or later in the students' careers). Those organisations are likely to include those inhabiting the two themes described above, but also others. For example, an entrepreneurial CDT student might identify a niche in another market sector where Distributed Algorithms can deliver substantial commercial or societal gains. Predicting where such niches might be is challenging, though it seems likely that sectors that are yet to fully embrace Data Science while also involving significant turn-over are those that will have the most to gain: we hypothesise that niches might be identified in health and actuarial science, for example.\n\nAs well as training the CDT students to be the leaders of tomorrow in Distributed Algorithms, we will also achieve impact by training the CDT's industrial supervisors.",
+            "healthCategories": {
+                "healthCategory": []
+            },
+            "researchActivities": {
+                "researchActivity": []
+            },
+            "researchSubjects": {
+                "researchSubject": []
+            },
+            "researchTopics": {
+                "researchTopic": [
+                    {
+                        "id": "6CFA1E1F-F25C-4C23-8FE1-C47AE53E333E",
+                        "text": "Unclassified"
+                    }
+                ]
+            },
+            "rcukProgrammes": {
+                "rcukProgramme": []
+            }
+        },
+        {
+            "links": {
+                "link": [
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/91269BA1-494E-4A18-A803-2837DBA9DFDB",
+                        "rel": "SUPER_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/E0529E8C-3182-4368-9106-644A1E7BB328",
+                        "rel": "SUPER_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/6172DAA7-80A5-4B95-973C-1CDC0DB43A60",
+                        "rel": "STUDENT_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/47649064-FCD1-4D7A-A5AA-31B69B9BDFFC",
+                        "rel": "LEAD_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/funds/84EE4A6A-F113-47CD-ACBC-3D32599FC3CC",
+                        "rel": "FUND",
+                        "start": 1538352000000,
+                        "end": 1664496000000,
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/outcomes/keyfindings/3D816600-BC51-4D10-A510-E0DBC0FBDD8C",
+                        "rel": "KEY_FINDING",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/outcomes/publications/5C7B05CC-F8EF-496A-884D-9CB88D6947A1",
+                        "rel": "PUBLICATION",
+                        "otherAttributes": {}
+                    }
+                ]
+            },
+            "id": "C17D1291-8985-48E4-8A5E-69338F477820",
+            "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/C17D1291-8985-48E4-8A5E-69338F477820",
+            "created": 1705651038000,
+            "identifiers": {
+                "identifier": [
+                    {
+                        "value": "2052803",
+                        "type": "RCUK"
+                    }
+                ]
+            },
+            "title": "Machine Learning for Verification.",
+            "status": "Closed",
+            "grantCategory": "Studentship",
+            "leadFunder": "NERC",
+            "leadOrganisationDepartment": "Computer Science",
+            "abstractText": "A growing challenge for today's semiconductor industry is the efficient and correct co-design of hardware alongside low-level software, especially in system-on-chip design. To meet today's productivity objectives, formal HW/SW co-verication needs to scale to pre-silicon exploration of system-wide scenarios. This project's success would facilitate such scaling, allowing semiconductor manufacturers to have greater confidence in their systems' correctness at a lower cost.\n\nAims and objectives\nIn previous work at Oxford, this problem was attacked by creating whole-system models (including both hardware and software) as groups of `lightweight software threads', which could then be analysed working together as a single concurrent program. In the next phase of work, we will investigate the use of modern machine-learning techniques to mine higher-level `scenario models' from execution traces of a virtual platform model of the system, running a real application load. This will aim to be largely automatic and to create generalised models that cover a significant group of system behaviours, rather than simply the state interactions of a particular hardware device execution. Most important, the abstraction will be directly driven by a real application load, exercising 'use cases' of interest. Currently, we are conducting a pilot study based around ARM's trusted firmware for the A-class processors. We have developed trace-generating instrumentation for this platform. In the next phase of work, we will survey the applicable machine-learning techniques and select the most promising candidates for experimentation. We will survey the available industrially-developed structures for high-level modelling, and design a suitable representation that gets to the essence of the required semantics and is simple and general. We will leverage Oxford's strengths in language design and formal semantics to create a modelling framework that is as practical and semantically clean as possible. Finally, we will conduct experiments to validate this approach, preparing publications on the results.\n\nNovelty of the research methodology\nAs of yet, there has been little application of machine learning approaches to improve the efficiency and efficacy of verification. In particular, we are not aware of any work attempting to use machine learning to mine virtual platform execution traces for the creation of system models where the abstraction is maximally relevant to intended use cases, as described above.\n\nAlignment to EPSRC's strategies and research areas\nThe project directly relates to the Verication and Correctness research area. Furthermore, it aligns well with the council's three current strategic goals within the area. First, the project forges links with the research area of Articial Intelligence Technologies (another of Oxford's strengths) in order to scale verication up to more complex, larger-scale systems. Second, in accordance with Strachey's philosophy, the project aims to address real-world challenges faced by industry through complementary work on theoretical insights and practical tools and experiments. Third, the project contributes to the reduction of security risks by increasing the confidence that there are no exploitable bugs in the systems in question.\n\nIsaac Dunn, Natasha Jeppu, Tom Melham and Daniel Kroening will collaborate on the project at Oxford. ARM and Intel will also be involved in the project: their system designs will be used, they will provide valuable input on the problems currently faced in industry, and they will be kept up to date with the progress of the project.",
+            "healthCategories": {
+                "healthCategory": []
+            },
+            "researchActivities": {
+                "researchActivity": []
+            },
+            "researchSubjects": {
+                "researchSubject": []
+            },
+            "researchTopics": {
+                "researchTopic": [
+                    {
+                        "id": "6CFA1E1F-F25C-4C23-8FE1-C47AE53E333E",
+                        "text": "Unclassified"
+                    }
+                ]
+            },
+            "rcukProgrammes": {
+                "rcukProgramme": []
+            }
+        },
+        {
+            "links": {
+                "link": [
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/37991CFA-8A0E-46DF-8274-1BA05ABFEB3A",
+                        "rel": "SUPER_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/3F9F567D-1F20-461A-9A89-0C6EB2454524",
+                        "rel": "STUDENT_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/64EDCEB7-556D-4890-9582-FD894F98C10D",
+                        "rel": "LEAD_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/funds/CE822F7C-297C-4681-87EF-2EDBB6729BB4",
+                        "rel": "FUND",
+                        "start": 1538352000000,
+                        "end": 1632960000000,
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/38A7606E-DF5E-4954-8DF3-43654DF9625F",
+                        "rel": "STUDENTSHIP_FROM",
+                        "start": 1475280000000,
+                        "end": 1632960000000,
+                        "otherAttributes": {}
+                    }
+                ]
+            },
+            "id": "CE604620-A1D1-4A0B-9B6C-AB3FFBF942F5",
+            "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/CE604620-A1D1-4A0B-9B6C-AB3FFBF942F5",
+            "created": 1705651038000,
+            "identifiers": {
+                "identifier": [
+                    {
+                        "value": "2224982",
+                        "type": "RCUK"
+                    }
+                ]
+            },
+            "title": "Strategy Proof Machine Learning",
+            "status": "Closed",
+            "grantCategory": "Studentship",
+            "leadFunder": "EPSRC",
+            "leadOrganisationDepartment": "Sch of Electronics and Computer Sci",
+            "abstractText": "Key Research Objectives\n- Typical Machine Learning models assume that data is sourced cleanly from a distribution of interest. In reality, this is not case. In the real world, data is often provided by entities who have a vested interest in the decisions made by a Machine Learning model and thus may be motivated to submit data strategically in order to influence the decisions made by a Machine Learning algorithm.\n- I aim to establish Machine Learning techniques which can work in more realistic settings in which data providers have their own motivations.\n- Challenges in doing this include:\nProviding an adequate modelling framework which captures the problem of learning from data providers who may have different incentives and capabilities.\nDesigning efficient optimisation techniques which elegantly deal with the optimisation problems which arise as a result of this modelling framework. \nEffectively combining techniques from Mechanism Design with algorithms from Machine Learning.\n- In addition, I aim to address other substantial differences between the standard theoretical Machine Learning setting and the practical environments in which Machine Learning is often deployed. For example, problems often present in practical settings include:\nFeedback about decisions may be delayed.\nThe entities providing data (and their interests) may change over time.\nThe actions of one data provider may influence another to submit different data.\nThe set of decisions available to make may dynamically change over time.\n- To tackle these kind of issues, I aim to extend existing models for Online Learning and Bandit Feedback.\n\nNovelty and Methodologies used\n- Standard models of manipulation in Machine Learning predominantly consider all powerful data providers who aim to cause as much harm as possible. We aim to consider data providers which are more likely to occur in reality - those with limited capabilities and their own objectives.\n- Unfortunately this typically results in optimisation problems which are tremendously difficult to solve. As a result, we aim to derive new algorithms which can deal with this specific class of problems more efficiently than standard out of the box algorithms.\n- We hope to use and apply techniques from Mechanism Design to aid us in updating existing Machine Learning algorithms. Our work is therefore at the intersection of Mechanism Design and Machine Learning, which is a relatively unexplored area of research.\nIn addition, the shift to considering problems which occur in practical Machine Learning settings, such as the ones above, naturally leads us to consider Online Learning and Bandit Feedback models for learning. Much of our work will consist of extending these approaches to address new practical considerations.",
+            "healthCategories": {
+                "healthCategory": []
+            },
+            "researchActivities": {
+                "researchActivity": []
+            },
+            "researchSubjects": {
+                "researchSubject": []
+            },
+            "researchTopics": {
+                "researchTopic": [
+                    {
+                        "id": "6CFA1E1F-F25C-4C23-8FE1-C47AE53E333E",
+                        "text": "Unclassified"
+                    }
+                ]
+            },
+            "rcukProgrammes": {
+                "rcukProgramme": []
+            }
+        },
+        {
+            "links": {
+                "link": [
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/380E043F-17AD-4518-8648-EFC5478D2B56",
+                        "rel": "SUPER_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/1D493708-6749-45B1-89F2-C50554F4EDDD",
+                        "rel": "STUDENT_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/8C59383D-467C-4A3E-AF65-4B3F82FD1E27",
+                        "rel": "LEAD_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/funds/EF584AAA-2919-4012-A52C-0F7149BA2C23",
+                        "rel": "FUND",
+                        "start": 1538352000000,
+                        "end": 1632960000000,
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/78645F99-383D-47A8-B2A5-65671C0A8523",
+                        "rel": "STUDENTSHIP_FROM",
+                        "start": 1475280000000,
+                        "end": 1664496000000,
+                        "otherAttributes": {}
+                    }
+                ]
+            },
+            "id": "BEEE4028-8FCD-47F6-AC3F-35F37AA037CB",
+            "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/BEEE4028-8FCD-47F6-AC3F-35F37AA037CB",
+            "created": 1705651038000,
+            "identifiers": {
+                "identifier": [
+                    {
+                        "value": "2104493",
+                        "type": "RCUK"
+                    }
+                ]
+            },
+            "title": "Machine Learning in Thermoacoustics",
+            "status": "Closed",
+            "grantCategory": "Studentship",
+            "leadFunder": "EPSRC",
+            "leadOrganisationDepartment": "Engineering",
+            "abstractText": "Thermoacoustic oscillations are a perpetual problem in aircraft and rocket engines. Unacceptably large oscillations often appear during full-scale engine tests, despite being absent during part-scale tests, leading to costly re-designs. The aim of this project is to combine experiments and machine learning so that a computer can build up a data-driven model of a rocket engine and use it to design out thermoacoustic oscillations.",
+            "healthCategories": {
+                "healthCategory": []
+            },
+            "researchActivities": {
+                "researchActivity": []
+            },
+            "researchSubjects": {
+                "researchSubject": []
+            },
+            "researchTopics": {
+                "researchTopic": [
+                    {
+                        "id": "6CFA1E1F-F25C-4C23-8FE1-C47AE53E333E",
+                        "text": "Unclassified"
+                    }
+                ]
+            },
+            "rcukProgrammes": {
+                "rcukProgramme": []
+            }
+        },
+        {
+            "links": {
+                "link": [
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/7AE5CDBF-EC8C-4D48-AF90-6151C9200EB4",
+                        "rel": "SUPER_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/7E593D3F-AE2F-4FB5-BBF7-40D383581107",
+                        "rel": "STUDENT_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/E343C9CA-94B0-4101-B08C-1964393EA0D7",
+                        "rel": "LEAD_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/funds/D5CB2B47-AB76-4202-935C-B23F46381ACB",
+                        "rel": "FUND",
+                        "start": 1593561600000,
+                        "end": 1703980800000,
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/D9886B06-2123-4BEE-8147-0F373ACEA547",
+                        "rel": "STUDENTSHIP_FROM",
+                        "start": 1538352000000,
+                        "end": 1696032000000,
+                        "otherAttributes": {}
+                    }
+                ]
+            },
+            "id": "C4408FFC-35AC-4608-888F-19D6064999CD",
+            "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/C4408FFC-35AC-4608-888F-19D6064999CD",
+            "created": 1705651038000,
+            "identifiers": {
+                "identifier": [
+                    {
+                        "value": "2461248",
+                        "type": "RCUK"
+                    }
+                ]
+            },
+            "title": "Machine Learning Infrastructure",
+            "status": "Closed",
+            "grantCategory": "Studentship",
+            "leadFunder": "EPSRC",
+            "leadOrganisationDepartment": "Computing & Communications",
+            "abstractText": "Machine Learning Infrastructure refers to the resources, processes, and tools required to training and undergo inference of machine learning models. Providing machine learning within a standard infrastructure allows users to easily have access to the computational power without having to invest in the heavy cost of performing machine learning tasks. Within the infrastructure are seven vital components which provide this service to users; Model Selection, Data Ingestion, ML Pipelines, Visualisation, Tuning, Deployment, and Inference (Lee, Yoo, Kim, Lee, &amp; Hong, 2019). The complexity of each component is abstracted away from the user, only requiring the initial configuration of how the process should perform and therefore not requiring the user to understand the backbone of the process. Furthermore, ML infrastructure allows users to have a wide array of choices in building their ML systems; such as different ML frameworks, compiler optimisation libraries such as TVM and Glow allowing users to who are less familiar with ML systems to only need to focus on the input, output, configuration, and evaluation of their produced model (Li, et al., 2020). The computational power of training, and running inference requires dedicated hardware able to accelerate performance, and computation time of ML tasks. GPU's are extremely common within distributed machine learning environments with companies such as Nvidia, and AMD developing hardware specifically optimised and tailored to ML workloads (Mittal &amp; Vaishay, 2019). Currently, Nvidia are one of the world leading companies in developing such technology, with their most recent cloud and datacentre dedicated hardware, the V100's, pushing the boundaries to computation performance to accelerate ML tasks, providing 640 Tensor Cores reaching a theoretical peak performance of 125 Teraflops (Markidis, Chien, Laure, Peng, &amp; Vetter, 2018). Moreover, V100's are well tuned to distributed machine learning, scaling workloads across all cores across multiple V100s via NVLink or PCIe making them good candidates for integrating within machine learning infrastructure (Xu, Han, &amp; Ta, 2018).\nBusinesses and research institutions can utilise the ML infrastructure for tasks that require extensive Machine Learning and GPU computation. Furthermore, establishing a machine learning infrastructure will provide a dedicated research platform to further areas within environmental sustainability, profiling optimisation of models, security, defence, and cloud computing (Boutaba, et al., 2018). The addition of this research can further machine learning, providing cutting edge security, and performance profiling tools that enable efficient optimisation, and provide guarantee of security against state of the art attacks, data privacy, performance optimisation, model tuning and much more (AI-Rubaie &amp; Chang, 2019). Providing already integrated components and systems will therefore then allow users to use complex technologies to get the most out of their research and projects within ML. Areas such as ML compiler optimisation using systems such as autoTVM provide the ability of increasing the performance of models drastically but add additional complexity to an already complex field within computing (Chen, et al., 2018).",
+            "healthCategories": {
+                "healthCategory": []
+            },
+            "researchActivities": {
+                "researchActivity": []
+            },
+            "researchSubjects": {
+                "researchSubject": []
+            },
+            "researchTopics": {
+                "researchTopic": [
+                    {
+                        "id": "6CFA1E1F-F25C-4C23-8FE1-C47AE53E333E",
+                        "text": "Unclassified"
+                    }
+                ]
+            },
+            "rcukProgrammes": {
+                "rcukProgramme": []
+            }
+        },
+        {
+            "links": {
+                "link": [
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/6BE9EFE8-67BC-4376-9142-6AE1A9AA6498",
+                        "rel": "LEAD_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/funds/1A755B78-A4F0-421D-8418-789D1F332D85",
+                        "rel": "FUND",
+                        "start": 1667779200000,
+                        "end": 1778025600000,
+                        "otherAttributes": {}
+                    }
+                ]
+            },
+            "id": "9F5F4EFA-D882-406A-A759-561582742792",
+            "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/9F5F4EFA-D882-406A-A759-561582742792",
+            "created": 1705651038000,
+            "identifiers": {
+                "identifier": [
+                    {
+                        "value": "2885484",
+                        "type": "RCUK"
+                    }
+                ]
+            },
+            "title": "Privacy-preserving Machine Learning",
+            "status": "Active",
+            "grantCategory": "Studentship",
+            "leadFunder": "EPSRC",
+            "leadOrganisationDepartment": "School of Computer Science",
+            "abstractText": "Abstracts are not currently available in GtR for all funded research. This is normally because the abstract was not required at the time of proposal submission, but may be because it included sensitive information such as personal details.",
+            "healthCategories": {
+                "healthCategory": []
+            },
+            "researchActivities": {
+                "researchActivity": []
+            },
+            "researchSubjects": {
+                "researchSubject": []
+            },
+            "researchTopics": {
+                "researchTopic": [
+                    {
+                        "id": "6CFA1E1F-F25C-4C23-8FE1-C47AE53E333E",
+                        "text": "Unclassified"
+                    }
+                ]
+            },
+            "rcukProgrammes": {
+                "rcukProgramme": []
+            }
+        },
+        {
+            "links": {
+                "link": [
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/D277647B-F546-454E-8660-3543316F0486",
+                        "rel": "SUPER_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/94310FB3-A602-4077-8503-E4430E293432",
+                        "rel": "STUDENT_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/DB3C8C93-A208-4747-A8B3-18E5D7404A25",
+                        "rel": "LEAD_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/funds/9794DE01-59C2-48E9-8AB3-A6C0DC2CCFC5",
+                        "rel": "FUND",
+                        "start": 1538352000000,
+                        "end": 1632960000000,
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/3722E729-EA72-444A-9AE1-DC290928EE7E",
+                        "rel": "STUDENTSHIP_FROM",
+                        "start": 1538352000000,
+                        "end": 1696032000000,
+                        "otherAttributes": {}
+                    }
+                ]
+            },
+            "id": "6C7D6209-BE82-45F9-BE8C-C0D3DFF4796C",
+            "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/6C7D6209-BE82-45F9-BE8C-C0D3DFF4796C",
+            "created": 1705651038000,
+            "identifiers": {
+                "identifier": [
+                    {
+                        "value": "2119813",
+                        "type": "RCUK"
+                    }
+                ]
+            },
+            "title": "Transparent Machine Learning",
+            "status": "Closed",
+            "grantCategory": "Studentship",
+            "leadFunder": "EPSRC",
+            "leadOrganisationDepartment": "Sch of Computing",
+            "abstractText": "Machine learning is the process of creating algorithms that infer patterns from data, where some algorithms are commonly viewed as more interpretable than others. The need for transparency has surged to importance in recent years. Healthcare professionals increasingly rely on the aid of image analysis when diagnosing problems, decision support systems often fuel commercial decisions, and as of last year, all businesses must legally comply with the GDPR and the freedom to information. Interpretability encompasses the terms explanation, how an algorithm responds when exposed to a specific instance, and interpretation, how the structure, weights and parameters of a model can highlight important features of the data. This research will look to extensively evaluate and develop both aspects.\n\nA learning algorithm may produce a correct result, but without insight as to why, it is very difficult to assert that the process is correct and logical, or that a solution is always applicable. Model output is increasingly accepted under the assumption that designers and professionals understand the algorithms which they create, but this is seldom the case, as faith is often a substitute for understanding. The amount of internal and external model parameters continues to increase exponentially as the industry advances, and minor setting changes produce into incredibly non-linear outputs. A lack of interpretability usually results in implementing less precise algorithms with poorer accuracy out of necessity; but this compromise conceals relationships, importance and redundancy amongst features. \n\nThe key objectives of this research are:\n1) To improve the accuracy of interpretable algorithms,\n2) To improve the interpretability of complex algorithms,\n3) To change how algorithms are intrinsically viewed as being either interpretable or not,\n4) To apply these new techniques to a commercial environment,\n\nThe research will be novel through a combination of newly created techniques, and techniques that have not been applied across domains before. This will begin with research that bridges subtle gaps, and later expand to largely new fields.",
+            "healthCategories": {
+                "healthCategory": []
+            },
+            "researchActivities": {
+                "researchActivity": []
+            },
+            "researchSubjects": {
+                "researchSubject": []
+            },
+            "researchTopics": {
+                "researchTopic": [
+                    {
+                        "id": "6CFA1E1F-F25C-4C23-8FE1-C47AE53E333E",
+                        "text": "Unclassified"
+                    }
+                ]
+            },
+            "rcukProgrammes": {
+                "rcukProgramme": []
+            }
+        },
+        {
+            "links": {
+                "link": [
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/E7F2DE7F-DFE9-48A6-935B-BB8C0FE2D8FA",
+                        "rel": "SUPER_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/CED5E290-225A-4795-9C90-D0D5481049F8",
+                        "rel": "SUPER_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/5B1380F0-D98C-43CE-A1AF-22A223E538B9",
+                        "rel": "STUDENT_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/47649064-FCD1-4D7A-A5AA-31B69B9BDFFC",
+                        "rel": "LEAD_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/funds/0528B6F3-8D22-4A7B-927A-27848FCBE651",
+                        "rel": "FUND",
+                        "start": 1538352000000,
+                        "end": 1664496000000,
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/348999CC-17E3-469B-A9CA-3EFED09A407B",
+                        "rel": "STUDENTSHIP_FROM",
+                        "start": 1475280000000,
+                        "end": 1632960000000,
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/CAB4EDA3-A469-4FC1-9893-E85C50A9C014",
+                        "rel": "STUDENTSHIP_FROM",
+                        "start": 1538352000000,
+                        "end": 1696032000000,
+                        "otherAttributes": {}
+                    }
+                ]
+            },
+            "id": "EE4FF64E-E8DF-49BE-BFC7-D1BDA6837A47",
+            "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/EE4FF64E-E8DF-49BE-BFC7-D1BDA6837A47",
+            "created": 1705651038000,
+            "identifiers": {
+                "identifier": [
+                    {
+                        "value": "2053152",
+                        "type": "RCUK"
+                    }
+                ]
+            },
+            "title": "Optimization for Machine Learning",
+            "status": "Closed",
+            "grantCategory": "Studentship",
+            "leadFunder": "EPSRC",
+            "leadOrganisationDepartment": "Computer Science",
+            "abstractText": "This project falls within the EPSRC Artificial Intelligence research area. It falls thereby within the Information and Communication Technologies (ICT) research theme.\n\nMachine learning is currently a very active area of research. It is a pervasive field that has found applications in almost every area of knowledge. This means that the development of new ideas or the improvement of the current state of the art can have a rapid impact in many areas. Many heuristic algorithms are used in practice and a major challenge is understanding why these heuristics work and in which contexts they work. This would allow, among other things, to select better algorithms to tackle a particular problem and would facilitate the design of new ones that improve on the current state of the art or alternatively could lead to guarantees that show the impossibility to improve within a certain regime.\n\nThe aim of this project is to research open problems in optimization for machine learning. Unlike in other branches of optimization, the interest here is in computing only as an approximation of the optimum value of functions to be optimized. Moreover, these functions have a particular structure. A notable example is in the training of neural networks in supervised machine learning. Here, one is interested in learning (minimizing) a function over a labeled instance space, computed as an expectation of a loss function under an unknown distribution from which samples can be drawn. Usually one takes the Empirical Risk Minimization (ERM) approach and approximately minimizes the average of the loss function over several samples. Getting arbitrary close to a global optimum is impractical. Naturally, there arises the problem of finding algorithms that provably find local minima of smooth functions with smooth Hessians, possibly non convex, with high probability. It is an open problem to give an algorithm with a lower bound that matches the complexity of the algorithm, both in the case in which one has a deterministic oracle that returns the function and gradient evaluations of a point and the case in which one has a stochastic oracle which can be modeled by the deterministic oracle plus a zero mean noise with bounded\nvariance. The stochastic oracle model is particularly important, since it can model the computation of a noisy gradient by taking the sum of a random subset of the gradients of the functions comprising the ERM objective, which is convenient for efficiency and can be implemented in a distributed manner. In particular, algorithms whose complexity does not depend on the number of samples in ERM can be obtain using the stochastic oracle. \n\nThe methodology will make use of new theoretical tools and insights developed in this branch optimization. Some examples are: a better understanding of acceleration phenomena via a coupling of dual and primal algorithms, new solutions for the online eigenvector problem that allow for faster identification of negative curvature of functions and fast detection and avoidance of saddle points, and noise analysis to transform iterative optimization methods that use Hessian vector products into methods that use first order information only, without deteriorating the complexity of the original method.\n\nMy main collaborators are my supervisor and co-supervisor: Varun Kanade and Patrick Rebeschini.",
+            "healthCategories": {
+                "healthCategory": []
+            },
+            "researchActivities": {
+                "researchActivity": []
+            },
+            "researchSubjects": {
+                "researchSubject": []
+            },
+            "researchTopics": {
+                "researchTopic": [
+                    {
+                        "id": "6CFA1E1F-F25C-4C23-8FE1-C47AE53E333E",
+                        "text": "Unclassified"
+                    }
+                ]
+            },
+            "rcukProgrammes": {
+                "rcukProgramme": []
+            }
+        },
+        {
+            "links": {
+                "link": [
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/D912B4DC-6105-4271-9EB8-57990F85F781",
+                        "rel": "SUPER_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/EA8D53AC-8F13-45A7-84C0-4596C6866E5B",
+                        "rel": "SUPER_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/348C6022-0372-4723-8F46-57D15B334CB3",
+                        "rel": "SUPER_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/A2F4CE28-2128-4301-A178-508FD54C1755",
+                        "rel": "STUDENT_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/47649064-FCD1-4D7A-A5AA-31B69B9BDFFC",
+                        "rel": "LEAD_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/funds/C73E34F4-5278-4F36-94EF-B7DBB2DE4EBE",
+                        "rel": "FUND",
+                        "start": 1664582400000,
+                        "end": 1790726400000,
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/51FF873D-51B5-4191-B2A5-03F8760F0D78",
+                        "rel": "STUDENTSHIP_FROM",
+                        "start": 1569888000000,
+                        "end": 1838073600000,
+                        "otherAttributes": {}
+                    }
+                ]
+            },
+            "id": "BBEA404A-33FA-4F5F-9947-D61AB4ED2D1B",
+            "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/BBEA404A-33FA-4F5F-9947-D61AB4ED2D1B",
+            "created": 1705651038000,
+            "identifiers": {
+                "identifier": [
+                    {
+                        "value": "2722100",
+                        "type": "RCUK"
+                    }
+                ]
+            },
+            "title": "Geometric Machine Learning",
+            "status": "Active",
+            "grantCategory": "Studentship",
+            "leadFunder": "EPSRC",
+            "abstractText": "Project Description\nGeometric Machine Learning concerns the development and understanding of Machine Learning tools\napplied to non-euclidean valued data such as graphs, meshes and manifolds. The underlying structure of the data allows us to encode geometric priors into machine learning models which improves\nperformance. However, the nature of the structure is often more complex than Euclidean data and doesn't always allow for a direct translation of methods between the domains. We aim to draw tools\nfrom topics such as Differential Geometry, Graph Theory and Algebraic Topology to help understand and explain Machine Learning methods on the Geometric Domain. Initially, we will investigate how\na hierarchical structure on a graph may be beneficial in extracting more information in the graph structure and aid the flow of information throughout the graph. Geometric Machine Learning has\nmany applications such as drug discovery, weather modelling and social networks; the development of theoretically grounded techniques will have a positive impact in many of these application areas.\n\nAims and Objectives\nThe aims of the project will be to analyse Machine Learning problems in the Geometric domain from a theoretical perspective, which will help bridge the gap between empirical and theoretical understanding\nof Geometric Machine Learning. The objective is to ultimately develop machine learning paradigms whereby the theoretical understanding.\n\nNovelty of the research methodology\nA lot of Machine Learning techniques often work well before theoretical or rigorous analysis has been capable of showing why. Whilst there are people in the field of Machine Learning which focus on this\nmethodology of theoretically grounded models, it is still a small minority. Hence, there are many well grounded tools from Maths and Physics which have yet to be utilised in the understanding of Machine\nLearning methods.\n\nAlignment with EPSRC\nThis project draws connections between the areas of Machine Learning/ Artificial Intelligence and Mathematics in a bid to provide increased understanding of Machine Learning methods. Whilst the\ngoal is to use this understanding to develop models with increased performance, we get the external benefits of having more explainable and robust methods pushing forward Artificial Intelligence\ntechnologies.",
+            "potentialImpact": "AIMS's impact will be felt across domains of acute need within the UK. We expect AIMS to benefit: UK economic performance, through start-up creation; existing UK firms, both through research and addressing skills needs; UK health, by contributing to cancer research, and quality of life, through the delivery of autonomous vehicles; UK public understanding of and policy related to the transformational societal change engendered by autonomous systems.\n\nAutonomous systems are acknowledged by essentially all stakeholders as important to the future UK economy. PwC claim that there is a &pound;232 billion opportunity offered by AI to the UK economy by 2030 (10% of GDP). AIMS has an excellent track record of leadership in spinout creation, and will continue to foster the commercial projects of its students, through the provision of training in IP, licensing and entrepreneurship. With the help of Oxford Science Innovation (investment fund) and Oxford University Innovation (technology transfer office), student projects will be evaluated for commercial potential. \n\nAIMS will also concretely contribute to UK economic competitiveness by meeting the UK's needs for experts in autonomous systems. To meet this need, AIMS will train cohorts with advanced skills that span the breadth of AI, machine learning, robotics, verification and sensor systems. The relevance of the training to the needs of industry will be ensured by the industrial partnerships at the heart of AIMS. These partnerships will also ensure that AIMS will produce research that directly targets UK industrial needs. Our partners span a wide range of UK sectors, including energy, transport, infrastructure, factory automation, finance, health, space and other extreme environments. \n\nThe autonomous systems that AIMS will enable also offer the prospect of epochal change in the UK's quality of life and health. As put by former Digital Secretary Matt Hancock, &quot;whether it's improving travel, making banking easier or helping people live longer, AI is already revolutionising our economy and our society.&quot; AIMS will help to realise this potential through its delivery of trained experts and targeted research. In particular, two of the four Grand Challenge missions in the UK Industrial Strategy highlight the positive societal impact underpinned by autonomous systems. The &quot;Artificial Intelligence and data&quot; challenge has as its mission to &quot;Use data, Artificial Intelligence and innovation to transform the prevention, early diagnosis and treatment of chronic diseases by 2030&quot;. To this mission, AIMS will contribute the outputs of its research pillar on cancer research. The &quot;Future of mobility&quot; challenge highlights the importance the autonomous vehicles will have in making transport &quot;safer, cleaner and better connected.&quot; To this challenge, AIMS offers the world-leading research of its robotic systems research pillar.\n\nAIMS will further promote the positive realisation of autonomous technologies through direct influence on policy. The world-leading academics amongst AIMS's supervisory pool are well-connected to policy formation e.g. Prof Osborne serving as a Commissioner on the Independent Commission on the Future of Work. Further, Dr Dan Mawson, Head of the Economy Unit; Economy and Strategic Analysis Team at BEIS will serve as an advisor to AIMS, ensuring bidirectional influence between policy objectives and AIMS research and training. \n\nBroad understanding of autonomous systems is crucial in making a society robust to the transformations they will engender. AIMS will foster such understanding through its provision of opportunities for AIMS students to directly engage with the public. Given the broad societal importance of getting autonomous systems right, AIMS will deliver core training on the ethical, governance, economic and societal implications of autonomous systems.",
+            "healthCategories": {
+                "healthCategory": []
+            },
+            "researchActivities": {
+                "researchActivity": []
+            },
+            "researchSubjects": {
+                "researchSubject": []
+            },
+            "researchTopics": {
+                "researchTopic": [
+                    {
+                        "id": "6CFA1E1F-F25C-4C23-8FE1-C47AE53E333E",
+                        "text": "Unclassified"
+                    }
+                ]
+            },
+            "rcukProgrammes": {
+                "rcukProgramme": []
+            }
+        },
+        {
+            "links": {
+                "link": [
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/8EC6B52A-81AE-4BB9-AB8D-48F36EA2AEE1",
+                        "rel": "SUPER_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/B87D5B38-A847-45F4-8476-21A818BAF59B",
+                        "rel": "STUDENT_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/6BE9EFE8-67BC-4376-9142-6AE1A9AA6498",
+                        "rel": "LEAD_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/funds/BFA76F6D-5F07-4911-9EB7-AEE35A8BAAF5",
+                        "rel": "FUND",
+                        "start": 1632182400000,
+                        "end": 1758326400000,
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/D546BE2D-2471-4DD4-9B18-845B57B05010",
+                        "rel": "STUDENTSHIP_FROM",
+                        "start": 1601510400000,
+                        "end": 1759190400000,
+                        "otherAttributes": {}
+                    }
+                ]
+            },
+            "id": "6600360A-E3F4-4820-99A6-4290DA8430FD",
+            "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/6600360A-E3F4-4820-99A6-4290DA8430FD",
+            "created": 1705651038000,
+            "identifiers": {
+                "identifier": [
+                    {
+                        "value": "2600511",
+                        "type": "RCUK"
+                    }
+                ]
+            },
+            "title": "Causal machine learning",
+            "status": "Active",
+            "grantCategory": "Studentship",
+            "leadFunder": "EPSRC",
+            "leadOrganisationDepartment": "School of Computer Science",
+            "abstractText": "To be Advised",
+            "healthCategories": {
+                "healthCategory": []
+            },
+            "researchActivities": {
+                "researchActivity": []
+            },
+            "researchSubjects": {
+                "researchSubject": []
+            },
+            "researchTopics": {
+                "researchTopic": [
+                    {
+                        "id": "6CFA1E1F-F25C-4C23-8FE1-C47AE53E333E",
+                        "text": "Unclassified"
+                    }
+                ]
+            },
+            "rcukProgrammes": {
+                "rcukProgramme": []
+            }
+        },
+        {
+            "links": {
+                "link": [
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/42123FF9-EDE2-4D9A-A808-563C7A5169CE",
+                        "rel": "SUPER_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/1FE4D5BE-BFC2-4F21-8C2B-DD7BDF2C4A24",
+                        "rel": "STUDENT_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/8C59383D-467C-4A3E-AF65-4B3F82FD1E27",
+                        "rel": "LEAD_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/funds/26E18EBC-1970-4A50-ABE1-0B507049F904",
+                        "rel": "FUND",
+                        "start": 1569888000000,
+                        "end": 1680220800000,
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/370B9DAF-27B0-41A8-8B49-24D784328333",
+                        "rel": "STUDENTSHIP_FROM",
+                        "start": 1538352000000,
+                        "end": 1696032000000,
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/78645F99-383D-47A8-B2A5-65671C0A8523",
+                        "rel": "STUDENTSHIP_FROM",
+                        "start": 1475280000000,
+                        "end": 1664496000000,
+                        "otherAttributes": {}
+                    }
+                ]
+            },
+            "id": "FE1E8778-B536-4028-86AB-B7A8E769B170",
+            "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/FE1E8778-B536-4028-86AB-B7A8E769B170",
+            "created": 1705651038000,
+            "identifiers": {
+                "identifier": [
+                    {
+                        "value": "2275899",
+                        "type": "RCUK"
+                    }
+                ]
+            },
+            "title": "Machine Learning Landscapes",
+            "status": "Closed",
+            "grantCategory": "Studentship",
+            "leadFunder": "EPSRC",
+            "leadOrganisationDepartment": "Chemistry",
+            "abstractText": "This project will involve the characterisation of machine learning landscapes for neural networks. The theory and numerical methods developed for exploring molecular energy landscapes will be applied to the non-convex landscapes defined by the loss function of an artificial neural network. In particular, we will investigate analogues of the density of states to define thermodynamic quantities and rate constants. The resulting insight will be used to define combinations of solutions that provide superior predictive power for applications ranging from molecular geometry optimisation to clinician diagnostic support.",
+            "healthCategories": {
+                "healthCategory": []
+            },
+            "researchActivities": {
+                "researchActivity": []
+            },
+            "researchSubjects": {
+                "researchSubject": []
+            },
+            "researchTopics": {
+                "researchTopic": [
+                    {
+                        "id": "6CFA1E1F-F25C-4C23-8FE1-C47AE53E333E",
+                        "text": "Unclassified"
+                    }
+                ]
+            },
+            "rcukProgrammes": {
+                "rcukProgramme": []
+            }
+        },
+        {
+            "links": {
+                "link": [
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/19E77221-274C-488C-B360-C19F8CE05D0D",
+                        "rel": "SUPER_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/persons/4CAFDEB6-6D96-48E4-B319-85CDE5149144",
+                        "rel": "STUDENT_PER",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/CE1E540C-192A-4906-A744-796BA2B220A8",
+                        "rel": "LEAD_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/organisations/591FCA53-15B2-4CA6-B5B3-D681F52E0374",
+                        "rel": "STUDENT_PP_ORG",
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/funds/FAB22285-F82A-4D94-8CC8-168B44B0D7D4",
+                        "rel": "FUND",
+                        "start": 1633046400000,
+                        "end": 1759190400000,
+                        "otherAttributes": {}
+                    },
+                    {
+                        "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/1825F1A9-0AC3-48E5-AFCA-2CBC11B85C0E",
+                        "rel": "STUDENTSHIP_FROM",
+                        "start": 1554076800000,
+                        "end": 1822262400000,
+                        "otherAttributes": {}
+                    }
+                ]
+            },
+            "id": "3AF65DC0-0F17-46B9-8164-AFC648E80409",
+            "href": "http://internal-gtr-tomcat-alb-611010599.eu-west-2.elb.amazonaws.com:8080/gtr/api/projects/3AF65DC0-0F17-46B9-8164-AFC648E80409",
+            "created": 1705651038000,
+            "identifiers": {
+                "identifier": [
+                    {
+                        "value": "2599529",
+                        "type": "RCUK"
+                    }
+                ]
+            },
+            "title": "Scalable Online Machine Learning",
+            "status": "Active",
+            "grantCategory": "Studentship",
+            "leadFunder": "EPSRC",
+            "leadOrganisationDepartment": "Computer Science",
+            "abstractText": "Many of the current problems within the modern machine learning sector involve dealing with ever growing datasets where accurately and efficiently estimating a posterior distribution to make predictions is very difficult due to being able to identify the correct information from datasets which is informative to modelling our target distribution. As well as volume, these models often increase in dimensionality (and therefore complexity) which current common methods such as Markov Chain Monte Carlo (MCMC)- sampling struggle to do efficiently, as they become much slower as the complexity of the model increases. \n\nOther types of sampling methods though have shown to scale much better than traditional MCMC. For example, Sequential Monte Carlo sampling (SMC) and Hamiltonian Monte Carlo (HMC) sampling scale a lot better with dimensionality. These techniques are nowhere near as well researched though and have their own problems, so improving upon these further by introducing Reversible Jump (RJ) MCMC and Mass Matrices (MM) will be a main stay of my research. \n\nMy colleague Josh Murphy will be working on Concept Drift, and I will be working on Eternal Learning. Initially there may be some similarities on the research we undertake but due to the differences in problem concepts, this will start to diverge within the first year. However, further down the line there will likely be some collaboration as the methods developed in each area may have some overlap depending on the specific problem we are undertaking. Therefore, I will also be researching methods to compress data from a constant and endless source but so that little to no information is lost during our inference with the aforementioned sampling methods. This will need to be done, as for eternal learning, the first sample will be just as important as the most recent one. \n\nFinally, these new methods will be applied to a Bayesian deep learning context. In neural networks, backpropagation for use in calculating the weights and biases of models is very computationally expensive. Early research with using particle filters as an alternative (or in an ensemble method) to backpropagation has recently started in the past couple of years as they are less computationally expensive. I will expand upon this by implementing a quasi-differentiable SMC sampler (as opposed to a particle filter) to aid the optimization process in neural networks.",
+            "potentialImpact": "This CDT's focus on using &quot;Future Computing Systems&quot; to move &quot;Towards a Data-driven Future&quot; resonates strongly with two themes of non-academic organisation. In both themes, albeit for slightly different reasons, commodity data science is insufficient and there is a hunger both for the future leaders that this CDT will produce and the high-performance solutions that the students will develop.\n\nThe first theme is associated with defence and security. In this context, operational performance is of paramount importance. Government organisations (e.g., Dstl, GCHQ and the NCA) will benefit from our graduates' ability to configure many-core hardware to maximise the ability to extract value from the available data. The CDT's projects and graduates will achieve societal impact by enabling these government organisations to better protect the world's population from threats posed by, for example, international terrorism and organised crime. \n\nThere is then a supply chain of industrial organisations that deliver to government organisations (both in the UK and overseas). These industrial organisations (e.g., Cubica, Denbridge Marine, FeatureSpace, Leonardo, MBDA, Ordnance Survey, QinetiQ, RiskAware, Sintela, THALES (Aveillant) and Vision4ce) operate in a globally competitive marketplace where operational performance is a key driver. The skilled graduates that this CDT will provide (and the projects that will comprise the students' PhDs) are critical to these organisations' ability to develop and deliver high-performance products and services. We therefore anticipate economic impact to result from this CDT. \n\nThe second theme is associated with high-value and high-volume manufacturing. In these contexts, profit margins are very sensitive to operational costs. For example, a change to the configuration of a production line for an aerosol manufactured by Unilever might &quot;only&quot; cut costs by 1p for each aerosol, but when multiplied by half a billion aerosols each year, the impact on profit can be significant. In this context, industry (e.g., Renishaw, Rolls Royce, Schlumberger, ShopDirect and Unilever) is therefore motivated to optimise operational costs by learning from historic data. This CDT's graduates (and their projects) will help these organisations to perform such data-driven optimisation and thereby enable the CDT to achieve further economic impact.\n\nOther organisations (e.g., IBM) provide hardware, software and advice to those operating in these themes. The CDT's graduates will ensure these organisations can be globally competitive.\n\nThe specific organisations mentioned above are the CDT's current partners. These organisations have all agreed to co-fund studentships. That commitment indicates that, in the short term, they are likely to be the focus for the CDT's impact. However, other organisations are likely to benefit in the future. While two (Lockheed Martin and Arup) have articulated their support in letters that are attached to this proposal, we anticipate impact via a larger portfolio of organisations (e.g., via studentships but also via those organisations recruiting the CDT's graduates either immediately after the CDT or later in the students' careers). Those organisations are likely to include those inhabiting the two themes described above, but also others. For example, an entrepreneurial CDT student might identify a niche in another market sector where Distributed Algorithms can deliver substantial commercial or societal gains. Predicting where such niches might be is challenging, though it seems likely that sectors that are yet to fully embrace Data Science while also involving significant turn-over are those that will have the most to gain: we hypothesise that niches might be identified in health and actuarial science, for example.\n\nAs well as training the CDT students to be the leaders of tomorrow in Distributed Algorithms, we will also achieve impact by training the CDT's industrial supervisors.",
+            "healthCategories": {
+                "healthCategory": []
+            },
+            "researchActivities": {
+                "researchActivity": []
+            },
+            "researchSubjects": {
+                "researchSubject": []
+            },
+            "researchTopics": {
+                "researchTopic": [
+                    {
+                        "id": "6CFA1E1F-F25C-4C23-8FE1-C47AE53E333E",
+                        "text": "Unclassified"
+                    }
+                ]
+            },
+            "rcukProgrammes": {
+                "rcukProgramme": []
+            }
+        }
+    ]
+}
