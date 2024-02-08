@@ -1,17 +1,12 @@
-'use strict'
+const { default: axios } = require("axios")
 
-const { default: axios } = require("axios");
-const router = require('express').Router()
+const euService = {}
 
-
-
-router.get('/', async (req, res) => {
+euService.fetchKeywordData = async (keyword, page, num, sortBy='Relevance:decreasing', format='json') => {
     try {
-        let query = req.query.q;
-        query = encodeURI(query)
-        let response = await axios(`https://cordis.europa.eu/search/en?q=contenttype%3D%27project%27%20AND%20${query}&num=20&srt=Relevance:decreasing&format=json&p=1`)
+        console.log(keyword, page, num, sortBy, format)
+        let response = await axios(`https://cordis.europa.eu/search/en?q=contenttype%3D%27project%27%20AND%20${encodeURI(keyword)}&num=${num}&srt=${sortBy}&format=${format}&p=${page}`)
         let eUGrantArray = []
-        // res.json(response.data.hits.hit[0].project)
         response.data.hits.hit.forEach(data => {
             eUGrantArray.push({
                 title: data.project.title,
@@ -27,13 +22,10 @@ router.get('/', async (req, res) => {
                 duration: data.project.duration + " Months",
             })
         })
-        res.json({
-            provider: 'EU',
-            data: eUGrantArray
-        });
+        return eUGrantArray
     } catch (error) {
         console.log(error)
     }
-})
+}
 
-module.exports = router;
+module.exports = euService
