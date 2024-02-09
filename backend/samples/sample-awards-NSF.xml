@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AwardsList>
+<Award>
+<AwardNumber>1240797</AwardNumber>
+<Title>Workshops to Create a Taxonomy for Engineering Education Research and Prioritize Areas of Research</Title>
+<NsfOrganization>EEC</NsfOrganization>
+<Program>EngEd-Engineering Education</Program>
+<StartDate>09/15/2012</StartDate>
+<LastAmendmentDate>12/10/2013</LastAmendmentDate>
+<PrincipalInvestigator>Cynthia Finelli</PrincipalInvestigator>
+<PIEmailAddress>cfinelli@umich.edu</PIEmailAddress>
+<Co-PIName>Maura Borrego</Co-PIName>
+<State>MI</State>
+<Organization>Regents of the University of Michigan - Ann Arbor</Organization>
+<AwardInstrument>Standard Grant</AwardInstrument>
+<ProgramManager>Bevlee Watford</ProgramManager>
+<EndDate>12/31/2014</EndDate>
+<AwardedAmountToDate>233178</AwardedAmountToDate>
+<ARRAAmount/>
+<OrganizationStreet>1109 GEDDES AVE, SUITE 3300</OrganizationStreet>
+<OrganizationCity>ANN ARBOR</OrganizationCity>
+<OrganizationState>MI</OrganizationState>
+<OrganizationZip>481091079</OrganizationZip>
+<OrganizationPhone>7347636438</OrganizationPhone>
+<NSFDirectorate>ENG</NSFDirectorate>
+<ProgramElementCode>1340</ProgramElementCode>
+<ProgramReferenceCode>110E</ProgramReferenceCode>
+<Abstract>This engineering education research project will enable two workshops with the purpose of bringing together experts in engineering education research and taxonomists to understand how to identify and classify research in engineering education.  The goal of the workshops will be to understand the spectrum of engineering education research and allow emerging areas to gain recognition.&amp;lt;br/&amp;gt;&amp;lt;br/&amp;gt;The broader significance and importance of this project will be to help understand the diversity of research investments in engineering education, identify areas that are emerging, and help current researchers better frame their projects using a common ontology.  The project will also help ongoing efforts to evaluate STEM education portfolios.  This project overlaps with NSF&amp;apos;s strategic goals of transforming the frontiers by making investments that lead to emerging new fields of engineering, or shifting existing fields.  Additionally NSF&amp;apos;s goal of innovating for society is enabled by creating results and research that are useful for society by informing educational policy and practices.</Abstract>
+</Award>
+<Award>
+<AwardNumber>1815796</AwardNumber>
+<Title>III: Small: In-memory, Distributed, and  Adaptive Spatio-textual Query Processing</Title>
+<NsfOrganization>IIS</NsfOrganization>
+<Program>Info Integration &amp; Informatics</Program>
+<StartDate>08/01/2018</StartDate>
+<LastAmendmentDate>07/26/2018</LastAmendmentDate>
+<PrincipalInvestigator>Walid Aref</PrincipalInvestigator>
+<PIEmailAddress>aref@cs.purdue.edu</PIEmailAddress>
+<State>IN</State>
+<Organization>Purdue University</Organization>
+<AwardInstrument>Standard Grant</AwardInstrument>
+<ProgramManager>Hector Munoz-Avila</ProgramManager>
+<EndDate>07/31/2022</EndDate>
+<AwardedAmountToDate>432295</AwardedAmountToDate>
+<ARRAAmount/>
+<OrganizationStreet>2550 NORTHWESTERN AVE # 1100</OrganizationStreet>
+<OrganizationCity>WEST LAFAYETTE</OrganizationCity>
+<OrganizationState>IN</OrganizationState>
+<OrganizationZip>479061332</OrganizationZip>
+<OrganizationPhone>7654941055</OrganizationPhone>
+<NSFDirectorate>CSE</NSFDirectorate>
+<ProgramElementCode>7364</ProgramElementCode>
+<ProgramReferenceCode>7364</ProgramReferenceCode>
+<ProgramReferenceCode>7923</ProgramReferenceCode>
+<Abstract>The widespread use of GPS-enabled smartphones along with the popularity of microblogging and social networking, e.g., Twitter and Facebook, has resulted in producing large amounts of text data. Typically, this text data, e.g., the tweets, are geo-tagged by the location in which the text data has been produced. Many applications make good use of this stream of geo-tagged text data (also termed spatial-keyword or spatio-textual data), and provide services to users based on the textual and the spatial components of the data. Applications need to process large numbers of user queries against spatio-textual data. For example, location-aware ad targeting publish/subscribe systems are required to disseminate millions of ads and promotions to millions of users based on the users&amp;apos; locations and textual profiles. This project will address the hurdles that face these applications and their underlying systems in order to function properly.  More specifically, this project will address the following research challenges that face spatio-textual servers: (1) the scalability challenge to support large amounts of spatio-textual data streams and queries in real-time; (2) the expressiveness challenge that is exemplified in the lack of mechanisms that adequately express complex spatio-textual queries -- querying capabilities need to match the growing sophistication and complexity of the continuously evolving location services; and (3) the adaptivity challenge, where systems need to adapt to changes in data distribution over time because in location services, location-data distribution, users&amp;apos; interests, and hot keyword topics change over time and a scalable spatio-textual server needs to continuously adapt to these changes.&amp;lt;br/&amp;gt;&amp;lt;br/&amp;gt;The project will address these scalability, expressiveness, and adaptivity challenges when processing large numbers of queries on continuously-streamed spatio-textual data. The project will investigate how to support spatio-textual data and queries as first-class citizens in an in-memory distributed data system. Scalable architectures for handling large amounts of spatio-textual data and continuous queries will be investigated. In contrast to tailored solutions, relational-like spatio-textual building-block operators will be developed to express extended-SQL spatio-textual queries along with costing, algebraic transformation rules, and query optimization techniques. To address scalability and the variation in the workload, adaptive and frequency-aware in-memory distributed indexing and query processing techniques will be developed to dynamically organize and process the continuously-evolving spatio-textual data. The spatio-textual indexing and query processing techniques to be developed will dynamically account for the changes and differences in the frequencies of keywords within the various spatial regions to automatically choose the best spatio-textual data organization that optimizes the system performance.&amp;lt;br/&amp;gt;&amp;lt;br/&amp;gt;This award reflects NSF&amp;apos;s statutory mission and has been deemed worthy of support through evaluation using the Foundation&amp;apos;s intellectual merit and broader impacts review criteria.</Abstract>
+</Award>
+</AwardsList>
