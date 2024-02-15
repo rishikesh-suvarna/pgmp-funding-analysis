@@ -2,6 +2,7 @@
 
 const { default: axios } = require("axios");
 const euService = require("../services/EU");
+const db = require('../models');
 const router = require('express').Router()
 
 

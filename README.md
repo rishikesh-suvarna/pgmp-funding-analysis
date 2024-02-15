@@ -1,19 +1,10 @@
-# Funding Analysis Frontend
+# Funding Analysis - PGMP
 
 Steps to perform before running this application for the first time.
 
 ## Installation
 
-- Use the package manager [npm](https://www.npmjs.com/) to install packages.
-
-```bash
-npm i
-```
-
-## Running The Application
-```
-npm start
-```
+Head over to the backend and frontend folders to view the respective readme files for installation
 
 ## Contributing
 
