@@ -33,7 +33,7 @@ router.get('/add-keyword', async (req, res) => {
             keyword: "Test Keyword",
         }
         await keywords.create(keyword_data)
-        return res.redirect('/test/view')
+        return res.redirect('/test/view-keywords')
     } catch (error) {
         console.log(error)
     }
@@ -48,6 +48,15 @@ router.get('/view', async (req, res) => {
     }
 })
 
+router.get('/view-keywords', async (req, res) => {
+    try {
+        let keywordsData = await keywords.findAll();
+        res.json(keywordsData)
+    } catch (error) {
+        console.log(error)
+    }
+})
+
 router.get('/delete', async (req, res) => {
     try {
         let data = await grants.destroy({
@@ -57,6 +66,20 @@ router.get('/delete', async (req, res) => {
             returning: true
         })
         return res.redirect('/test/view')
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+router.get('/delete-keyword', async (req, res) => {
+    try {
+        let data = await keywords.destroy({
+            where: {
+                id: 7
+            },
+            returning: true
+        })
+        return res.redirect('/test/view-keywords')
     } catch (error) {
         console.log(error)
     }
