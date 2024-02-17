@@ -3,6 +3,7 @@
 const { default: axios } = require("axios");
 const euService = require("../services/EU");
 const { grants } = require('../models');
+const { keywords } = require('../models');
 const router = require('express').Router()
 
 router.get('/add', async (req, res) => {
@@ -19,6 +20,19 @@ router.get('/add', async (req, res) => {
             deleted: false
         }
         await grants.create(data)
+        return res.redirect('/test/view')
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+router.get('/add-keyword', async (req, res) => {
+    try {
+        let keyword_data = {
+            unique_identifier: "123456789",
+            keyword: "Test Keyword",
+        }
+        await keywords.create(keyword_data)
         return res.redirect('/test/view')
     } catch (error) {
         console.log(error)
