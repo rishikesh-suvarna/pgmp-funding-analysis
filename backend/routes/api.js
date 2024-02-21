@@ -2,8 +2,10 @@
 
 const { default: axios } = require("axios");
 const euService = require("../services/EU");
-const { grants, keywords } = require('../models');
+const { grants, keywords, sequelize } = require('../models');
 const router = require('express').Router()
+const { Op } = require('sequelize');
+
 
 
 
@@ -52,7 +54,9 @@ router.post('/request-keyword-data', async (req, res) => {
          */
         let existingKeyword = await keywords.findOne({
             where: {
-                keyword: query
+                keyword: {
+                    [Op.iRegexp]: sequelize.literal(`'${query}'`),
+                }
             }
         })
         if(existingKeyword) {
@@ -62,6 +66,7 @@ router.post('/request-keyword-data', async (req, res) => {
         }
 
         let page = 1;
+        let responseSent = false;
         const BATCH_SIZE = 10;
         let _keyword = await keywords.create({
             keyword: query
@@ -83,10 +88,13 @@ router.post('/request-keyword-data', async (req, res) => {
             if(data && (data.length < BATCH_SIZE)) {
                 break;
             }
+            if(!responseSent) {
+                responseSent = true;
+                res.status(200).json({
+                    message: 'New Keyword'
+                })
+            }
         }
-        return res.status(200).json({
-            message: 'New Keyword'
-        })
         
     } catch (error) {
         console.log(error)
@@ -95,23 +103,30 @@ router.post('/request-keyword-data', async (req, res) => {
 
 router.get('/fetch-keyword-data', async (req, res) => {
     try {
-        console.log(req.query)
         let page = req.query.page || 1;
-        const LIMIT = 10;
+        const LIMIT = 12;
 
-        let grantData = await grants.findAll({
+        let { count, rows } = await grants.findAndCountAll({
             where: {
                 confirmation_status: 0
             },
             include: [{
                 model: keywords,
-                // where: { keyword: req.query.q }
+                where: {
+                    keyword:  {
+                        [Op.iRegexp]: sequelize.literal(`'${req.query.q}'`)
+                    }
+                }
             }],
-            // order: [['id', 'ASC']],
-            // skip: (page - 1) * LIMIT,
-            // limit: LIMIT
-        }) 
-        return res.status(200).json(grantData)
+            order: [['id', 'ASC']],
+            offset: (page - 1) * LIMIT,
+            limit: LIMIT
+        })
+        return res.status(200).json({
+            data: rows,
+            page: page,
+            total: count
+        })
 
     } catch (error) {
         console.log(error)
@@ -123,15 +138,17 @@ router.get('/fetch-keyword-data', async (req, res) => {
 
 router.put('/set-grant-status', async (req, res) => {
     try {
+        console.log(req.body)
         let updatedRecord = {
-            confimation_status: req.params.status
+            confirmation_status: req.body.status
         }
         let grantData = await grants.update(updatedRecord, {
             where: {
-                id: req.params.id
+                id: req.body.id
             }
         })
 
+        res.sendStatus(200);
 
     } catch (error) {
         console.log(error)

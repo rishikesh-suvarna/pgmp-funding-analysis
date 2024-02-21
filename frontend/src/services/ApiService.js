@@ -47,4 +47,15 @@ ApiService.fetchKeywordData = (keyword) => {
     })
 }
 
+ApiService.setGrantStatus = (status, id) => {
+    return fetch({
+        url: `/set-grant-status`,
+        method: 'PUT',
+        data: {
+          status,
+          id
+        }
+    })
+}
+
 export default ApiService;
