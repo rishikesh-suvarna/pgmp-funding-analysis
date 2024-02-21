@@ -1,15 +1,32 @@
 import React, { useState } from 'react'
 import ApiService from '../services/ApiService'
+import GrantCard from '../components/GrantCard'
 
 const Home = () => {
   const [query, setQuery] = useState('')
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(false)
 
+  const requestKeywordData = async () => {
+    try {
+      setLoading(true)
+      let res = await ApiService.requestKeywordData(query)
+      console.log(res)
+      fetchKeywordData()
+      setLoading(false)
+    } catch (error) {
+      console.log(error)
+      setLoading(false)
+    } finally {
+      setLoading(false)
+    }
+  }
+
   const fetchKeywordData = async () => {
     try {
       setLoading(true)
       let res = await ApiService.fetchKeywordData(query)
+      console.log(res)
       setData(res)
       setLoading(false)
     } catch (error) {
@@ -33,7 +50,10 @@ const Home = () => {
                   <input type='text' placeholder='Enter keyword' value={query} onChange={e => setQuery(e.target.value)} className='form-control w-100' />
                 </div>
               <div className="form-group mt-2">
-                <button onClick={fetchKeywordData} disabled={loading} className="btn btn-outline-primary">Search { loading ? <span className='ms-2 spinner-border spinner-border-sm text-primary'></span> : null }</button>
+                <button onClick={requestKeywordData} disabled={loading} className="btn btn-outline-primary">Search { loading ? <span className='ms-2 spinner-border spinner-border-sm text-primary'></span> : null }</button>
+              </div>
+              <div className="form-group mt-2">
+                <button onClick={fetchKeywordData} disabled={loading} className="btn btn-outline-primary">Fetch { loading ? <span className='ms-2 spinner-border spinner-border-sm text-primary'></span> : null }</button>
               </div>
             </div>
           </div>
@@ -48,25 +68,7 @@ const Home = () => {
               <div className="row">
                 {
                   data.map(d => (
-                    <div className="col-lg-4 mb-4">
-                      <div className="card h-100">
-                        <div className="card-body">
-                          <div className="card-title h6">{d.title}</div>
-                          <p>{d.teaser}</p>
-                          <p><b>Total Funding</b>: {d.totalFunding}</p>
-                          <p><b>Start Date</b>: {d.startDate}</p>
-                          <p><b>End Date</b>: {d.endDate}</p>
-                          <p><b>Duration</b>: {d.duration}</p>
-                          <p><span class="badge bg-primary">{d.status}</span></p>
-                        </div>
-                        <div className="card-footer">
-                          <div className="d-flex align-items-center justify-content-between">
-                            <button className="btn btn-outline-success w-100 me-2">Approve</button>
-                            <button className="btn btn-outline-danger w-100">Reject</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <GrantCard d={d} />
                   ))
                 }
               </div>

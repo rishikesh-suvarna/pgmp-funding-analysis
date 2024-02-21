@@ -29,10 +29,21 @@ fetch.interceptors.response.use(
 
 const ApiService = {};
 
+ApiService.requestKeywordData = (keyword) => {
+    console.log(keyword)
+    return fetch({
+        url: `/request-keyword-data`,
+        method: 'POST',
+        data: {
+          keyword: keyword
+        }
+    })
+}
+
 ApiService.fetchKeywordData = (keyword) => {
     return fetch({
-        url: `/?q=${keyword}`,
-        method: 'GET'
+        url: `/fetch-keyword-data?q=${keyword}`,
+        method: 'GET',
     })
 }
 
