@@ -40,9 +40,9 @@ ApiService.requestKeywordData = (keyword) => {
     })
 }
 
-ApiService.fetchKeywordData = (keyword) => {
+ApiService.fetchKeywordData = (keyword, status) => {
     return fetch({
-        url: `/fetch-keyword-data?q=${keyword}`,
+        url: `/fetch-keyword-data?q=${keyword}&status=${status}`,
         method: 'GET',
     })
 }
@@ -55,6 +55,13 @@ ApiService.setGrantStatus = (status, id) => {
           status,
           id
         }
+    })
+}
+
+ApiService.fetchAllKeywords = () => {
+    return fetch({
+        url: `/fetch-keywords`,
+        method: 'GET',
     })
 }
 

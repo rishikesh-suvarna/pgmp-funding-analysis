@@ -48,6 +48,12 @@ router.post('/request-keyword-data', async (req, res) => {
         const LIMIT = 10;
         let query = req.body.keyword;
 
+        console.log(req.body.keyword)
+
+        if(!query) {
+            return res.sendStatus(500)
+        }
+
         /**
          * Check if keyword exists in DB
          * 
@@ -106,9 +112,13 @@ router.get('/fetch-keyword-data', async (req, res) => {
         let page = req.query.page || 1;
         const LIMIT = 12;
 
+        if(!req.query.q) {
+            return res.sendStatus(500)
+        }
+
         let { count, rows } = await grants.findAndCountAll({
             where: {
-                confirmation_status: 0
+                confirmation_status: req.query.status || 0
             },
             include: [{
                 model: keywords,
@@ -150,6 +160,18 @@ router.put('/set-grant-status', async (req, res) => {
 
         res.sendStatus(200);
 
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({
+            error
+        })
+    }
+})
+
+router.get('/fetch-keywords', async (req, res) => {
+    try {
+        let kwords = await keywords.findAll();
+        res.json(kwords)        
     } catch (error) {
         console.log(error)
         res.status(500).json({

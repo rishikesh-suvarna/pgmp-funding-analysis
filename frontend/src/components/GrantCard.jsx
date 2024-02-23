@@ -1,7 +1,7 @@
 import React from "react";
 import moment from 'moment';
 
-const GrantCard = ({d, actionButton, setModalData, setShow}) => {
+const GrantCard = ({d, actionButton, setModalData, setShow, dataToShow}) => {
 
   const openModal = () => {
     setModalData(d)
@@ -17,10 +17,11 @@ const GrantCard = ({d, actionButton, setModalData, setShow}) => {
         </div>
       </button>
         <div className="card-body">
-          <p>{d.abstract.substring(0, 120)}...</p>
+          {/* <p>{d.abstract.substring(0, 120)}...</p> */}
           <p>
-            <b>Total Funding</b>: {d.total_funding?.toLocaleString({
-              type: 'currency',
+            <b>Total Funding</b>: {d.total_funding?.toLocaleString('en-US', {
+              style: 'currency',
+              currency: 'USD'
             })}
           </p>
           <p>
@@ -32,8 +33,9 @@ const GrantCard = ({d, actionButton, setModalData, setShow}) => {
           <p>
             <b>Duration</b>: {moment(d.end_date).diff(moment(d.start_date), 'months')} months || {moment(d.end_date).diff(moment(d.start_date), 'days')} days
           </p>
-          <small className="mb-3 d-inline-block">Approximately: {(Math.ceil(d.total_funding / (moment(d.end_date).diff(moment(d.start_date), 'days'))))?.toLocaleString({
-            type: 'currency'
+          <small className="mb-3 d-inline-block">Approximately: {(Math.ceil(d.total_funding / (moment(d.end_date).diff(moment(d.start_date), 'days'))))?.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD'
           })} / Day</small>
           {
             (d.status === 1)
@@ -47,14 +49,20 @@ const GrantCard = ({d, actionButton, setModalData, setShow}) => {
                 </p>
           }
         </div>
-        <div className="card-footer">
-          <div className="d-flex align-items-center justify-content-between">
-            <button className="btn btn-outline-success w-100 me-2" onClick={() => actionButton(1, d.id)}>
-              Approve
-            </button>
-            <button className="btn btn-outline-danger w-100" onClick={() => actionButton(2, d.id)}>Reject</button>
+        {
+          (dataToShow === 0)
+          ?
+          <div className="card-footer">
+            <div className="d-flex align-items-center justify-content-between">
+              <button className="btn btn-outline-success w-100 me-2" onClick={() => actionButton(1, d.id)}>
+                Approve
+              </button>
+              <button className="btn btn-outline-danger w-100" onClick={() => actionButton(2, d.id)}>Reject</button>
+            </div>
           </div>
-        </div>
+          :
+          null
+        }
       </div>
     </div>
   );
