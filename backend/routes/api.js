@@ -5,6 +5,7 @@ const euService = require("../services/EU");
 const { grants, keywords, sequelize } = require('../models');
 const router = require('express').Router()
 const { Op } = require('sequelize');
+const nsfService = require("../services/NSF");
 
 
 
@@ -72,19 +73,69 @@ router.post('/request-keyword-data', async (req, res) => {
             // NEW KEYWORD
             let page = 1;
             const BATCH_SIZE = 10;
-            const LIMIT = 10;
+            const LIMIT = process.env.NODE_ENV === 'development' ? 10 : 10000;
             let _keyword = await keywords.create({
                 keyword: singleKeyword
             })
+            // EU Service
+            // while(true) {
+            //     // FETCH & SAVE FROM EU API
+            //     let data = await euService.fetchKeywordData(singleKeyword, page, BATCH_SIZE)
+            //     data.forEach(async (_data) => {
+            //         if(parseFloat(_data.total_funding) > 0) {
+            //             let exGrant = await grants.findOne({
+            //                 where: {
+            //                     title: _data.title
+            //                 }
+            //             })
+            //             if(exGrant) {
+            //                 await exGrant.addKeyword(_keyword.id)
+            //             } else {
+            //                 let _grant = await grants.create(_data)
+            //                 await _grant.addKeyword(_keyword.id)
+            //             }
+            //         }
+            //     })
+            //     page++;
+    
+            //     // RATE LIMITING & THROTTLING LOGIC HERE 
+            //     if(page > LIMIT){ 
+            //         break;
+            //     }
+            //     if(data && (data.length < BATCH_SIZE)) {
+            //         break;
+            //     }
+            //     if(!responseSent) {
+            //         responseSent = true;
+            //         res.sendStatus(200)
+            //     }
+            // }
+            // NSF Service
             while(true) {
                 // FETCH & SAVE FROM EU API
-                let data = await euService.fetchKeywordData(singleKeyword, page, BATCH_SIZE)
+                let data = await nsfService.fetchKeywordData(singleKeyword, page, BATCH_SIZE)
                 data.forEach(async (_data) => {
-                    let _grant = await grants.create(_data)
-                    await _grant.addKeyword(_keyword.id)
+                    try {
+                        if(parseFloat(_data.total_funding) > 0) {
+                            let exGrant = await grants.findOne({
+                                where: {
+                                    title: _data.title
+                                }
+                            })
+                            if(exGrant) {
+                                await exGrant.addKeyword(_keyword.id)
+                            } else {
+                                let _grant = await grants.create(_data)
+                                await _grant.addKeyword(_keyword.id)
+                            }
+                        }
+
+                    } catch (err) {
+                        console.log(err)
+                    }
                 })
                 page++;
-    
+
                 // RATE LIMITING & THROTTLING LOGIC HERE 
                 if(page > LIMIT){ 
                     break;
@@ -186,6 +237,26 @@ router.get('/fetch-keywords', async (req, res) => {
         res.status(500).json({
             error
         })
+    }
+})
+
+
+router.get('/delete-all', async (req, res) => {
+    try {
+        await grants.destroy({
+            where: {},
+            truncate: true,
+            cascade: true
+        })
+        await keywords.destroy({
+            where: {},
+            truncate: true,
+            cascade: true
+        })
+        return res.sendStatus(200)
+    } catch (error) {
+        console.log(error)
+        return res.sendStatus(500)
     }
 })
 

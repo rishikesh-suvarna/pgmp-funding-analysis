@@ -23,7 +23,8 @@ module.exports = (sequelize, DataTypes) => {
     total_funding: DataTypes.FLOAT,
     status: DataTypes.INTEGER,
     link: DataTypes.STRING,
-    confirmation_status: DataTypes.INTEGER // 0 - NOT YET CONFIRMED, 1 - CONFIRMED, 2 - REJECTED
+    confirmation_status: DataTypes.INTEGER, // 0 - NOT YET CONFIRMED, 1 - CONFIRMED, 2 - REJECTED
+    api_service: DataTypes.STRING,
   }, {
     sequelize,
     timestamps: true,

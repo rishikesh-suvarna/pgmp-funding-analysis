@@ -33,20 +33,29 @@ const GrantCard = ({d, actionButton, setModalData, setShow, dataToShow}) => {
           <p>
             <b>Duration</b>: {moment(d.end_date).diff(moment(d.start_date), 'months')} months || {moment(d.end_date).diff(moment(d.start_date), 'days')} days
           </p>
+          <p><b>Grant Agency</b>: {d.api_service}</p>
           <small className="mb-3 d-inline-block">Approximately: {(Math.ceil(d.total_funding / (moment(d.end_date).diff(moment(d.start_date), 'days'))))?.toLocaleString('en-US', {
             style: 'currency',
             currency: 'USD'
           })} / Day</small>
           {
-            (d.status === 1)
+            (d.status !== null)
             ?
-                <p>
-                    <span className="badge bg-primary">SIGNED</span>
-                </p>
+              <div className="">
+                {
+                  (d.status === 1)
+                  ?
+                      <p>
+                          <span className="badge bg-primary">SIGNED</span>
+                      </p>
+                  :
+                      <p>
+                          <span className="badge bg-success">CLOSED</span>
+                      </p>
+                }
+              </div>
             :
-                <p>
-                    <span className="badge bg-success">CLOSED</span>
-                </p>
+            null
           }
         </div>
         {
