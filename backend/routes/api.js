@@ -47,6 +47,7 @@ router.get('/', async (req, res) => {
 router.post('/request-keyword-data', async (req, res) => {
     try {
         let query = req.body.keyword?.split(',');
+        let responseSent = false;
 
         // return console.log(req.body.keyword)
 
@@ -55,7 +56,6 @@ router.post('/request-keyword-data', async (req, res) => {
         }
 
         query.forEach(async (singleKeyword) => {
-            let responseSent = false;
         
             //EXISTING KEYWORD CHECK
             let existingKeyword = await keywords.findOne({
@@ -168,9 +168,7 @@ router.get('/fetch-keyword-data', async (req, res) => {
 
         queryKeywords = queryKeywords.map(word => {
             return {
-                'keyword':  {
-                    [Op.iRegexp]: sequelize.literal(`'${word}'`)
-                }
+                'keyword':  word
             }
         })
 

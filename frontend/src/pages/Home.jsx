@@ -205,6 +205,7 @@ const Home = () => {
                 )}{" "}
                 days
               </p>
+              <p><b>Grant Agency</b>: {modalData.api_service}</p>
               <small className="mb-3 d-inline-block">
                 Approximately:{" "}
                 {Math.ceil(

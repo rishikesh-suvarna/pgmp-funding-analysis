@@ -15,7 +15,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   keywords.init({
-    unique_identifier: DataTypes.STRING,
     keyword: DataTypes.STRING
   }, {
     sequelize,
