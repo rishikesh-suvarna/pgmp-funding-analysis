@@ -45,62 +45,59 @@ router.get('/', async (req, res) => {
 
 router.post('/request-keyword-data', async (req, res) => {
     try {
-        const LIMIT = 10;
-        let query = req.body.keyword;
+        let query = req.body.keyword?.split(',');
 
-        console.log(req.body.keyword)
+        // return console.log(req.body.keyword)
 
-        if(!query) {
+        if(!query || query.length < 1) {
             return res.sendStatus(500)
         }
 
-        /**
-         * Check if keyword exists in DB
-         * 
-         */
-        let existingKeyword = await keywords.findOne({
-            where: {
-                keyword: {
-                    [Op.iRegexp]: sequelize.literal(`'${query}'`),
+        query.forEach(async (singleKeyword) => {
+            let responseSent = false;
+        
+            //EXISTING KEYWORD CHECK
+            let existingKeyword = await keywords.findOne({
+                where: {
+                    keyword: {
+                        [Op.iRegexp]: sequelize.literal(`'${singleKeyword}'`),
+                    }
+                }
+            })
+            if(existingKeyword) {
+                responseSent = true;
+                return res.sendStatus(200)
+            }
+    
+            // NEW KEYWORD
+            let page = 1;
+            const BATCH_SIZE = 10;
+            const LIMIT = 10;
+            let _keyword = await keywords.create({
+                keyword: singleKeyword
+            })
+            while(true) {
+                // FETCH & SAVE FROM EU API
+                let data = await euService.fetchKeywordData(singleKeyword, page, BATCH_SIZE)
+                data.forEach(async (_data) => {
+                    let _grant = await grants.create(_data)
+                    await _grant.addKeyword(_keyword.id)
+                })
+                page++;
+    
+                // RATE LIMITING & THROTTLING LOGIC HERE 
+                if(page > LIMIT){ 
+                    break;
+                }
+                if(data && (data.length < BATCH_SIZE)) {
+                    break;
+                }
+                if(!responseSent) {
+                    responseSent = true;
+                    res.sendStatus(200)
                 }
             }
         })
-        if(existingKeyword) {
-            return res.status(200).json({
-                message: 'Keyword Exists'
-            })
-        }
-
-        let page = 1;
-        let responseSent = false;
-        const BATCH_SIZE = 10;
-        let _keyword = await keywords.create({
-            keyword: query
-        })
-        while(true) {
-            let data = await euService.fetchKeywordData(query, page, BATCH_SIZE)
-            data.forEach(async (_data) => {
-                let _grant = await grants.create(_data)
-                await _grant.addKeyword(_keyword.id)
-            })
-            page++;
-
-            /* 
-                RATE LIMITING & THROTTLING LOGIC HERE 
-            */
-            if(page > LIMIT){ 
-                break;
-            }
-            if(data && (data.length < BATCH_SIZE)) {
-                break;
-            }
-            if(!responseSent) {
-                responseSent = true;
-                res.status(200).json({
-                    message: 'New Keyword'
-                })
-            }
-        }
         
     } catch (error) {
         console.log(error)
@@ -112,9 +109,19 @@ router.get('/fetch-keyword-data', async (req, res) => {
         let page = req.query.page || 1;
         const LIMIT = 12;
 
-        if(!req.query.q) {
+        if(!req.query.keyword) {
             return res.sendStatus(500)
         }
+
+        let queryKeywords = req.query.keyword?.split(',');
+
+        queryKeywords = queryKeywords.map(word => {
+            return {
+                'keyword':  {
+                    [Op.iRegexp]: sequelize.literal(`'${word}'`)
+                }
+            }
+        })
 
         let { count, rows } = await grants.findAndCountAll({
             where: {
@@ -123,20 +130,22 @@ router.get('/fetch-keyword-data', async (req, res) => {
             include: [{
                 model: keywords,
                 where: {
-                    keyword:  {
-                        [Op.iRegexp]: sequelize.literal(`'${req.query.q}'`)
-                    }
+                    [Op.or]: queryKeywords
                 }
             }],
             order: [['id', 'ASC']],
             offset: (page - 1) * LIMIT,
             limit: LIMIT
         })
+        console.log(rows.map(r => r.title))
         return res.status(200).json({
             data: rows,
             page: page,
             total: count
         })
+
+
+
 
     } catch (error) {
         console.log(error)

@@ -13,7 +13,7 @@ const Home = () => {
   const [dataToShow, setDataToShow] = useState(0);
 
   const INITIAL_STATE = {
-    query: null,
+    query: [],
     data: [],
     page: 1,
     total: 0,
@@ -55,11 +55,8 @@ const Home = () => {
     try {
       setLoading(true);
       await ApiService.requestKeywordData(state.query);
-      setTimeout(() => {
-        fetchKeywordData();
-        fetchAllKeywords();
-        // setLoading(false)
-      }, 3000);
+      await fetchKeywordData();
+      await fetchAllKeywords();
     } catch (error) {
       console.log(error);
       setLoading(false);
@@ -68,10 +65,10 @@ const Home = () => {
     }
   };
 
-  const fetchKeywordData = async (e, status = 0) => {
+  const fetchKeywordData = async (status = 0) => {
     try {
       setLoading(true);
-      let res = await ApiService.fetchKeywordData(e || state.query, status);
+      let res = await ApiService.fetchKeywordData(state.query, status);
       dispatchReducer({ type: "FETCH_DATA", payload: res });
       setLoading(false);
     } catch (error) {
@@ -103,19 +100,19 @@ const Home = () => {
   };
 
   const setExistingKeyword = (e) => {
-    dispatchReducer({ type: "SET_QUERY", payload: e.target.value });
-    fetchKeywordData(e.target.value);
+    dispatchReducer({ type: "SET_QUERY", payload: [...state.query, { label: e.target.value, value: e.target.value }] });
+    // fetchKeywordData(e.target.value);
   };
 
   const changeOtherData = async (status) => {
-    setDataToShow(status);
-    await fetchKeywordData(state.query, status);
+    setDataToShow(parseInt(status));
+    await fetchKeywordData(status);
   };
 
   useEffect(() => {
     console.log("Running data useEffect");
     console.log(state.data.map((d) => d.id));
-    if (state.total > state.page * 10 && state.data.length < 5) {
+    if (state.total > state.page * 12 && state.data.length < 5) {
       fetchKeywordData();
     }
   }, [state.data]);
@@ -123,6 +120,7 @@ const Home = () => {
   useEffect(() => {
     fetchAllKeywords();
   }, []);
+
 
   return (
     <main>
@@ -141,7 +139,7 @@ const Home = () => {
             <div className="h4 mb-0">Grant Data</div>
             <div className="form-group">
               <select
-                class="form-control"
+                className="form-control"
                 value={dataToShow}
                 onChange={(e) => changeOtherData(e.target.value)}
               >

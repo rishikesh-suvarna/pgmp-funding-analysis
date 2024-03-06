@@ -30,7 +30,7 @@ fetch.interceptors.response.use(
 const ApiService = {};
 
 ApiService.requestKeywordData = (keyword) => {
-    console.log(keyword)
+    keyword = keyword.map(k => k.value).join(',');
     return fetch({
         url: `/request-keyword-data`,
         method: 'POST',
@@ -41,8 +41,9 @@ ApiService.requestKeywordData = (keyword) => {
 }
 
 ApiService.fetchKeywordData = (keyword, status) => {
+    keyword = keyword.map(k => k.value).join(',');
     return fetch({
-        url: `/fetch-keyword-data?q=${keyword}&status=${status}`,
+        url: `/fetch-keyword-data?keyword=${keyword}&status=${status}`,
         method: 'GET',
     })
 }
