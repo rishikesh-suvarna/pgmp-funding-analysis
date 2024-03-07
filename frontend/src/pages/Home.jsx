@@ -173,7 +173,7 @@ const Home = () => {
             {modalData.title}
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="">
           <div className="card h-100">
             <div className="card-body">
               <p>{modalData.abstract}</p>

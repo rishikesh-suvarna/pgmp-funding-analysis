@@ -5,10 +5,7 @@ const nsfService = {}
 
 nsfService.fetchKeywordData = async (keyword, page=1, num=25) => {
     try {
-        console.log(keyword, page, num)
-        console.log('==========================================================================================================================================')
-        console.log(`Fetching data for keyword ${keyword} at page number ${page}`)
-        console.log('==========================================================================================================================================')
+        // console.log(keyword, page, num)
         let response = await axios.get(`https://www.research.gov/awardapi-service/v1/awards.json?keyword=${keyword}&rpp=${num}&offset=${(num * page) + 1}&printFields=title,abstractText,id,agency,date,startDate,expDate,estimatedTotalAmt,fundsObligatedAmt,fundProgramName,awardee,publicationResearch`)
         let nsfGrantArray = [];
         response.data.response.award.forEach(award => {
