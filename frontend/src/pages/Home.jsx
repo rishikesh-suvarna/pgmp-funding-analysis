@@ -149,6 +149,18 @@ const Home = () => {
                 <option value={1}>Accepted Data</option>
                 <option value={2}>Rejected False Positives</option>
               </select>
+              <select
+                className="form-control"
+                value={dataToShow}
+                onChange={(e) => changeOtherData(e.target.value)}
+              >
+                <option value={0} selected>
+                  All Sources
+                </option>
+                <option value={1}>European Union</option>
+                <option value={2}>National Science Foundation</option>
+                <option value={3}>Gateway to Research</option>
+              </select>
             </div>
           </div>
           {state.data.length ? (
