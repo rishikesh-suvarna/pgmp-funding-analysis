@@ -46,6 +46,7 @@ exports.requestKeywordData = async (req, res) => {
                 // NSF Service
                 await nsfServiceFetchNewKeywordData(singleKeyword, _keyword)
                 // GTR Service
+                await gtrServiceFetchNewKeywordData(singleKeyword, _keyword)
             }
     
         })

@@ -86,3 +86,47 @@ exports.nsfServiceFetchNewKeywordData = async (singleKeyword, k) => {
     }
   }
 };
+
+exports.gtrServiceFetchNewKeywordData = async (singleKeyword, k) => {
+  let page = 1;
+  const BATCH_SIZE = 10;
+  const LIMIT = process.env.NODE_ENV === "development" ? 10 : 10000;
+
+  // GTR Service
+  while (true) {
+    // FETCH & SAVE FROM GTR API
+    let data = await gtrService.fetchKeywordData(
+      singleKeyword,
+      page,
+      BATCH_SIZE
+    );
+    data.forEach(async (_data) => {
+      try {
+        if (parseFloat(_data.total_funding) > 0) {
+          let exGrant = await grants.findOne({
+            where: {
+              unique_identifier: _data.unique_identifier,
+            },
+          });
+          if (exGrant) {
+            await exGrant.addKeyword(k.id);
+          } else {
+            let _grant = await grants.create(_data);
+            await _grant.addKeyword(k.id);
+          }
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    });
+    page++;
+
+    // RATE LIMITING & THROTTLING LOGIC HERE
+    if (page > LIMIT) {
+      break;
+    }
+    if (data && data.length < BATCH_SIZE) {
+      break;
+    }
+  }
+};
