@@ -29,10 +29,40 @@ fetch.interceptors.response.use(
 
 const ApiService = {};
 
-ApiService.fetchKeywordData = (keyword) => {
+ApiService.requestKeywordData = (keyword) => {
+    keyword = keyword.map(k => k.value).join(',');
     return fetch({
-        url: `/?q=${keyword}`,
-        method: 'GET'
+        url: `/request-keyword-data`,
+        method: 'POST',
+        data: {
+          keyword: keyword
+        }
+    })
+}
+
+ApiService.fetchKeywordData = (keyword, status) => {
+    keyword = keyword.map(k => k.value).join(',');
+    return fetch({
+        url: `/fetch-keyword-data?keyword=${keyword}&status=${status}`,
+        method: 'GET',
+    })
+}
+
+ApiService.setGrantStatus = (status, id) => {
+    return fetch({
+        url: `/set-grant-status`,
+        method: 'PUT',
+        data: {
+          status,
+          id
+        }
+    })
+}
+
+ApiService.fetchAllKeywords = () => {
+    return fetch({
+        url: `/fetch-keywords`,
+        method: 'GET',
     })
 }
 
