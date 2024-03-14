@@ -137,30 +137,34 @@ const Home = () => {
         <div className="container">
           <div className="d-flex align-items-center justify-content-between mb-3">
             <div className="h4 mb-0">Grant Data</div>
-            <div className="form-group">
-              <select
-                className="form-control"
-                value={dataToShow}
-                onChange={(e) => changeOtherData(e.target.value)}
-              >
-                <option value={0} selected>
-                  New Data
-                </option>
-                <option value={1}>Accepted Data</option>
-                <option value={2}>Rejected False Positives</option>
-              </select>
-              <select
-                className="form-control"
-                value={dataToShow}
-                onChange={(e) => changeOtherData(e.target.value)}
-              >
-                <option value={0} selected>
-                  All Sources
-                </option>
-                <option value={1}>European Union</option>
-                <option value={2}>National Science Foundation</option>
-                <option value={3}>Gateway to Research</option>
-              </select>
+            <div className="d-flex align-items-center gap-2">
+              <div className="form-group">
+                <select
+                  className="form-select"
+                  value={dataToShow}
+                  onChange={(e) => changeOtherData(e.target.value)}
+                >
+                  <option value={0} selected>
+                    New Data
+                  </option>
+                  <option value={1}>Accepted Data</option>
+                  <option value={2}>Rejected False Positives</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <select
+                  className="form-select"
+                  value={dataToShow}
+                  onChange={(e) => changeOtherData(e.target.value)}
+                >
+                  <option value={0} selected>
+                    All Sources
+                  </option>
+                  <option value={1}>European Union</option>
+                  <option value={2}>National Science Foundation</option>
+                  <option value={3}>Gateway to Research</option>
+                </select>
+              </div>
             </div>
           </div>
           {state.data.length ? (

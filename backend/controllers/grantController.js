@@ -2,7 +2,7 @@
 
 const { grants, keywords, sequelize } = require('../models');
 const { Op } = require('sequelize');
-const { euServiceFetchNewKeywordData, nsfServiceFetchNewKeywordData, gtrServiceFetchNewKeywordData } = require("../helpers");
+const { euServiceQueue, nsfServiceQueue, gtrServiceQueue } = require("../helpers");
 
 exports.requestKeywordData = async (req, res) => {
     try {
@@ -38,12 +38,14 @@ exports.requestKeywordData = async (req, res) => {
                     keyword: singleKeyword
                 })
     
-                // EU Service
-                await euServiceFetchNewKeywordData(singleKeyword, _keyword)
-                // NSF Service
-                await nsfServiceFetchNewKeywordData(singleKeyword, _keyword)
-                // GTR Service
-                await gtrServiceFetchNewKeywordData(singleKeyword, _keyword)
+                Promise.allSettled(
+                    [
+                        euServiceQueue(singleKeyword, _keyword),
+                        nsfServiceQueue(singleKeyword, _keyword),
+                        gtrServiceQueue(singleKeyword, _keyword)
+                        // Add More Services As Needed
+                    ]
+                )
             }
     
         })
