@@ -1,8 +1,5 @@
 'use strict'
 
-
-const euService = require("../services/EU");
-const nsfService = require("../services/NSF");
 const { grants, keywords, sequelize } = require('../models');
 const { Op } = require('sequelize');
 const { euServiceFetchNewKeywordData, nsfServiceFetchNewKeywordData, gtrServiceFetchNewKeywordData } = require("../helpers");

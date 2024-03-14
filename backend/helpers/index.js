@@ -8,14 +8,14 @@ exports.euServiceFetchNewKeywordData = async (singleKeyword, k) => {
   const BATCH_SIZE = 10;
   const LIMIT = process.env.NODE_ENV === "development" ? 10 : 10000;
 
-  // EU Service
-  while (true) {
-    // FETCH & SAVE FROM EU API
-    let data = await euService.fetchKeywordData(
-      singleKeyword,
-      page,
-      BATCH_SIZE
-    );
+  while(true) {
+    const data = await Promise.race([
+      euService.fetchKeywordData(singleKeyword,page,BATCH_SIZE),
+      new Promise((_, reject) => setTimeout(() => {}, 500)) // Timeout promise for throttling
+    ]);
+    if(process.env.NODE_ENV === "development") {
+      console.log(`Fetching from EU service for keyword: ${singleKeyword}, page: ${page}`)
+    }
     data.forEach(async (_data) => {
       if (parseFloat(_data.total_funding) > 0) {
         let exGrant = await grants.findOne({
@@ -32,8 +32,7 @@ exports.euServiceFetchNewKeywordData = async (singleKeyword, k) => {
       }
     });
     page++;
-
-    // RATE LIMITING & THROTTLING LOGIC HERE
+  
     if (page > LIMIT) {
       break;
     }
@@ -41,6 +40,7 @@ exports.euServiceFetchNewKeywordData = async (singleKeyword, k) => {
       break;
     }
   }
+
 };
 
 exports.nsfServiceFetchNewKeywordData = async (singleKeyword, k) => {
@@ -48,14 +48,16 @@ exports.nsfServiceFetchNewKeywordData = async (singleKeyword, k) => {
   const BATCH_SIZE = 20;
   const LIMIT = process.env.NODE_ENV === "development" ? 10 : 10000;
 
-  // NSF Service
   while (true) {
-    // FETCH & SAVE FROM NSF API
-    let data = await nsfService.fetchKeywordData(
-      singleKeyword,
-      page,
-      BATCH_SIZE
-    );
+    const data = await Promise.race([
+      nsfService.fetchKeywordData(singleKeyword,page,BATCH_SIZE),
+      new Promise((_, reject) => setTimeout(() => {}, 500)) // Timeout promise for throttling
+    ]);
+
+    if(process.env.NODE_ENV === "development") {
+      console.log(`Fetching from NSF service for keyword: ${singleKeyword}, page: ${page}`)
+    }
+
     data.forEach(async (_data) => {
       try {
         if (parseFloat(_data.total_funding) > 0) {
@@ -94,12 +96,15 @@ exports.gtrServiceFetchNewKeywordData = async (singleKeyword, k) => {
 
   // GTR Service
   while (true) {
-    // FETCH & SAVE FROM GTR API
-    let data = await gtrService.fetchKeywordData(
-      singleKeyword,
-      page,
-      BATCH_SIZE
-    );
+    const data = await Promise.race([
+      gtrService.fetchKeywordData(singleKeyword,page,BATCH_SIZE),
+      new Promise((_, reject) => setTimeout(() => {}, 500)) // Timeout promise for throttling
+    ]);
+
+    if(process.env.NODE_ENV === "development") {
+      console.log(`Fetching from GTR service for keyword: ${singleKeyword}, page: ${page}`)
+    }
+
     data.forEach(async (_data) => {
       try {
         if (parseFloat(_data.total_funding) > 0) {
