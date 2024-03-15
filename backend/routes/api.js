@@ -2,7 +2,7 @@
 
 const { grants, keywords, sequelize } = require('../models');
 const router = require('express').Router()
-const { requestKeywordData, fetchKeywordData, setGrantStatus } = require("../controllers/grantController");
+const { requestKeywordData, fetchKeywordData, setGrantStatus, exportKeywordData } = require("../controllers/grantController");
 const { fetchKeywords } = require('../controllers/keywordController');
 
 
@@ -13,6 +13,8 @@ router.get('/')
 router.post('/request-keyword-data', requestKeywordData)
 
 router.get('/fetch-keyword-data', fetchKeywordData)
+
+router.post('/export-keyword-data', exportKeywordData)
 
 router.put('/set-grant-status', setGrantStatus)
 

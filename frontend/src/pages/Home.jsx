@@ -109,6 +109,27 @@ const Home = () => {
     await fetchKeywordData(status);
   };
 
+  const exportData = async () => {
+    try {
+      let res = await ApiService.exportKeywordData(state.query, dataToShow)
+
+      // Create a URL for the blob
+      const url = window.URL.createObjectURL(res);
+
+      // Create a link element and click it to trigger the download
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'export.xlsx';
+      document.body.appendChild(link);
+      link.click();
+
+      // Clean up by revoking the URL
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   useEffect(() => {
     console.log("Running data useEffect");
     console.log(state.data.map((d) => d.id));
@@ -165,6 +186,7 @@ const Home = () => {
                   <option value={3}>Gateway to Research</option>
                 </select>
               </div>
+              <button onClick={exportData} className="btn btn-success">Export This Data</button>
             </div>
           </div>
           {state.data.length ? (

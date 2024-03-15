@@ -15,6 +15,8 @@ gtrService.fetchKeywordData = async (keyword, page, num) => {
                 abstract: data.abstractText,
                 start_date: moment(response2.data.fund[0].start).format('YYYY-MM-DD'),
                 end_date: moment(response2.data.fund[0].end).format('YYYY-MM-DD'),
+                daily_funding: parseFloat(response2.data.fund[0].valuePounds?.amount) / parseFloat(moment(response2.data.fund[0].end).diff(moment(response2.data.fund[0].start), 'days')),
+                monthly_funding: parseFloat(response2.data.fund[0].valuePounds?.amount) / parseFloat(moment(response2.data.fund[0].end).diff(moment(response2.data.fund[0].start), 'days') / 30.42),
                 total_funding: response2.data.fund[0].valuePounds?.amount,
                 status: data.status === 'Closed' ? 0 : 1,
                 link: data.href,

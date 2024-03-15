@@ -48,6 +48,15 @@ ApiService.fetchKeywordData = (keyword, status) => {
     })
 }
 
+ApiService.exportKeywordData = (keyword, status) => {
+    keyword = keyword.map(k => k.value).join(',');
+    return fetch({
+        url: `/export-keyword-data?keyword=${keyword}&status=${status}`,
+        method: 'POST',
+        responseType: 'blob'
+    })
+}
+
 ApiService.setGrantStatus = (status, id) => {
     return fetch({
         url: `/set-grant-status`,
