@@ -1,4 +1,5 @@
 const { default: axios } = require("axios")
+const moment = require('moment')
 
 const euService = {}
 
@@ -15,9 +16,11 @@ euService.fetchKeywordData = async (keyword, page, num, sortBy='Relevance:decrea
                 start_date: data.project.startDate,
                 end_date: data.project.endDate,
                 total_funding: data.project.totalCost,
+                daily_funding: parseFloat(data.project.totalCost) / parseFloat(moment(data.project.endDate).diff(moment(data.project.startDate), 'days')),
+                monthly_funding: parseFloat(data.project.totalCost) / parseFloat(moment(data.project.endDate).diff(moment(data.project.startDate), 'days') / 30.42),
                 status: data.project.status === 'SIGNED' ? 1 : 0,
                 link: null,
-                api_service: 'EU'
+                api_service: 'EU',
             })
         })
         return eUGrantArray

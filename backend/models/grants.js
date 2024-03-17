@@ -21,6 +21,8 @@ module.exports = (sequelize, DataTypes) => {
     start_date: DataTypes.DATE,
     end_date: DataTypes.DATE,
     total_funding: DataTypes.FLOAT,
+    daily_funding: DataTypes.FLOAT,
+    monthly_funding: DataTypes.FLOAT,
     status: DataTypes.INTEGER,
     link: DataTypes.STRING,
     confirmation_status: DataTypes.INTEGER, // 0 - NOT YET CONFIRMED, 1 - CONFIRMED, 2 - REJECTED
