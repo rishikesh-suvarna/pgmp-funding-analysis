@@ -11,6 +11,7 @@ const Home = () => {
   const [show, setShow] = useState(false);
   const [keywords, setKeywords] = useState([]);
   const [dataToShow, setDataToShow] = useState(0);
+  const [sourceDataToShow, setSourceDataToShow] = useState('ALL');
 
   const INITIAL_STATE = {
     query: [],
@@ -65,10 +66,10 @@ const Home = () => {
     }
   };
 
-  const fetchKeywordData = async (status = 0) => {
+  const fetchKeywordData = async (status = 0, source = 'ALL') => {
     try {
       setLoading(true);
-      let res = await ApiService.fetchKeywordData(state.query, status);
+      let res = await ApiService.fetchKeywordData(state.query, dataToShow, sourceDataToShow);
       dispatchReducer({ type: "FETCH_DATA", payload: res });
       setLoading(false);
     } catch (error) {
@@ -106,12 +107,17 @@ const Home = () => {
 
   const changeOtherData = async (status) => {
     setDataToShow(parseInt(status));
-    await fetchKeywordData(status);
+    // await fetchKeywordData(status);
+  };
+
+  const changeSourceData = async (source) => {
+    setSourceDataToShow(source);
+    // await fetchKeywordData(source);
   };
 
   const exportData = async () => {
     try {
-      let res = await ApiService.exportKeywordData(state.query, dataToShow)
+      let res = await ApiService.exportKeywordData(state.query, dataToShow, sourceDataToShow)
 
       // Create a URL for the blob
       const url = window.URL.createObjectURL(res);
@@ -142,6 +148,9 @@ const Home = () => {
     fetchAllKeywords();
   }, []);
 
+  useEffect(() => {
+    fetchKeywordData();
+  }, [dataToShow, sourceDataToShow]);
 
   return (
     <main>
@@ -175,15 +184,15 @@ const Home = () => {
               <div className="form-group">
                 <select
                   className="form-select"
-                  value={dataToShow}
-                  onChange={(e) => changeOtherData(e.target.value)}
+                  value={sourceDataToShow}
+                  onChange={(e) => changeSourceData(e.target.value)}
                 >
-                  <option value={0} selected>
+                  <option value={'All'} selected>
                     All Sources
                   </option>
-                  <option value={1}>European Union</option>
-                  <option value={2}>National Science Foundation</option>
-                  <option value={3}>Gateway to Research</option>
+                  <option value={'EU'}>EU</option>
+                  <option value={'NSF'}>NSF</option>
+                  <option value={'GTR'}>GTR</option>
                 </select>
               </div>
               <button onClick={exportData} className="btn btn-success">Export This Data</button>
