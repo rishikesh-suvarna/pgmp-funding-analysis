@@ -43,23 +43,16 @@ ApiService.requestKeywordData = (keyword) => {
 ApiService.fetchKeywordData = (keyword, status, source) => {
     keyword = keyword.map(k => k.value).join(',');
 
-    if (source = 'ALL') {
-      return fetch({
-          url: `/fetch-keyword-data?keyword=${keyword}&status=${status}`,
-          method: 'GET',
-      })
-    } else {
-      return fetch({
-          url: `/fetch-keyword-data?keyword=${keyword}&status=${status}&api_service=${source}`,
-          method: 'GET',
-      })
-    }
+    return fetch({
+        url: `/fetch-keyword-data?keyword=${keyword}&status=${status}&source=${source}`,
+        method: 'GET',
+    })
 }
 
-ApiService.exportKeywordData = (keyword, status) => {
+ApiService.exportKeywordData = (keyword, status, source) => {
     keyword = keyword.map(k => k.value).join(',');
     return fetch({
-        url: `/export-keyword-data?keyword=${keyword}&status=${status}`,
+        url: `/export-keyword-data?keyword=${keyword}&status=${status}&source=${source}`,
         method: 'POST',
         responseType: 'blob'
     })

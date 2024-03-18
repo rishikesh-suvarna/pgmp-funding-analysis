@@ -76,7 +76,7 @@ exports.fetchKeywordData = async (req, res) => {
             }
         })
 
-        let { count, rows } = await grants.findAndCountAll({
+        let queryBuilder = {
             where: {
                 confirmation_status: req.query.status || 0
             },
@@ -89,7 +89,14 @@ exports.fetchKeywordData = async (req, res) => {
             order: [['id', 'ASC']],
             offset: (page - 1) * LIMIT,
             limit: LIMIT
-        })
+        }
+
+        if(req.query.source && req.query.source !== 'ALL') {
+            queryBuilder.where['api_service'] = req.query.source
+        }
+
+        let { count, rows } = await grants.findAndCountAll(queryBuilder)
+
         return res.status(200).json({
             data: rows,
             page: page,
@@ -112,7 +119,7 @@ exports.exportKeywordData = async (req, res) => {
             }
         })
 
-        let data = await grants.findAll({
+        let queryBuilder = {
             where: {
                 confirmation_status: req.query.status || 0
             },
@@ -122,8 +129,14 @@ exports.exportKeywordData = async (req, res) => {
                     [Op.or]: queryKeywords
                 }
             }],
-            order: [['id', 'ASC']]
-        })
+            order: [['id', 'ASC']],
+        }
+
+        if(req.query.source && req.query.source !== 'ALL') {
+            queryBuilder.where['api_service'] = req.query.source
+        }
+
+        let data = await grants.findAll(queryBuilder)
 
         const workbook = new ExcelJS.Workbook();
         const worksheet = workbook.addWorksheet('Sheet 1');
@@ -137,7 +150,8 @@ exports.exportKeywordData = async (req, res) => {
             'Daily Funding',
             'Monthly Funding',
             'Status',
-            'Keyword'
+            'Keyword',
+            'Data Source'
         ]);
         
         data.forEach((data) => {
@@ -150,7 +164,8 @@ exports.exportKeywordData = async (req, res) => {
                 parseFloat((data.daily_funding).toFixed(2)),
                 parseFloat((data.monthly_funding).toFixed(2)),
                 data.status === 1 ? 'SIGNED' : 'CLOSED',
-                data.keywords[0].keyword
+                data.keywords[0].keyword,
+                data.api_service?.toString()
             ]);
         });
 

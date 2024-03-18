@@ -69,7 +69,7 @@ const Home = () => {
   const fetchKeywordData = async (status = 0, source = 'ALL') => {
     try {
       setLoading(true);
-      let res = await ApiService.fetchKeywordData(state.query, status, source);
+      let res = await ApiService.fetchKeywordData(state.query, dataToShow, sourceDataToShow);
       dispatchReducer({ type: "FETCH_DATA", payload: res });
       setLoading(false);
     } catch (error) {
@@ -107,17 +107,17 @@ const Home = () => {
 
   const changeOtherData = async (status) => {
     setDataToShow(parseInt(status));
-    await fetchKeywordData(status);
+    // await fetchKeywordData(status);
   };
 
   const changeSourceData = async (source) => {
     setSourceDataToShow(source);
-    await fetchKeywordData(source);
+    // await fetchKeywordData(source);
   };
 
   const exportData = async () => {
     try {
-      let res = await ApiService.exportKeywordData(state.query, dataToShow)
+      let res = await ApiService.exportKeywordData(state.query, dataToShow, sourceDataToShow)
 
       // Create a URL for the blob
       const url = window.URL.createObjectURL(res);
@@ -148,6 +148,9 @@ const Home = () => {
     fetchAllKeywords();
   }, []);
 
+  useEffect(() => {
+    fetchKeywordData();
+  }, [dataToShow, sourceDataToShow]);
 
   return (
     <main>
@@ -184,12 +187,12 @@ const Home = () => {
                   value={sourceDataToShow}
                   onChange={(e) => changeSourceData(e.target.value)}
                 >
-                  <option value={0} selected>
-                    ALL
+                  <option value={'All'} selected>
+                    All Sources
                   </option>
-                  <option value={1}>EU</option>
-                  <option value={2}>NSF</option>
-                  <option value={3}>GTR</option>
+                  <option value={'EU'}>EU</option>
+                  <option value={'NSF'}>NSF</option>
+                  <option value={'GTR'}>GTR</option>
                 </select>
               </div>
               <button onClick={exportData} className="btn btn-success">Export This Data</button>
