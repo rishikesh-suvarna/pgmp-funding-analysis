@@ -12,6 +12,7 @@ const Home = () => {
   const [keywords, setKeywords] = useState([]);
   const [dataToShow, setDataToShow] = useState(0);
   const [sourceDataToShow, setSourceDataToShow] = useState('ALL');
+  const [sortDataToShow, setSortDataToShow] = useState('relevance');
 
   const INITIAL_STATE = {
     query: [],
@@ -69,7 +70,7 @@ const Home = () => {
   const fetchKeywordData = async (status = 0, source = 'ALL') => {
     try {
       setLoading(true);
-      let res = await ApiService.fetchKeywordData(state.query, dataToShow, sourceDataToShow);
+      let res = await ApiService.fetchKeywordData(state.query, dataToShow, sourceDataToShow, sortDataToShow);
       dispatchReducer({ type: "FETCH_DATA", payload: res });
       setLoading(false);
     } catch (error) {
@@ -115,9 +116,14 @@ const Home = () => {
     // await fetchKeywordData(source);
   };
 
+  const changeSortData = async (source) => {
+    setSortDataToShow(source);
+    // await fetchKeywordData(source);
+  };
+
   const exportData = async () => {
     try {
-      let res = await ApiService.exportKeywordData(state.query, dataToShow, sourceDataToShow)
+      let res = await ApiService.exportKeywordData(state.query, dataToShow, sortDataToShow)
 
       // Create a URL for the blob
       const url = window.URL.createObjectURL(res);
@@ -150,7 +156,7 @@ const Home = () => {
 
   useEffect(() => {
     fetchKeywordData();
-  }, [dataToShow, sourceDataToShow]);
+  }, [dataToShow, sourceDataToShow, sortDataToShow]);
 
   return (
     <main>
@@ -193,6 +199,17 @@ const Home = () => {
                   <option value={'EU'}>EU</option>
                   <option value={'NSF'}>NSF</option>
                   <option value={'GTR'}>GTR</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <select
+                  className="form-select"
+                  value={sortDataToShow}
+                  onChange={(e) => changeSortData(e.target.value)}
+                >
+                  <option value={'relevance'} selected>Relevance</option>
+                  <option value={'amount'}>Grant Amount</option>
+                  <option value={'date'}>Date Created</option>
                 </select>
               </div>
               <button onClick={exportData} className="btn btn-success">Export This Data</button>
