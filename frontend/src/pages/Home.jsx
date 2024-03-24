@@ -208,8 +208,10 @@ const Home = () => {
                   onChange={(e) => changeSortData(e.target.value)}
                 >
                   <option value={'relevance'} selected>Relevance</option>
-                  <option value={'amount'}>Grant Amount</option>
-                  <option value={'date'}>Date Created</option>
+                  <option value={'funding_amount_desc'}>Amount: High to Low</option>
+                  <option value={'funding_amount_asc'}>Amount: Low to High</option>
+                  <option value={'date_started_desc'}>Start Date: Newest to Oldest</option>
+                  <option value={'date_started_asc'}>Start Date: Oldest to Newest</option>
                 </select>
               </div>
               <button onClick={exportData} className="btn btn-success">Export This Data</button>
