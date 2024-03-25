@@ -91,6 +91,26 @@ exports.fetchKeywordData = async (req, res) => {
             limit: LIMIT
         }
 
+        if(req.query.sort && req.query.sort === 'relevance') {
+            queryBuilder.order = [['title', 'ASC']]
+        }
+
+        if(req.query.sort && req.query.sort === 'funding_amount_asc') {
+            queryBuilder.order = [['total_funding', 'ASC']]
+        }
+
+        if(req.query.sort && req.query.sort === 'funding_amount_desc') {
+            queryBuilder.order = [['total_funding', 'DESC']]
+        }
+
+        if(req.query.sort && req.query.sort === 'date_started_asc') {
+            queryBuilder.order = [['start_date', 'ASC']]
+        }
+
+        if(req.query.sort && req.query.sort === 'date_started_desc') {
+            queryBuilder.order = [['start_date', 'DESC']]
+        }
+
         if(req.query.source && req.query.source !== 'ALL') {
             queryBuilder.where['api_service'] = req.query.source
         }
@@ -130,6 +150,26 @@ exports.exportKeywordData = async (req, res) => {
                 }
             }],
             order: [['id', 'ASC']],
+        }
+
+        if(req.query.sort && req.query.sort === 'relevance') {
+            queryBuilder.order = [['title', 'ASC']]
+        }
+
+        if(req.query.sort && req.query.sort === 'funding_amount_asc') {
+            queryBuilder.order = [['total_funding', 'ASC']]
+        }
+
+        if(req.query.sort && req.query.sort === 'funding_amount_desc') {
+            queryBuilder.order = [['total_funding', 'DESC']]
+        }
+
+        if(req.query.sort && req.query.sort === 'date_started_asc') {
+            queryBuilder.order = [['start_date', 'ASC']]
+        }
+
+        if(req.query.sort && req.query.sort === 'date_started_desc') {
+            queryBuilder.order = [['start_date', 'DESC']]
         }
 
         if(req.query.source && req.query.source !== 'ALL') {
