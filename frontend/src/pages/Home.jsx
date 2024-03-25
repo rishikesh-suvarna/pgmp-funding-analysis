@@ -149,8 +149,9 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    fetchKeywordData();
-  }, [dataToShow, sourceDataToShow]);
+    fetchKeywordData()
+  }, [dataToShow, sourceDataToShow])
+
 
   return (
     <main>
