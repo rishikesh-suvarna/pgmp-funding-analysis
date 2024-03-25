@@ -193,7 +193,7 @@ const Home = () => {
                   value={sourceDataToShow}
                   onChange={(e) => changeSourceData(e.target.value)}
                 >
-                  <option value={'All'} selected>
+                  <option value={'ALL'} selected>
                     All Sources
                   </option>
                   <option value={'EU'}>EU</option>

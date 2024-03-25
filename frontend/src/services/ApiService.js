@@ -40,19 +40,19 @@ ApiService.requestKeywordData = (keyword) => {
     })
 }
 
-ApiService.fetchKeywordData = (keyword, status, source) => {
+ApiService.fetchKeywordData = (keyword, status, source, sortBy) => {
     keyword = keyword.map(k => k.value).join(',');
 
     return fetch({
-        url: `/fetch-keyword-data?keyword=${keyword}&status=${status}&source=${source}`,
+        url: `/fetch-keyword-data?keyword=${keyword}&status=${status}&source=${source}&sort=${sortBy}`,
         method: 'GET',
     })
 }
 
-ApiService.exportKeywordData = (keyword, status, source) => {
+ApiService.exportKeywordData = (keyword, status, source, sortBy) => {
     keyword = keyword.map(k => k.value).join(',');
     return fetch({
-        url: `/export-keyword-data?keyword=${keyword}&status=${status}&source=${source}`,
+        url: `/export-keyword-data?keyword=${keyword}&status=${status}&source=${source}&sort=${sortBy}`,
         method: 'POST',
         responseType: 'blob'
     })
