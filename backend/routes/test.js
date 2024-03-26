@@ -2,7 +2,7 @@
 
 const { default: axios } = require("axios");
 const euService = require("../services/EU");
-const { grants, keywords } = require('../models');
+const { grants, keywords, search_history } = require('../models');
 const router = require('express').Router()
 
 router.get('/add', async (req, res) => {
@@ -76,7 +76,11 @@ router.get('/delete', async (req, res) => {
             where: {},
             // truncate: true
         })
-        return res.redirect('/test/view')
+        await search_history.destroy({
+            where: {},
+            // truncate: true
+        })
+        return res.sendStatus(200)
     } catch (error) {
         console.log(error)
     }

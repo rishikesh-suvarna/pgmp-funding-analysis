@@ -123,7 +123,7 @@ const Home = () => {
 
   const exportData = async () => {
     try {
-      let res = await ApiService.exportKeywordData(state.query, dataToShow, sortDataToShow)
+      let res = await ApiService.exportKeywordData(state.query, dataToShow, sourceDataToShow, sortDataToShow)
 
       // Create a URL for the blob
       const url = window.URL.createObjectURL(res);
@@ -131,7 +131,7 @@ const Home = () => {
       // Create a link element and click it to trigger the download
       const link = document.createElement('a');
       link.href = url;
-      link.download = 'export.xlsx';
+      link.download = `export-${moment().format('YYYY-MM-DD')}.xlsx`;
       document.body.appendChild(link);
       link.click();
 

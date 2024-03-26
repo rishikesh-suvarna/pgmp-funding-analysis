@@ -41,11 +41,11 @@ exports.requestKeywordData = async (req, res) => {
                     keyword: singleKeyword
                 })
     
-                Promise.allSettled(
+                await Promise.allSettled(
                     [
-                        euServiceQueue(singleKeyword, _keyword),
-                        nsfServiceQueue(singleKeyword, _keyword),
-                        gtrServiceQueue(singleKeyword, _keyword)
+                        euServiceQueue(singleKeyword, _keyword.id),
+                        nsfServiceQueue(singleKeyword, _keyword.id),
+                        gtrServiceQueue(singleKeyword, _keyword.id)
                         // Add More Services As Needed
                     ]
                 )
@@ -86,29 +86,32 @@ exports.fetchKeywordData = async (req, res) => {
                     [Op.or]: queryKeywords
                 }
             }],
-            order: [['id', 'ASC']],
+            order: [['id', 'DESC']],
             offset: (page - 1) * LIMIT,
             limit: LIMIT
         }
 
-        if(req.query.sort && req.query.sort === 'relevance') {
-            queryBuilder.order = [['title', 'ASC']]
-        }
-
-        if(req.query.sort && req.query.sort === 'funding_amount_asc') {
-            queryBuilder.order = [['total_funding', 'ASC']]
-        }
-
-        if(req.query.sort && req.query.sort === 'funding_amount_desc') {
-            queryBuilder.order = [['total_funding', 'DESC']]
-        }
-
-        if(req.query.sort && req.query.sort === 'date_started_asc') {
-            queryBuilder.order = [['start_date', 'ASC']]
-        }
-
-        if(req.query.sort && req.query.sort === 'date_started_desc') {
-            queryBuilder.order = [['start_date', 'DESC']]
+        if(req.query.sort) {
+            switch (req.query.sort) {
+                case 'relevance':
+                    queryBuilder.order = [['title', 'ASC']];
+                    break;
+                case 'funding_amount_asc':
+                    queryBuilder.order = [['total_funding', 'ASC']];
+                    break;
+                case 'funding_amount_desc':
+                    queryBuilder.order = [['total_funding', 'DESC']];
+                    break;
+                case 'date_started_asc':
+                    queryBuilder.order = [['start_date', 'ASC']];
+                    break;
+                case 'date_started_desc':
+                    queryBuilder.order = [['start_date', 'DESC']];
+                    break;
+                default: 
+                    queryBuilder.order = [['id', 'DESC']]
+                    break;
+            }
         }
 
         if(req.query.source && req.query.source !== 'ALL') {
@@ -149,27 +152,30 @@ exports.exportKeywordData = async (req, res) => {
                     [Op.or]: queryKeywords
                 }
             }],
-            order: [['id', 'ASC']],
+            order: [['id', 'DESC']],
         }
 
-        if(req.query.sort && req.query.sort === 'relevance') {
-            queryBuilder.order = [['title', 'ASC']]
-        }
-
-        if(req.query.sort && req.query.sort === 'funding_amount_asc') {
-            queryBuilder.order = [['total_funding', 'ASC']]
-        }
-
-        if(req.query.sort && req.query.sort === 'funding_amount_desc') {
-            queryBuilder.order = [['total_funding', 'DESC']]
-        }
-
-        if(req.query.sort && req.query.sort === 'date_started_asc') {
-            queryBuilder.order = [['start_date', 'ASC']]
-        }
-
-        if(req.query.sort && req.query.sort === 'date_started_desc') {
-            queryBuilder.order = [['start_date', 'DESC']]
+        if(req.query.sort) {
+            switch (req.query.sort) {
+                case 'relevance':
+                    queryBuilder.order = [['title', 'ASC']];
+                    break;
+                case 'funding_amount_asc':
+                    queryBuilder.order = [['total_funding', 'ASC']];
+                    break;
+                case 'funding_amount_desc':
+                    queryBuilder.order = [['total_funding', 'DESC']];
+                    break;
+                case 'date_started_asc':
+                    queryBuilder.order = [['start_date', 'ASC']];
+                    break;
+                case 'date_started_desc':
+                    queryBuilder.order = [['start_date', 'DESC']];
+                    break;
+                default: 
+                    queryBuilder.order = [['id', 'DESC']]
+                    break;
+            }
         }
 
         if(req.query.source && req.query.source !== 'ALL') {
@@ -179,7 +185,7 @@ exports.exportKeywordData = async (req, res) => {
         let data = await grants.findAll(queryBuilder)
 
         const workbook = new ExcelJS.Workbook();
-        const worksheet = workbook.addWorksheet('Sheet 1');
+        const worksheet = workbook.addWorksheet('Grant Data');
 
         worksheet.addRow([
             'ID', 
@@ -211,7 +217,7 @@ exports.exportKeywordData = async (req, res) => {
 
         // Set content type and disposition
         res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-        res.setHeader('Content-Disposition', 'attachment; filename=export.xlsx');
+        res.setHeader('Content-Disposition', `attachment; filename=export.xlsx`);
 
         // Serialize the workbook to a buffer
         const buffer = await workbook.xlsx.writeBuffer();

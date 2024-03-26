@@ -1,6 +1,6 @@
 'use strict'
 
-const { grants, keywords, sequelize } = require('../models');
+const { grants, keywords, search_history } = require('../models');
 const router = require('express').Router()
 const { requestKeywordData, fetchKeywordData, setGrantStatus, exportKeywordData } = require("../controllers/grantController");
 const { fetchKeywords } = require('../controllers/keywordController');
@@ -29,6 +29,11 @@ router.get('/delete-all', async (req, res) => {
             cascade: true
         })
         await keywords.destroy({
+            where: {},
+            truncate: true,
+            cascade: true
+        })
+        await search_history.destroy({
             where: {},
             truncate: true,
             cascade: true
