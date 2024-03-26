@@ -57,12 +57,28 @@ const Home = () => {
     try {
       setLoading(true);
       await ApiService.requestKeywordData(state.query);
-      await fetchKeywordData();
-      await fetchAllKeywords();
+      setTimeout(async () => {
+        await fetchKeywordData();
+        await fetchAllKeywords();
+        setLoading(false);
+      }, 3000)
     } catch (error) {
       console.log(error);
       setLoading(false);
-    } finally {
+    }
+  };
+
+  const requestFreshKeywordData = async () => {
+    try {
+      setLoading(true);
+      await ApiService.requestFreshKeywordData(state.query);
+      setTimeout(async () => {
+        await fetchKeywordData();
+        await fetchAllKeywords();
+        setLoading(false);
+      }, 3000)
+    } catch (error) {
+      console.log(error);
       setLoading(false);
     }
   };
@@ -165,6 +181,7 @@ const Home = () => {
         setQuery={setQuery}
         loading={loading}
         requestKeywordData={requestKeywordData}
+        requestFreshKeywordData={requestFreshKeywordData}
         keywords={keywords}
         setExistingKeyword={setExistingKeyword}
       />

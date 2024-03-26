@@ -21,9 +21,7 @@ exports.requestKeywordData = async (req, res) => {
             //EXISTING KEYWORD CHECK
             let existingKeyword = await keywords.findOne({
                 where: {
-                    keyword: {
-                        [Op.iRegexp]: sequelize.literal(`'${singleKeyword}'`),
-                    }
+                    keyword: singleKeyword
                 }
             })
             if(existingKeyword) {
@@ -41,7 +39,7 @@ exports.requestKeywordData = async (req, res) => {
                     keyword: singleKeyword
                 })
     
-                await Promise.allSettled(
+                await Promise.all(
                     [
                         euServiceQueue(singleKeyword, _keyword.id),
                         nsfServiceQueue(singleKeyword, _keyword.id),
@@ -54,6 +52,51 @@ exports.requestKeywordData = async (req, res) => {
         })
 
     } catch (error) {
+        console.log(error)
+        logger.log({
+            level: 'error',
+            message: error.message
+        })
+        return res.sendStatus(500)
+    }
+}
+
+exports.fetchFreshKeywordData = async (req, res) => {
+    try {
+        let query = req.body.keyword?.split(',');
+        let responseSent = false;
+
+        if(!query || query.length < 1) {
+            return res.sendStatus(500)
+        }
+
+        query.forEach(async (singleKeyword) => {
+            //EXISTING KEYWORD DELETE
+            let existingKeyword = await keywords.destroy({
+                where: {
+                    keyword: singleKeyword
+                }
+            })
+            // CREATE NEW KEYWORD
+            let _keyword = await keywords.create({
+                keyword: singleKeyword
+            })
+            res.sendStatus(200)
+            await Promise.all(
+                [
+                    euServiceQueue(singleKeyword, _keyword.id),
+                    nsfServiceQueue(singleKeyword, _keyword.id),
+                    gtrServiceQueue(singleKeyword, _keyword.id)
+                    // Add More Services As Needed
+                ]
+            )
+              
+        })
+    } catch (error) {
+        logger.log({
+            level: 'error',
+            message: error.message
+        })
         console.log(error)
         return res.sendStatus(500)
     }
@@ -127,6 +170,10 @@ exports.fetchKeywordData = async (req, res) => {
         })
     } catch (error) {
         console.log(error)
+        logger.log({
+            level: 'error',
+            message: error.message
+        })
         return res.sendStatus(500)
     }
 }
@@ -228,6 +275,10 @@ exports.exportKeywordData = async (req, res) => {
         // return res.status(200).json(data)
     } catch (error) {
         console.log(error)
+        logger.log({
+            level: 'error',
+            message: error.message
+        })
         return res.sendStatus(500)
     }
 }
@@ -247,6 +298,10 @@ exports.setGrantStatus = async (req, res) => {
         res.sendStatus(200);
     } catch (error) {
         console.log(error)
+        logger.log({
+            level: 'error',
+            message: error.message
+        })
         return res.sendStatus(500)
     }
 }

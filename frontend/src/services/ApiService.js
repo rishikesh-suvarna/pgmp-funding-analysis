@@ -40,6 +40,17 @@ ApiService.requestKeywordData = (keyword) => {
     })
 }
 
+ApiService.requestFreshKeywordData = (keyword) => {
+    keyword = keyword.map(k => k.value).join(',');
+    return fetch({
+        url: `/request-fresh-keyword-data`,
+        method: 'POST',
+        data: {
+          keyword: keyword
+        }
+    })
+}
+
 ApiService.fetchKeywordData = (keyword, status, source, sortBy) => {
     keyword = keyword.map(k => k.value).join(',');
 
