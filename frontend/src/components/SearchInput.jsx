@@ -1,6 +1,6 @@
 import Creatable from 'react-select/creatable';
 
-const SearchInput = ({query, requestKeywordData, loading, setQuery, keywords, setExistingKeyword}) => {
+const SearchInput = ({query, requestKeywordData, requestFreshKeywordData, loading, setQuery, keywords, setExistingKeyword}) => {
 
   return (
     <section className="search py-3">
@@ -36,11 +36,16 @@ const SearchInput = ({query, requestKeywordData, loading, setQuery, keywords, se
                 createOptionPosition={'last'}
                 isLoading={loading}
               />
-              <div className="form-group mt-2">
-                <button onClick={requestKeywordData} disabled={loading} className="btn btn-outline-primary">Search { loading ? <span className='ms-2 spinner-border spinner-border-sm text-primary'></span> : null }</button>
+              <div className="d-flex align-items-center gap-2">
+                <div className="form-group mt-2">
+                  <button onClick={requestKeywordData} disabled={loading} className="btn btn-outline-primary">Search</button>
+                </div>
+                <div className="form-group mt-2">
+                  <button onClick={requestFreshKeywordData} disabled={loading} className="btn btn-outline-secondary">Search Fresh Data</button>
+                </div>
               </div>
               {/* <div className="form-group mt-2">
-                <button onClick={fetchKeywordData} disabled={loading} className="btn btn-outline-primary">Fetch { loading ? <span className='ms-2 spinner-border spinner-border-sm text-primary'></span> : null }</button>
+                <button onClick={fetchKeywordData} disabled={loading} className="btn btn-outline-primary">Fetch</button>
               </div> */}
             </div>
           </div>

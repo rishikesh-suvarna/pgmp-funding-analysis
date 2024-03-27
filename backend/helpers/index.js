@@ -1,107 +1,204 @@
-const { grants } = require("../models");
+const { grants, search_history } = require("../models");
 const euService = require("../services/EU");
 const gtrService = require("../services/GTR");
 const nsfService = require("../services/NSF");
+const { logger } = require("../utils/logger");
 
 const saveDatatoDatabase = async (data, k) => {
-	try {
-		data.forEach(async (_data) => {
-			if (parseFloat(_data.total_funding) > 0) {
-			  let exGrant = await grants.findOne({
-				where: {
-				  unique_identifier: _data.unique_identifier,
-				},
-			  });
-			  if (exGrant) {
-				await exGrant.addKeyword(k.id);
-			  } else {
-				let _grant = await grants.create(_data);
-				await _grant.addKeyword(k.id);
-			  }
-			}
-		});
-	} catch (error) {
-		console.error(error)
-	}
-}
+  try {
+    data.forEach(async (_data) => {
+      if (parseFloat(_data.total_funding) > 0) {
+        let exGrant = await grants.findOne({
+          where: {
+            unique_identifier: _data.unique_identifier,
+          },
+        });
+        if (exGrant) {
+          await exGrant.addKeyword(k);
+        } else {
+          let _grant = await grants.create(_data);
+          await _grant.addKeyword(k);
+        }
+      }
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};
 
-exports.euServiceQueue = async (singleKeyword, k) => {
-  let page = 1;
-  const BATCH_SIZE = 10;
-  const LIMIT = process.env.NODE_ENV === "development" ? 10 : 10000;
-
-  while(true) {
-
-    const data = await Promise.race([
-      euService.fetchKeywordData(singleKeyword,page,BATCH_SIZE),
-      new Promise((_, reject) => setTimeout(() => {}, 500)) // Timeout promise for throttling
-    ]);
-
-    if(process.env.NODE_ENV === "development") {
-      console.log(`Fetching from EU service for keyword: ${singleKeyword}, page: ${page}`)
-    }
-
-    await saveDatatoDatabase(data, k)
-    
-    page++;
+exports.euServiceQueue = async (singleKeyword, k, startPage = 1) => {
+  try {
+    let page = startPage; //Default 1 passed in params
+    const BATCH_SIZE = 10;
+    const LIMIT = process.env.NODE_ENV === "development" ? 10 : 10000;
   
-    if (page > LIMIT || (data && data.length < BATCH_SIZE)) {
-		console.log(`EU Service fetching completed for keyword: ${singleKeyword}`)
-      	break;
-    }
-  }
+    let [s_history, created] = await search_history.findOrCreate({
+      where: {
+        keyword: singleKeyword,
+        source: "EU",
+        keyword_id: k,
+        is_completed: false,
+      }
+    });
+  
+    while (true) {
+      const [{status, value}, _] = await Promise.allSettled([
+        euService.fetchKeywordData(singleKeyword, page, BATCH_SIZE),
+        new Promise((_, reject) => setTimeout(() => {_()}, process.env.THROTTLING_TIME)), // Timeout promise for throttling
+      ]);
 
+      if (process.env.NODE_ENV === "development") {
+        console.log(`Fetching from EU service for keyword: ${singleKeyword}, page: ${page}`);
+      }
+      logger.log({
+        level: 'info',
+        message: `Fetching from EU service for keyword: ${singleKeyword}, page: ${page}`
+      })
+  
+      await saveDatatoDatabase(value, k);
+      s_history.last_fetched_page = page;
+      s_history.last_fetched_timestamp = new Date();
+      s_history.save()
+  
+      page++;
+  
+      if (page > LIMIT || (value && value.length < BATCH_SIZE)) {
+        console.log(`EU Service fetching completed for keyword: ${singleKeyword}`);
+        s_history.is_completed = true;
+        s_history.save();
+        logger.log({
+          level: 'info',
+          message: `EU Service fetching completed for keyword: ${singleKeyword}`
+        })
+        break;
+      }
+    }
+  } catch (error) {
+    console.log(error)
+    logger.log({
+      level: 'error',
+      message: error.message
+    })
+  }
 };
 
-exports.nsfServiceQueue = async (singleKeyword, k) => {
-  let page = 1;
-  const BATCH_SIZE = 20;
-  const LIMIT = process.env.NODE_ENV === "development" ? 10 : 10000;
-
-  while (true) {
-    const data = await Promise.race([
-      nsfService.fetchKeywordData(singleKeyword,page,BATCH_SIZE),
-      new Promise((_, reject) => setTimeout(() => {}, 500)) // Timeout promise for throttling
-    ]);
-
-    if(process.env.NODE_ENV === "development") {
-      console.log(`Fetching from NSF service for keyword: ${singleKeyword}, page: ${page}`)
+exports.nsfServiceQueue = async (singleKeyword, k, startPage = 1) => {
+  try {
+    let page = startPage;
+    const BATCH_SIZE = 20;
+    const LIMIT = process.env.NODE_ENV === "development" ? 10 : 10000;
+  
+    let [s_history, created] = await search_history.findOrCreate({
+      where: {
+        keyword: singleKeyword,
+        source: "NSF",
+        keyword_id: k,
+        is_completed: false,
+      }
+    });
+  
+    while (true) {
+      const [{status, value}, _] = await Promise.allSettled([
+        nsfService.fetchKeywordData(singleKeyword, page, BATCH_SIZE),
+        new Promise((_, reject) => setTimeout(() => {_()}, process.env.THROTTLING_TIME)), // Timeout promise for throttling
+      ]);
+  
+      if (process.env.NODE_ENV === "development") {
+        console.log(
+          `Fetching from NSF service for keyword: ${singleKeyword}, page: ${page}`
+        );
+      }
+      logger.log({
+        level: 'info',
+        message: `Fetching from NSF service for keyword: ${singleKeyword}, page: ${page}`
+      })
+  
+      await saveDatatoDatabase(value, k);
+      s_history.last_fetched_page = page;
+      s_history.last_fetched_timestamp = new Date();
+      s_history.save()
+  
+      page++;
+  
+      if (page > LIMIT || (value && value.length < BATCH_SIZE)) {
+        console.log(
+          `NSF Service fetching completed for keyword: ${singleKeyword}`
+        );
+        s_history.is_completed = true;
+        s_history.save();
+        logger.log({
+          level: 'info',
+          message: `NSF Service fetching completed for keyword: ${singleKeyword}`
+        })
+        break;
+      }
     }
-
-	await saveDatatoDatabase(data, k)
-
-    page++;
-
-    if (page > LIMIT || (data && data.length < BATCH_SIZE)) {
-		console.log(`NSF Service fetching completed for keyword: ${singleKeyword}`)
-		break;
-	}
+  } catch (error) {
+    console.log(error)
+    logger.log({
+      level: 'error',
+      message: error.message
+    })
   }
 };
 
-exports.gtrServiceQueue = async (singleKeyword, k) => {
-  let page = 1;
-  const BATCH_SIZE = 10;
-  const LIMIT = process.env.NODE_ENV === "development" ? 10 : 10000;
-
-  // GTR Service
-  while (true) {
-    const data = await Promise.race([
-      gtrService.fetchKeywordData(singleKeyword,page,BATCH_SIZE),
-      new Promise((_, reject) => setTimeout(() => {}, 500)) // Timeout promise for throttling
-    ]);
-
-    if(process.env.NODE_ENV === "development") {
-      console.log(`Fetching from GTR service for keyword: ${singleKeyword}, page: ${page}`)
+exports.gtrServiceQueue = async (singleKeyword, k, startPage = 1) => {
+  try {
+    let page = startPage;
+    const BATCH_SIZE = 10;
+    const LIMIT = process.env.NODE_ENV === "development" ? 10 : 10000;
+  
+    let [s_history, created] = await search_history.findOrCreate({
+      where: {
+        keyword: singleKeyword,
+        source: "GTR",
+        keyword_id: k,
+        is_completed: false,
+      }
+    });
+  
+    // GTR Service
+    while (true) {
+      const [{status, value}, _] = await Promise.allSettled([
+        gtrService.fetchKeywordData(singleKeyword, page, BATCH_SIZE),
+        new Promise((_, reject) => setTimeout(() => {_()}, process.env.THROTTLING_TIME)), // Timeout promise for throttling
+      ]);
+  
+      if (process.env.NODE_ENV === "development") {
+        console.log(
+          `Fetching from GTR service for keyword: ${singleKeyword}, page: ${page}`
+        );
+      }
+      logger.log({
+        level: 'info',
+        message: `Fetching from GTR service for keyword: ${singleKeyword}, page: ${page}`
+      })
+  
+      await saveDatatoDatabase(value, k);
+      s_history.last_fetched_page = page;
+      s_history.last_fetched_timestamp = new Date();
+      s_history.save()
+  
+      page++;
+  
+      if (page > LIMIT || (value && value.length < BATCH_SIZE)) {
+        console.log(
+          `GTR Service fetching completed for keyword: ${singleKeyword}`
+        );
+        s_history.is_completed = true;
+        s_history.save();
+        logger.log({
+          level: 'info',
+          message: `GTR Service fetching completed for keyword: ${singleKeyword}`
+        })
+        break;
+      }
     }
-
-	await saveDatatoDatabase(data, k)
-
-    page++;
-
-    if (page > LIMIT || (data && data.length < BATCH_SIZE)) {
-		console.log(`GTR Service fetching completed for keyword: ${singleKeyword}`)
-		break;
-	}
+  } catch (error) {
+    console.log(error)
+    logger.log({
+      level: 'error',
+      message: error.message
+    })
   }
 };

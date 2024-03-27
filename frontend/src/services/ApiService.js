@@ -40,11 +40,21 @@ ApiService.requestKeywordData = (keyword) => {
     })
 }
 
-ApiService.fetchKeywordData = (keyword, status, source, sortBy) => {
+ApiService.requestFreshKeywordData = (keyword) => {
     keyword = keyword.map(k => k.value).join(',');
-
     return fetch({
-        url: `/fetch-keyword-data?keyword=${keyword}&status=${status}&source=${source}&sort=${sortBy}`,
+        url: `/request-fresh-keyword-data`,
+        method: 'POST',
+        data: {
+          keyword: keyword
+        }
+    })
+}
+
+ApiService.fetchKeywordData = (keyword, status, source, sortBy, page) => {
+    keyword = keyword.map(k => k.value).join(',');
+    return fetch({
+        url: `/fetch-keyword-data?keyword=${keyword}&status=${status}&source=${source}&sort=${sortBy}&page=${page}`,
         method: 'GET',
     })
 }

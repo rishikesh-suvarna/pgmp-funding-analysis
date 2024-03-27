@@ -5,6 +5,7 @@ const { Op } = require('sequelize');
 const { euServiceQueue, nsfServiceQueue, gtrServiceQueue } = require("../helpers");
 const moment = require('moment');
 const ExcelJS = require('exceljs');
+const { logger } = require('../utils/logger');
 
 
 exports.requestKeywordData = async (req, res) => {
@@ -21,9 +22,7 @@ exports.requestKeywordData = async (req, res) => {
             //EXISTING KEYWORD CHECK
             let existingKeyword = await keywords.findOne({
                 where: {
-                    keyword: {
-                        [Op.iRegexp]: sequelize.literal(`'${singleKeyword}'`),
-                    }
+                    keyword: singleKeyword
                 }
             })
             if(existingKeyword) {
@@ -41,11 +40,11 @@ exports.requestKeywordData = async (req, res) => {
                     keyword: singleKeyword
                 })
     
-                Promise.allSettled(
+                await Promise.all(
                     [
-                        euServiceQueue(singleKeyword, _keyword),
-                        nsfServiceQueue(singleKeyword, _keyword),
-                        gtrServiceQueue(singleKeyword, _keyword)
+                        euServiceQueue(singleKeyword, _keyword.id),
+                        nsfServiceQueue(singleKeyword, _keyword.id),
+                        gtrServiceQueue(singleKeyword, _keyword.id)
                         // Add More Services As Needed
                     ]
                 )
@@ -54,6 +53,51 @@ exports.requestKeywordData = async (req, res) => {
         })
 
     } catch (error) {
+        console.log(error)
+        logger.log({
+            level: 'error',
+            message: error.message
+        })
+        return res.sendStatus(500)
+    }
+}
+
+exports.fetchFreshKeywordData = async (req, res) => {
+    try {
+        let query = req.body.keyword?.split(',');
+        let responseSent = false;
+
+        if(!query || query.length < 1) {
+            return res.sendStatus(500)
+        }
+
+        query.forEach(async (singleKeyword) => {
+            //EXISTING KEYWORD DELETE
+            let existingKeyword = await keywords.destroy({
+                where: {
+                    keyword: singleKeyword
+                }
+            })
+            // CREATE NEW KEYWORD
+            let _keyword = await keywords.create({
+                keyword: singleKeyword
+            })
+            res.sendStatus(200)
+            await Promise.all(
+                [
+                    euServiceQueue(singleKeyword, _keyword.id),
+                    nsfServiceQueue(singleKeyword, _keyword.id),
+                    gtrServiceQueue(singleKeyword, _keyword.id)
+                    // Add More Services As Needed
+                ]
+            )
+              
+        })
+    } catch (error) {
+        logger.log({
+            level: 'error',
+            message: error.message
+        })
         console.log(error)
         return res.sendStatus(500)
     }
@@ -86,29 +130,32 @@ exports.fetchKeywordData = async (req, res) => {
                     [Op.or]: queryKeywords
                 }
             }],
-            order: [['id', 'ASC']],
+            order: [['id', 'DESC']],
             offset: (page - 1) * LIMIT,
             limit: LIMIT
         }
 
-        if(req.query.sort && req.query.sort === 'relevance') {
-            queryBuilder.order = [['title', 'ASC']]
-        }
-
-        if(req.query.sort && req.query.sort === 'funding_amount_asc') {
-            queryBuilder.order = [['total_funding', 'ASC']]
-        }
-
-        if(req.query.sort && req.query.sort === 'funding_amount_desc') {
-            queryBuilder.order = [['total_funding', 'DESC']]
-        }
-
-        if(req.query.sort && req.query.sort === 'date_started_asc') {
-            queryBuilder.order = [['start_date', 'ASC']]
-        }
-
-        if(req.query.sort && req.query.sort === 'date_started_desc') {
-            queryBuilder.order = [['start_date', 'DESC']]
+        if(req.query.sort) {
+            switch (req.query.sort) {
+                case 'relevance':
+                    queryBuilder.order = [['title', 'ASC']];
+                    break;
+                case 'funding_amount_asc':
+                    queryBuilder.order = [['total_funding', 'ASC']];
+                    break;
+                case 'funding_amount_desc':
+                    queryBuilder.order = [['total_funding', 'DESC']];
+                    break;
+                case 'date_started_asc':
+                    queryBuilder.order = [['start_date', 'ASC']];
+                    break;
+                case 'date_started_desc':
+                    queryBuilder.order = [['start_date', 'DESC']];
+                    break;
+                default: 
+                    queryBuilder.order = [['id', 'DESC']]
+                    break;
+            }
         }
 
         if(req.query.source && req.query.source !== 'ALL') {
@@ -120,10 +167,14 @@ exports.fetchKeywordData = async (req, res) => {
         return res.status(200).json({
             data: rows,
             page: page,
-            total: count
+            total: Math.ceil(count/LIMIT),
         })
     } catch (error) {
         console.log(error)
+        logger.log({
+            level: 'error',
+            message: error.message
+        })
         return res.sendStatus(500)
     }
 }
@@ -149,27 +200,30 @@ exports.exportKeywordData = async (req, res) => {
                     [Op.or]: queryKeywords
                 }
             }],
-            order: [['id', 'ASC']],
+            order: [['id', 'DESC']],
         }
 
-        if(req.query.sort && req.query.sort === 'relevance') {
-            queryBuilder.order = [['title', 'ASC']]
-        }
-
-        if(req.query.sort && req.query.sort === 'funding_amount_asc') {
-            queryBuilder.order = [['total_funding', 'ASC']]
-        }
-
-        if(req.query.sort && req.query.sort === 'funding_amount_desc') {
-            queryBuilder.order = [['total_funding', 'DESC']]
-        }
-
-        if(req.query.sort && req.query.sort === 'date_started_asc') {
-            queryBuilder.order = [['start_date', 'ASC']]
-        }
-
-        if(req.query.sort && req.query.sort === 'date_started_desc') {
-            queryBuilder.order = [['start_date', 'DESC']]
+        if(req.query.sort) {
+            switch (req.query.sort) {
+                case 'relevance':
+                    queryBuilder.order = [['title', 'ASC']];
+                    break;
+                case 'funding_amount_asc':
+                    queryBuilder.order = [['total_funding', 'ASC']];
+                    break;
+                case 'funding_amount_desc':
+                    queryBuilder.order = [['total_funding', 'DESC']];
+                    break;
+                case 'date_started_asc':
+                    queryBuilder.order = [['start_date', 'ASC']];
+                    break;
+                case 'date_started_desc':
+                    queryBuilder.order = [['start_date', 'DESC']];
+                    break;
+                default: 
+                    queryBuilder.order = [['id', 'DESC']]
+                    break;
+            }
         }
 
         if(req.query.source && req.query.source !== 'ALL') {
@@ -179,7 +233,7 @@ exports.exportKeywordData = async (req, res) => {
         let data = await grants.findAll(queryBuilder)
 
         const workbook = new ExcelJS.Workbook();
-        const worksheet = workbook.addWorksheet('Sheet 1');
+        const worksheet = workbook.addWorksheet('Grant Data');
 
         worksheet.addRow([
             'ID', 
@@ -211,7 +265,7 @@ exports.exportKeywordData = async (req, res) => {
 
         // Set content type and disposition
         res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-        res.setHeader('Content-Disposition', 'attachment; filename=export.xlsx');
+        res.setHeader('Content-Disposition', `attachment; filename=export.xlsx`);
 
         // Serialize the workbook to a buffer
         const buffer = await workbook.xlsx.writeBuffer();
@@ -222,6 +276,10 @@ exports.exportKeywordData = async (req, res) => {
         // return res.status(200).json(data)
     } catch (error) {
         console.log(error)
+        logger.log({
+            level: 'error',
+            message: error.message
+        })
         return res.sendStatus(500)
     }
 }
@@ -241,6 +299,10 @@ exports.setGrantStatus = async (req, res) => {
         res.sendStatus(200);
     } catch (error) {
         console.log(error)
+        logger.log({
+            level: 'error',
+            message: error.message
+        })
         return res.sendStatus(500)
     }
 }

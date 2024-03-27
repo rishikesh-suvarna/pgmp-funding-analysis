@@ -10,7 +10,7 @@ const GrantCard = ({d, actionButton, setModalData, setShow, dataToShow}) => {
 
   return (
     <div className="col-lg-4 mb-4">
-      <div className="card h-100">
+      <div className="card h-100 bg-light-subtle">
       <button className="btn p-0 text-start" onClick={openModal}>
         <div className="card-header p-3">
           <div className="card-title h6 text-uppercase mb-0">{d.title}</div>
