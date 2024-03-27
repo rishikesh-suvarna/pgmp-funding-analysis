@@ -1,15 +1,21 @@
-const { grants, keywords, sequelize, search_history } = require('../models');
+const { search_history } = require('../models');
 const { euServiceQueue, nsfServiceQueue, gtrServiceQueue } = require('../helpers');
+const { logger } = require('./logger');
+const { Op } = require('sequelize');
 
 exports.fetchUnfinishedData = async () => {
     try {
         let data = await search_history.findAll({
             where: {
-                is_completed: false
+                is_completed: false,
+                retries: {
+                    [Op.lt]: 3
+                }
             }
         })
         if(data.length) {
             data.forEach(async (history) => {
+                history.increment({'retries': 1})
                 switch(history.source) {
                     case 'EU': {
                         await euServiceQueue(history.keyword, history.keyword_id, history.last_fetched_page)
@@ -33,7 +39,7 @@ exports.fetchUnfinishedData = async () => {
         }
     } catch (error) {
         console.log(error)
-        this.logger.log({
+        logger.log({
             level: 'error',
             message: error.message
         })

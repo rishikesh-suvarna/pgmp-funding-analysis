@@ -33,6 +33,10 @@ module.exports = (sequelize, DataTypes) => {
     last_fetched_timestamp: {
       type: DataTypes.DATE,
     },
+    retries: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0
+    },
     source: {
       type: DataTypes.STRING,
       allowNull: false

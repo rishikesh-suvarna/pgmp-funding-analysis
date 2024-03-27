@@ -5,6 +5,7 @@ const { Op } = require('sequelize');
 const { euServiceQueue, nsfServiceQueue, gtrServiceQueue } = require("../helpers");
 const moment = require('moment');
 const ExcelJS = require('exceljs');
+const { logger } = require('../utils/logger');
 
 
 exports.requestKeywordData = async (req, res) => {
@@ -166,7 +167,7 @@ exports.fetchKeywordData = async (req, res) => {
         return res.status(200).json({
             data: rows,
             page: page,
-            total: count
+            total: Math.ceil(count/LIMIT),
         })
     } catch (error) {
         console.log(error)

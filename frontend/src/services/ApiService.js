@@ -51,11 +51,10 @@ ApiService.requestFreshKeywordData = (keyword) => {
     })
 }
 
-ApiService.fetchKeywordData = (keyword, status, source, sortBy) => {
+ApiService.fetchKeywordData = (keyword, status, source, sortBy, page) => {
     keyword = keyword.map(k => k.value).join(',');
-
     return fetch({
-        url: `/fetch-keyword-data?keyword=${keyword}&status=${status}&source=${source}&sort=${sortBy}`,
+        url: `/fetch-keyword-data?keyword=${keyword}&status=${status}&source=${source}&sort=${sortBy}&page=${page}`,
         method: 'GET',
     })
 }

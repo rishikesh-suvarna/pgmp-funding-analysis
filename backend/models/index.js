@@ -16,9 +16,21 @@ if (config.use_env_variable) {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
-sequelize.authenticate()
-.then(res => console.log(`Database "${config.database}" Connected with User "${config.username}"`))
-.catch(err => console.log(err))
+(async () => {
+  try {
+    await sequelize.authenticate();
+    // let res = await sequelize.query('CREATE DATABASE funding_analysis;') //FETCH ALL TABLES
+    // await sequelize.query('TRUNCATE TABLE admins;')
+    // await sequelize.query('TRUNCATE TABLE donors;')
+    // await sequelize.query('ALTER SEQUENCE admins_id_seq RESTART WITH 1;')
+    // await sequelize.query('ALTER SEQUENCE donors_id_seq RESTART WITH 1;')
+    // console.log(res)
+    console.log('Database connected successfully!')
+  } catch (error) {
+    console.log(error)
+    console.log('Database not connected')
+  }
+})()
 
 fs
   .readdirSync(__dirname)
