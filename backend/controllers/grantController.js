@@ -138,7 +138,7 @@ exports.fetchKeywordData = async (req, res) => {
         if(req.query.sort) {
             switch (req.query.sort) {
                 case 'relevance':
-                    queryBuilder.order = [['title', 'ASC']];
+                    queryBuilder.order = [['id', 'ASC']];
                     break;
                 case 'funding_amount_asc':
                     queryBuilder.order = [['total_funding', 'ASC']];
@@ -206,7 +206,7 @@ exports.exportKeywordData = async (req, res) => {
         if(req.query.sort) {
             switch (req.query.sort) {
                 case 'relevance':
-                    queryBuilder.order = [['title', 'ASC']];
+                    queryBuilder.order = [['id', 'ASC']];
                     break;
                 case 'funding_amount_asc':
                     queryBuilder.order = [['total_funding', 'ASC']];
