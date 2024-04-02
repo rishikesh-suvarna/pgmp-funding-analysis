@@ -9,12 +9,10 @@ const winston = require('winston');
 const db = require('./models')
 const apiRoutes = require('./routes/api');
 const testRoutes = require('./routes/test');
-const { fetchUnfinishedData } = require('./utils');
 const { logger } = require('./utils/logger');
 
 // Initializing express
 const app = express();
-
 
 app.use(express.json());
 app.use(cors({
@@ -22,18 +20,11 @@ app.use(cors({
   optionsSuccessStatus: 200,
 }))
 
-if (process.env.NODE_ENV !== 'production') {
-  // logger.add(new winston.transports.Console({
-  //   format: winston.format.simple(),
-  // }));
-}
-
-fetchUnfinishedData()
-
-
 // API Routes
 app.use("/api", apiRoutes);
 app.use("/test", testRoutes);
+
+require('./cron')
 
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
