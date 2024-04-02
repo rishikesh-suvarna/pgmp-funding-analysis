@@ -2,7 +2,7 @@ const cron = require('node-cron');
 const { fetchUnfinishedData } = require('../utils');
 
 // This cron job runs every day at 12 AM
-const task = cron.schedule('* * * * *', async () => {
+const task = cron.schedule('0 0 * * *', async () => {
     await fetchUnfinishedData()
 });
 
