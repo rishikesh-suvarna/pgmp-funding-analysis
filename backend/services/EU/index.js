@@ -1,3 +1,5 @@
+// This service functions to structure the data receieved from differnt APIs according to our database schema.
+
 const { default: axios } = require("axios")
 const moment = require('moment')
 

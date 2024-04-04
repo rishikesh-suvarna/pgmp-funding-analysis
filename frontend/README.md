@@ -1,21 +1,32 @@
-# Funding Analysis Frontend
+# Funding Analysis - Frontend
 
-Steps to perform before running this application for the first time.
+
+## Tech Stack
+
+**Client:** React
+
+**Server:** Node, Express
+
 
 ## Installation
 
-- Use the package manager [npm](https://www.npmjs.com/) to install packages.
+**Node Version: 18.19.0 (lts/hydrogen)**
+
+1. Install packages with with npm
 
 ```bash
-npm i
+  npm i
 ```
 
-## Running The Application
-```
-npm start
+2. Run the application
+
+```bash
+  npm start
 ```
 
-## Contributing
 
-Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`REACT_APP_BASE_URL`: Backend / API URL for the application.
