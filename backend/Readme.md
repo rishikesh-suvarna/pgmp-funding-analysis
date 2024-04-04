@@ -1,28 +1,58 @@
-# Funding Analysis Backend
+# Funding Analysis - Backend
 
-Steps to perform before running this application for the first time.
+
+## Tech Stack
+
+**Client:** React
+
+**Server:** Node, Express
+
 
 ## Installation
 
-- Use the package manager [npm](https://www.npmjs.com/) to install packages.
+**Node Version: 18.19.0 (lts/hydrogen)**
+
+1. Install packages with with npm
 
 ```bash
-npm i
-```
-- Head to config folder and create a file named 'config.json' and copy contents from 'config.example.json' to 'config.json'
-
-- Change config.json's content according to your environment variables.
-- Run Migrations
-```
-npx sequelize-cli db:migrate
+  npm i
 ```
 
-## Running The Application
-```
-npm start
+2. Setting up environment variables
+
+
+Copy & paste the contents of .env.example file into a new .env file and add the environment variables.
+
+
+3. Once you've set the environment variables locally, you need to run the database migrations
+
+```bash
+  npx sequelize-cli db:migrate
 ```
 
-## Contributing
+4. Run the application
 
-Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
+```bash
+  npm start
+```
+
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`NODE_ENV`: Environmenton which the projectis running, can be development / production / testing
+
+`PORT`: Port on which you want the application to run
+
+`WHITELIST`: IPs / Domains to which we grant the access to our application for CORS. Ideally address on which your frontend application will run.
+
+`THROTTLING_TIME`: Time taken between each API calls to prevent rate-limiting.
+
+`DB_NAME`: Database Name
+
+`DB_USER`: Database User
+
+`DB_PASSWORD`: Database Password
+
+`DB_HOST`: Database Host

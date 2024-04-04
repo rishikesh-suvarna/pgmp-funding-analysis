@@ -66,6 +66,7 @@ router.get('/view-keywords', async (req, res) => {
     }
 })
 
+// Testing Route to truncate database.
 router.get('/delete', async (req, res) => {
     try {
         await grants.destroy({
