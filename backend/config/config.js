@@ -10,17 +10,19 @@ module.exports = {
       "logging": false
     },
     "test": {
-      "username": "root",
-      "password": null,
-      "database": "database_test",
-      "host": "localhost",
-      "dialect": "postgres"
+      "username": process.env.DB_USER,
+      "password": process.env.DB_PASSWORD,
+      "database": process.env.DB_NAME,
+      "host": process.env.DB_HOST,
+      "dialect": "postgres",
+      "logging": false
     },
     "production": {
-      "username": "root",
-      "password": null,
-      "database": "database_production",
-      "host": "localhost",
-      "dialect": "postgres"
+      "username": process.env.DB_USER,
+      "password": process.env.DB_PASSWORD,
+      "database": process.env.DB_NAME,
+      "host": process.env.DB_HOST,
+      "dialect": "postgres",
+      "logging": false
     }
 }
