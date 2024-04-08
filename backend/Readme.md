@@ -41,7 +41,7 @@ Copy & paste the contents of .env.example file into a new .env file and add the 
 
 To run this project, you will need to add the following environment variables to your .env file
 
-`NODE_ENV`: Environmenton which the projectis running, can be development / production / testing
+`NODE_ENV`: Environment on which the project is running, can be development / production / testing
 
 `PORT`: Port on which you want the application to run
 
