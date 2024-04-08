@@ -238,6 +238,7 @@ exports.exportKeywordData = async (req, res) => {
         worksheet.addRow([
             'ID', 
             'Title', 
+            'Abstract',
             'Start Date',
             'End Date',
             'Total Funding',
@@ -245,13 +246,15 @@ exports.exportKeywordData = async (req, res) => {
             'Monthly Funding',
             'Status',
             'Keyword',
-            'Data Source'
+            'Data Source',
+            'Confirmation Status'
         ]);
         
         data.forEach((data) => {
             worksheet.addRow([
                 data.id,
                 data.title,
+                data.abstract,
                 moment(data.start_date).format('YYYY-MM-DD'),
                 moment(data.end_date).format('YYYY-MM-DD'),
                 data.total_funding,
@@ -259,7 +262,8 @@ exports.exportKeywordData = async (req, res) => {
                 parseFloat((data.monthly_funding).toFixed(2)),
                 data.status === 1 ? 'SIGNED' : 'CLOSED',
                 data.keywords[0].keyword,
-                data.api_service?.toString()
+                data.api_service?.toString(),
+                data.confirmation_status
             ]);
         });
 
