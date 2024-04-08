@@ -129,6 +129,7 @@ const Home = () => {
         type: "SET_DATA",
         payload: state.data.filter((d) => d.id !== id),
       });
+      setShow(false)
     } catch (error) {
       setLoading(false);
     } finally {
@@ -394,6 +395,16 @@ const Home = () => {
                 </p>
               )}
             </div>
+            <div className="card-footer">
+            <div className="d-flex align-items-center justify-content-between">
+              <button className="btn btn-outline-success w-100 me-2" onClick={() => actionButton(1, modalData.id)}>
+                Approve
+              </button>
+              <button className="btn btn-outline-danger w-100" onClick={() => actionButton(2, modalData.id)}>
+                Reject
+              </button>
+            </div>
+          </div>
           </div>
         </Modal.Body>
       </Modal>
