@@ -129,6 +129,7 @@ const Home = () => {
         type: "SET_DATA",
         payload: state.data.filter((d) => d.id !== id),
       });
+      setShow(false)
     } catch (error) {
       setLoading(false);
     } finally {
