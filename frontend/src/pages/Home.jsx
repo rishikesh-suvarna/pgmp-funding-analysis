@@ -425,11 +425,17 @@ const Home = () => {
                   <span className="badge bg-success">CLOSED</span>
                 </p>
               )}
-              <p className="relevance_score">
-                <span className="badge bg-primary">
-                  Keyword Relevance Score: {modalData.relevance_score}%
-                </span>
-              </p>
+              {
+                !modalData.relevance_score
+                ?
+                  <p className="relevance_score">
+                    <span className={`badge bg-secondary`}>Keyword Relevance Score: N/A</span>
+                  </p>
+                :
+                  <p className="relevance_score">
+                    <span className={`badge ${modalData.relevance_score > 20 ? 'bg-primary' : 'bg-danger'}`}>Keyword Relevance Score: {modalData.relevance_score}%</span>
+                  </p>
+              }
             </div>
             <div className="card-footer">
               <div className="d-flex align-items-center justify-content-between">

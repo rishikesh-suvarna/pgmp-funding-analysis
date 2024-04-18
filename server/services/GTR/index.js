@@ -2,6 +2,7 @@
 
 const { default: axios } = require("axios")
 const moment = require("moment");
+const { logger } = require("../../utils/logger");
 
 
 const gtrService = {}
@@ -27,7 +28,12 @@ gtrService.fetchKeywordData = async (keyword, page, num) => {
         }))
         return gtrGrantArray;
     } catch (error) {
-        console.log(error)
+        // console.log(error)
+        logger.log({
+            level: 'error',
+            message: `GTR API Error for page: ${page} on keyword: ${keyword}, Error Stack Trace: ${error}`,
+        })
+        console.log("GTR API Error")
     }
 }
 

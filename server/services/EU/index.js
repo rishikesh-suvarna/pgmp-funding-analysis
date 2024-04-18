@@ -2,6 +2,8 @@
 
 const { default: axios } = require("axios")
 const moment = require('moment')
+const { logger } = require("../../utils/logger")
+
 
 const euService = {}
 
@@ -27,7 +29,12 @@ euService.fetchKeywordData = async (keyword, page, num, sortBy='Relevance:decrea
         })
         return eUGrantArray
     } catch (error) {
-        console.log(error)
+        // console.log(error)
+        logger.log({
+            level: 'error',
+            message: `EU API Error for page: ${page} on keyword: ${keyword}, Error Stack Trace: ${error}`,
+        })
+        console.log("EU API Error")
     }
 }
 

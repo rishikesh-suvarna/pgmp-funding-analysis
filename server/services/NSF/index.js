@@ -2,6 +2,7 @@
 
 const { default: axios } = require("axios");
 const moment = require("moment");
+const { logger } = require("../../utils/logger");
 
 const nsfService = {}
 
@@ -30,7 +31,12 @@ nsfService.fetchKeywordData = async (keyword, page=1, num=25) => {
         return nsfGrantArray;
 
     } catch (error) {
-        console.log(error)
+        // console.log(error)
+        logger.log({
+            level: 'error',
+            message: `NSF API Error for page: ${page} on keyword: ${keyword}, Error Stack Trace: ${error}`,
+        })
+        console.log("NSF API Error")
     }
 }
 

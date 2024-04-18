@@ -57,9 +57,17 @@ const GrantCard = ({d, actionButton, setModalData, setShow, dataToShow}) => {
             :
             null
           }
-          <p className="relevance_score">
-            <span className={`badge ${d.relevance_score > 20 ? 'bg-primary' : 'bg-danger'}`}>Keyword Relevance Score: {d.relevance_score}%</span>
-          </p>
+          {
+            !d.relevance_score
+            ?
+              <p className="relevance_score">
+                <span className={`badge bg-secondary`}>Keyword Relevance Score: N/A</span>
+              </p>
+            :
+              <p className="relevance_score">
+                <span className={`badge ${d.relevance_score > 20 ? 'bg-primary' : 'bg-danger'}`}>Keyword Relevance Score: {d.relevance_score}%</span>
+              </p>
+          }
         </div>
         {
           (dataToShow === 0)

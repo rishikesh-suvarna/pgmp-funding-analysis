@@ -8,32 +8,56 @@ const { logger } = require("../utils/logger");
 
 const saveDatatoDatabase = async (singleKeyword, k, data) => {
   try {
-    console.log(data.length)
-    data.forEach(async (_data) => {
-      let response = await axios.post(`${process.env.BACKEND_URL}/calculate_relevance`, {
-        keyword: singleKeyword,
-        description: _data.abstract
-      })
-      // console.log(response.data?.relevance_score)
-      if (parseFloat(_data.total_funding) > 0) {
-        let exGrant = await grants.findOne({
-          where: {
-            unique_identifier: _data.unique_identifier,
-          },
-        });
-        if (exGrant) {
-          await exGrant.addKeyword(k);
-        } else {
-          _data.relevance_score = response.data?.relevance_score
-          let _grant = await grants.create(_data);
-          await _grant.addKeyword(k);
+    if(data?.length) {
+      data.forEach(async (_data) => {
+        if (parseFloat(_data.total_funding) > 0) {
+          let exGrant = await grants.findOne({
+            where: {
+              unique_identifier: _data.unique_identifier,
+            },
+          });
+          if (exGrant) {
+            await exGrant.addKeyword(k);
+          } else {
+            let response = await calculateRelevance(singleKeyword, _data.abstract)
+            _data.relevance_score = response
+            let _grant = await grants.create(_data);
+            await _grant.addKeyword(k);
+          }
         }
-      }
-    });
+      });
+    } else {
+      logger.log({
+        level: "error",
+        message: `Fetched data error ${error}`,
+      });
+      console.error(`Fetched data error ${error}`);
+    }
   } catch (error) {
-    // console.error(error);
+    logger.log({
+      level: "error",
+      message: `Database save error ${error}`,
+    });
+    console.error(`Database save error ${error}`);
   }
 };
+
+const calculateRelevance = async (singleKeyword, abstract) => {
+  try {
+    let response = await axios.post(`${process.env.BACKEND_URL}/calculate_relevance`, {
+      keyword: singleKeyword,
+      description: abstract
+    })
+    return response.data?.relevance_score
+  } catch (error) {
+    logger.log({
+      level: "error",
+      message: `Relevance fetch error ${error}`,
+    });
+    console.error(`Relevance fetch error ${error}`);
+    return null
+  }
+}
 
 exports.euServiceQueue = async (singleKeyword, k, startPage = 1) => {
   try {
@@ -155,7 +179,7 @@ exports.gtrServiceQueue = async (singleKeyword, k, startPage = 1) => {
   try {
     let page = startPage;
     const BATCH_SIZE = 10;
-    const LIMIT = process.env.NODE_ENV === "development" ? 1 : 10000;
+    const LIMIT = process.env.NODE_ENV === "development" ? 10 : 10000;
   
     let [s_history, created] = await search_history.findOrCreate({
       where: {

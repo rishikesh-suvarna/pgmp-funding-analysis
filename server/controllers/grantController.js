@@ -42,8 +42,8 @@ exports.requestKeywordData = async (req, res) => {
     
                 await Promise.all(
                     [
-                        // euServiceQueue(singleKeyword, _keyword.id),
-                        // nsfServiceQueue(singleKeyword, _keyword.id),
+                        euServiceQueue(singleKeyword, _keyword.id),
+                        nsfServiceQueue(singleKeyword, _keyword.id),
                         gtrServiceQueue(singleKeyword, _keyword.id)
                         // Add More Services As Needed
                     ]
@@ -85,8 +85,8 @@ exports.fetchFreshKeywordData = async (req, res) => {
             res.sendStatus(200)
             await Promise.all(
                 [
-                    // euServiceQueue(singleKeyword, _keyword.id),
-                    // nsfServiceQueue(singleKeyword, _keyword.id),
+                    euServiceQueue(singleKeyword, _keyword.id),
+                    nsfServiceQueue(singleKeyword, _keyword.id),
                     gtrServiceQueue(singleKeyword, _keyword.id)
                     // Add More Services As Needed
                 ]
