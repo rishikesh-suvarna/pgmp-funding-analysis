@@ -10,7 +10,7 @@ const GrantCard = ({d, actionButton, setModalData, setShow, dataToShow}) => {
 
   return (
     <div className="col-lg-4 mb-4">
-      <div className="card h-100 bg-light-subtle">
+      <div className="card h-100">
       <button className="btn p-0 text-start" onClick={openModal}>
         <div className="card-header p-3">
           <div className="card-title h6 text-uppercase mb-0">{d.title}</div>
@@ -56,6 +56,17 @@ const GrantCard = ({d, actionButton, setModalData, setShow, dataToShow}) => {
               </div>
             :
             null
+          }
+          {
+            !d.relevance_score
+            ?
+              <p className="relevance_score">
+                <span className={`badge bg-secondary`}>Keyword Relevance Score: N/A</span>
+              </p>
+            :
+              <p className="relevance_score">
+                <span className={`badge ${d.relevance_score > 20 ? 'bg-primary' : 'bg-danger'}`}>Keyword Relevance Score: {d.relevance_score}%</span>
+              </p>
           }
         </div>
         {

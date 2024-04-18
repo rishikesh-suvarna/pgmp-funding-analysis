@@ -4,19 +4,19 @@ import GrantCard from "../components/GrantCard";
 import SearchInput from "../components/SearchInput";
 import { Modal } from "react-bootstrap";
 import moment from "moment";
-import InfiniteScroll from 'react-infinite-scroll-component';
+import InfiniteScroll from "react-infinite-scroll-component";
 import Grants from "../components/Grants";
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
-  const [errors, setErrors] = useState(null)
+  const [errors, setErrors] = useState(null);
   const [modalData, setModalData] = useState({});
   const [show, setShow] = useState(false);
   const [keywords, setKeywords] = useState([]);
   const [dataToShow, setDataToShow] = useState(0);
-  const [sourceDataToShow, setSourceDataToShow] = useState('ALL');
-  const [sortDataToShow, setSortDataToShow] = useState('relevance');
-  const [page, setPage] = useState(1)
+  const [sourceDataToShow, setSourceDataToShow] = useState("ALL");
+  const [sortDataToShow, setSortDataToShow] = useState("relevance");
+  const [page, setPage] = useState(1);
 
   const INITIAL_STATE = {
     query: [],
@@ -60,44 +60,22 @@ const Home = () => {
   const requestKeywordData = async () => {
     try {
       setLoading(true);
-      if(state.query.length) {
+      if (state.query.length) {
         dispatchReducer({
-          type: 'RESET_DATA'
-        })
-        setPage(1)
+          type: "RESET_DATA",
+        });
+        setPage(1);
         await ApiService.requestKeywordData(state.query);
-        setErrors(null)
+        setErrors(null);
         setTimeout(async () => {
           await fetchKeywordData();
           await fetchAllKeywords();
           setLoading(false);
-        }, 3000)
+        }, 3000);
       } else {
         setErrors({
-          message: 'Please enter a keyword to continue'
-        })
-        setLoading(false);
-      }
-    } catch (error) {
-      console.log(error);
-      setLoading(false);
-    }
-  };
-  
-  const requestFreshKeywordData = async () => {
-    try {
-      setLoading(true);
-      if(state.query.length) {
-        await ApiService.requestFreshKeywordData(state.query);
-        setTimeout(async () => {
-          await fetchKeywordData();
-          await fetchAllKeywords();
-          setLoading(false);
-        }, 3000)
-      } else {
-        setErrors({
-          message: 'Please enter a keyword to continue'
-        })
+          message: "Please enter a keyword to continue",
+        });
         setLoading(false);
       }
     } catch (error) {
@@ -106,10 +84,38 @@ const Home = () => {
     }
   };
 
-  const fetchKeywordData = async (status = 0, source = 'ALL') => {
+  const requestFreshKeywordData = async () => {
     try {
       setLoading(true);
-      let res = await ApiService.fetchKeywordData(state.query, dataToShow, sourceDataToShow, sortDataToShow, page);
+      if (state.query.length) {
+        await ApiService.requestFreshKeywordData(state.query);
+        setTimeout(async () => {
+          await fetchKeywordData();
+          await fetchAllKeywords();
+          setLoading(false);
+        }, 3000);
+      } else {
+        setErrors({
+          message: "Please enter a keyword to continue",
+        });
+        setLoading(false);
+      }
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
+
+  const fetchKeywordData = async (status = 0, source = "ALL") => {
+    try {
+      setLoading(true);
+      let res = await ApiService.fetchKeywordData(
+        state.query,
+        dataToShow,
+        sourceDataToShow,
+        sortDataToShow,
+        page
+      );
       dispatchReducer({ type: "FETCH_DATA", payload: res });
       setLoading(false);
     } catch (error) {
@@ -129,7 +135,7 @@ const Home = () => {
         type: "SET_DATA",
         payload: state.data.filter((d) => d.id !== id),
       });
-      setShow(false)
+      setShow(false);
     } catch (error) {
       setLoading(false);
     } finally {
@@ -142,64 +148,75 @@ const Home = () => {
   };
 
   const setExistingKeyword = (e) => {
-    dispatchReducer({ type: "SET_QUERY", payload: [...state.query, { label: e.target.value, value: e.target.value }] });
+    dispatchReducer({
+      type: "SET_QUERY",
+      payload: [
+        ...state.query,
+        { label: e.target.value, value: e.target.value },
+      ],
+    });
     // fetchKeywordData(e.target.value);
   };
 
   const changeOtherData = async (status) => {
     dispatchReducer({
-      type: 'RESET_DATA'
-    })
-    setPage(1)
+      type: "RESET_DATA",
+    });
+    setPage(1);
     setDataToShow(parseInt(status));
     // await fetchKeywordData(status);
   };
 
   const changeSourceData = async (source) => {
     dispatchReducer({
-      type: 'RESET_DATA'
-    })
-    setPage(1)
+      type: "RESET_DATA",
+    });
+    setPage(1);
     setSourceDataToShow(source);
     // await fetchKeywordData(source);
   };
 
   const changeSortData = async (source) => {
     dispatchReducer({
-      type: 'RESET_DATA'
-    })
-    setPage(1)
+      type: "RESET_DATA",
+    });
+    setPage(1);
     setSortDataToShow(source);
     // await fetchKeywordData(source);
   };
 
   const exportData = async () => {
     try {
-      setLoading(true)
-      let res = await ApiService.exportKeywordData(state.query, dataToShow, sourceDataToShow, sortDataToShow)
-      
+      setLoading(true);
+      let res = await ApiService.exportKeywordData(
+        state.query,
+        dataToShow,
+        sourceDataToShow,
+        sortDataToShow
+      );
+
       // Create a URL for the blob
       const url = window.URL.createObjectURL(res);
-      
+
       // Create a link element and click it to trigger the download
-      const link = document.createElement('a');
+      const link = document.createElement("a");
       link.href = url;
-      link.download = `export-${moment().format('YYYY-MM-DD')}.xlsx`;
+      link.download = `export-${moment().format("YYYY-MM-DD")}.xlsx`;
       document.body.appendChild(link);
       link.click();
-      
+
       // Clean up by revoking the URL
       window.URL.revokeObjectURL(url);
-      setLoading(false)
+      setLoading(false);
     } catch (error) {
-      console.log(error)
-      setLoading(false)
+      console.log(error);
+      setLoading(false);
     }
-  }
+  };
 
   // useEffect(() => {
   //   function handleScroll() {
-  
+
   //     if (window.innerHeight + document.documentElement.scrollTop ===
   //       document.documentElement.offsetHeight) {
   //       console.log('Running')
@@ -219,30 +236,24 @@ const Home = () => {
   //   }
   // }, [state.data]);
 
-
   useEffect(() => {
     fetchAllKeywords();
   }, []);
 
   useEffect(() => {
     fetchKeywordData();
-    console.log(page)
+    console.log(page);
   }, [dataToShow, sourceDataToShow, sortDataToShow, page]);
 
   return (
     <main>
-
-      <section className="py-2">
+      <section className="pt-2">
         <div className="container">
-          {
-            errors
-            ?
+          {errors ? (
             <div className="alert alert-danger mb-0" role="alert">
               {errors?.message}
             </div>
-            : 
-            null
-          }
+          ) : null}
         </div>
       </section>
       <SearchInput
@@ -262,12 +273,25 @@ const Home = () => {
               <div className="form-group">
                 <select
                   className="form-select"
+                  value={sourceDataToShow}
+                  onChange={(e) => changeSourceData(e.target.value)}
+                  disabled={!state.data.length}
+                >
+                  <option value={"ALL"}>All Sources</option>
+                  <option value={"EU"}>EU</option>
+                  <option value={"NSF"}>NSF</option>
+                  <option value={"GTR"}>GTR</option>
+                </select>
+              </div>
+
+              <div className="form-group">
+                <select
+                  className="form-select"
                   value={dataToShow}
                   onChange={(e) => changeOtherData(e.target.value)}
+                  disabled={!state.data.length}
                 >
-                  <option value={0}>
-                    New Data
-                  </option>
+                  <option value={0}>New Data</option>
                   <option value={1}>Accepted Data</option>
                   <option value={2}>Rejected False Positives</option>
                 </select>
@@ -275,45 +299,42 @@ const Home = () => {
               <div className="form-group">
                 <select
                   className="form-select"
-                  value={sourceDataToShow}
-                  onChange={(e) => changeSourceData(e.target.value)}
-                >
-                  <option value={'ALL'}>
-                    All Sources
-                  </option>
-                  <option value={'EU'}>EU</option>
-                  <option value={'NSF'}>NSF</option>
-                  <option value={'GTR'}>GTR</option>
-                </select>
-              </div>
-              <div className="form-group">
-                <select
-                  className="form-select"
                   value={sortDataToShow}
                   onChange={(e) => changeSortData(e.target.value)}
+                  disabled={!state.data.length}
                 >
-                  <option value={'relevance'}>Relevance</option>
-                  <option value={'funding_amount_desc'}>Amount: High to Low</option>
-                  <option value={'funding_amount_asc'}>Amount: Low to High</option>
-                  <option value={'date_started_desc'}>Start Date: Newest to Oldest</option>
-                  <option value={'date_started_asc'}>Start Date: Oldest to Newest</option>
+                  <option value={"relevance"}>Relevance</option>
+                  <option value={"funding_amount_desc"}>
+                    Amount: High to Low
+                  </option>
+                  <option value={"funding_amount_asc"}>
+                    Amount: Low to High
+                  </option>
+                  <option value={"date_started_desc"}>
+                    Start Date: Newest to Oldest
+                  </option>
+                  <option value={"date_started_asc"}>
+                    Start Date: Oldest to Newest
+                  </option>
                 </select>
               </div>
-              <button onClick={exportData} className="btn btn-success">Export This Data</button>
+              <button disabled={!state.data.length} onClick={exportData} className="btn btn-success">
+                Export Data
+              </button>
             </div>
           </div>
           <InfiniteScroll
             dataLength={state.data.length}
-            next={() => setPage(page => parseInt(page) + 1)}
-            hasMore={(state.data.length && state.total > page) ? true : false}
-            scrollThreshold={'1px'}
+            next={() => setPage((page) => parseInt(page) + 1)}
+            hasMore={state.data.length && state.total > page ? true : false}
+            scrollThreshold={"1px"}
           >
             <div className="row">
               {state.data.map((d, index) => (
                 <GrantCard
                   d={d}
                   actionButton={actionButton}
-                  key={d.id+'-'+index}
+                  key={d.id + "-" + index}
                   setModalData={setModalData}
                   setShow={setShow}
                   dataToShow={dataToShow}
@@ -323,15 +344,11 @@ const Home = () => {
           </InfiniteScroll>
         </div>
       </section>
-      {
-        loading
-        ?
+      {loading ? (
         <div className="d-flex align-items-center justify-content-center">
           <div className="spinner-border" role="status"></div>
         </div>
-        :
-        null
-      }
+      ) : null}
       <Modal show={show} onHide={() => setShow(false)} size="xl">
         <Modal.Header closeButton>
           <Modal.Title className="text-uppercase h6">
@@ -342,35 +359,49 @@ const Home = () => {
           <div className="card h-100">
             <div className="card-body">
               <p>{modalData.abstract}</p>
-              <p>
-                <b>Total Funding</b>:{" "}
-                {modalData.total_funding?.toLocaleString("en-US", {
-                  style: "currency",
-                  currency: "USD",
-                })}
-              </p>
-              <p>
-                <b>Start Date</b>:{" "}
-                {moment(modalData.start_date).format("Do MMM, YYYY")}
-              </p>
-              <p>
-                <b>End Date</b>:{" "}
-                {moment(modalData.end_date).format("Do MMM, YYYY")}
-              </p>
-              <p>
-                <b>Duration</b>:{" "}
-                {moment(modalData.end_date).diff(
-                  moment(modalData.start_date),
-                  "months"
-                )}{" "}
-                months ||{" "}
-                {moment(modalData.end_date).diff(
-                  moment(modalData.start_date),
-                  "days"
-                )}{" "}
-                days
-              </p>
-              <p><b>Grant Agency</b>: {modalData.api_service}</p>
+              <div className="row">
+                <div className="col-lg-6">
+                  <p>
+                    <b>Total Funding</b>:{" "}
+                    {modalData.total_funding?.toLocaleString("en-US", {
+                      style: "currency",
+                      currency: "USD",
+                    })}
+                  </p>
+                </div>
+                <div className="col-lg-6">
+                  <p>
+                    <b>Start Date</b>:{" "}
+                    {moment(modalData.start_date).format("Do MMM, YYYY")}
+                  </p>
+                </div>
+                <div className="col-lg-6">
+                  <p>
+                    <b>End Date</b>:{" "}
+                    {moment(modalData.end_date).format("Do MMM, YYYY")}
+                  </p>
+                </div>
+                <div className="col-lg-6">
+                  <p>
+                    <b>Duration</b>:{" "}
+                    {moment(modalData.end_date).diff(
+                      moment(modalData.start_date),
+                      "months"
+                    )}{" "}
+                    months ||{" "}
+                    {moment(modalData.end_date).diff(
+                      moment(modalData.start_date),
+                      "days"
+                    )}{" "}
+                    days
+                  </p>
+                </div>
+                <div className="col-lg-6">
+                  <p>
+                    <b>Grant Agency</b>: {modalData.api_service}
+                  </p>
+                </div>
+              </div>
               <small className="mb-3 d-inline-block">
                 Approximately:{" "}
                 {Math.ceil(
@@ -394,17 +425,34 @@ const Home = () => {
                   <span className="badge bg-success">CLOSED</span>
                 </p>
               )}
+              {
+                !modalData.relevance_score
+                ?
+                  <p className="relevance_score">
+                    <span className={`badge bg-secondary`}>Keyword Relevance Score: N/A</span>
+                  </p>
+                :
+                  <p className="relevance_score">
+                    <span className={`badge ${modalData.relevance_score > 20 ? 'bg-primary' : 'bg-danger'}`}>Keyword Relevance Score: {modalData.relevance_score}%</span>
+                  </p>
+              }
             </div>
             <div className="card-footer">
-            <div className="d-flex align-items-center justify-content-between">
-              <button className="btn btn-outline-success w-100 me-2" onClick={() => actionButton(1, modalData.id)}>
-                Approve
-              </button>
-              <button className="btn btn-outline-danger w-100" onClick={() => actionButton(2, modalData.id)}>
-                Reject
-              </button>
+              <div className="d-flex align-items-center justify-content-between">
+                <button
+                  className="btn btn-outline-success w-100 me-2"
+                  onClick={() => actionButton(1, modalData.id)}
+                >
+                  Approve
+                </button>
+                <button
+                  className="btn btn-outline-danger w-100"
+                  onClick={() => actionButton(2, modalData.id)}
+                >
+                  Reject
+                </button>
+              </div>
             </div>
-          </div>
           </div>
         </Modal.Body>
       </Modal>
