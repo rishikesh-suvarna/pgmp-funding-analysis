@@ -401,6 +401,17 @@ const Home = () => {
                     <b>Grant Agency</b>: {modalData.api_service}
                   </p>
                 </div>
+                {
+                  modalData.keywords
+                  ?
+                    <div className="col-lg-6">
+                      <p>
+                        <b>Keyword</b>: {modalData.keywords.map(k => k.keyword).join(',')}
+                      </p>
+                    </div>
+                  :
+                  null
+                }
               </div>
               <small className="mb-3 d-inline-block">
                 Approximately:{" "}

@@ -1,6 +1,6 @@
 'use strict'
 
-const { grants, keywords, sequelize } = require('../models');
+const { grants, keywords, grantkeyword, sequelize } = require('../models');
 const { Op } = require('sequelize');
 const { euServiceQueue, nsfServiceQueue, gtrServiceQueue } = require("../helpers");
 const moment = require('moment');
@@ -162,7 +162,9 @@ exports.fetchKeywordData = async (req, res) => {
             queryBuilder.where['api_service'] = req.query.source
         }
 
-        let { count, rows } = await grants.findAndCountAll(queryBuilder)
+        let { count, rows } = await grants.findAndCountAll(queryBuilder, {
+            include: grantkeyword
+        })
 
         return res.status(200).json({
             data: rows,
