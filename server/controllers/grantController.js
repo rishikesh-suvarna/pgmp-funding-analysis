@@ -137,8 +137,14 @@ exports.fetchKeywordData = async (req, res) => {
 
         if(req.query.sort) {
             switch (req.query.sort) {
-                case 'relevance':
+                case 'default':
                     queryBuilder.order = [['id', 'ASC']];
+                    break;
+                case 'relevance_asc':
+                    queryBuilder.order = [['relevance_score', 'ASC']];
+                    break;
+                case 'relevance_desc':
+                    queryBuilder.order = [['relevance_score', 'DESC']];
                     break;
                 case 'funding_amount_asc':
                     queryBuilder.order = [['total_funding', 'ASC']];
@@ -207,8 +213,14 @@ exports.exportKeywordData = async (req, res) => {
 
         if(req.query.sort) {
             switch (req.query.sort) {
-                case 'relevance':
+                case 'default':
                     queryBuilder.order = [['id', 'ASC']];
+                    break;
+                case 'relevance_asc':
+                    queryBuilder.order = [['relevance_score', 'ASC']];
+                    break;
+                case 'relevance_desc':
+                    queryBuilder.order = [['relevance_score', 'DESC']];
                     break;
                 case 'funding_amount_asc':
                     queryBuilder.order = [['total_funding', 'ASC']];

@@ -15,7 +15,7 @@ const Home = () => {
   const [keywords, setKeywords] = useState([]);
   const [dataToShow, setDataToShow] = useState(0);
   const [sourceDataToShow, setSourceDataToShow] = useState("ALL");
-  const [sortDataToShow, setSortDataToShow] = useState("relevance");
+  const [sortDataToShow, setSortDataToShow] = useState("default");
   const [page, setPage] = useState(1);
 
   const INITIAL_STATE = {
@@ -303,7 +303,13 @@ const Home = () => {
                   onChange={(e) => changeSortData(e.target.value)}
                   disabled={!state.data.length}
                 >
-                  <option value={"relevance"}>Relevance</option>
+                  <option value={"default"}>Default</option>
+                  <option value={"relevance_desc"}>
+                    Relevance: High to Low
+                  </option>
+                  <option value={"relevance_asc"}>
+                  Relevance: Low to High
+                  </option>
                   <option value={"funding_amount_desc"}>
                     Amount: High to Low
                   </option>
