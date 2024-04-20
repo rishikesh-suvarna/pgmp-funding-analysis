@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      grants.belongsToMany(models.keywords, { through: 'grantkeywords' })
+      grants.belongsToMany(models.keywords, { through: 'grantkeywords'})
     }
   }
   grants.init({
