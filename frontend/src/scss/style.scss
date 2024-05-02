@@ -116,6 +116,25 @@ select {
     width: 400px;
 }
 
+.custom-navbar {
+  background-color: #eee;
+  ul {
+    li {
+      a {
+        padding: 10px 10px;      
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1.2rem;
+        color: $text-color;
+        transition: .4s;
+        &.active {
+          color: $dark-text-color;
+        }
+      }
+    }
+  }
+}
+
 .card {
   border-color: #dfdfdf;
   border-radius: 10px;

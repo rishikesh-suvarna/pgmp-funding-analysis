@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      search_history.belongsTo(models.keywords, { as: 'searched_keyword', foreignKey: 'keyword_id' })
     }
   }
   search_history.init({

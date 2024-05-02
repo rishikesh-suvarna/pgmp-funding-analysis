@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       keywords.belongsToMany(models.grants, { through: 'grantkeywords' })
+      keywords.hasOne(models.search_history, { as: 'search', foreignKey: 'keyword_id' })
     }
   }
   keywords.init({

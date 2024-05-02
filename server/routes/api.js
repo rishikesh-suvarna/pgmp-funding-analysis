@@ -4,6 +4,7 @@ const router = require('express').Router()
 const { grants, keywords, search_history } = require('../models');
 const { requestKeywordData, fetchKeywordData, setGrantStatus, exportKeywordData, fetchFreshKeywordData } = require("../controllers/grantController");
 const { fetchKeywords } = require('../controllers/keywordController');
+const { fetchAllSearchHistory } = require('../controllers/searchHistoryController');
 
 
 
@@ -22,6 +23,7 @@ router.get('/fetch-keywords', fetchKeywords)
 
 router.post('/request-fresh-keyword-data', fetchFreshKeywordData)
 
+router.get('/fetch-history', fetchAllSearchHistory)
 
 router.get('/delete-all', async (req, res) => {
     try {

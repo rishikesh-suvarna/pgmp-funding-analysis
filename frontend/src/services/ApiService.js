@@ -1,7 +1,7 @@
 import axios from "axios";
 import history from "../history";
 
-//Fetch INterceptor Configuration
+//Fetch Interceptor Configuration
 const fetch = axios.create({
   baseURL: process.env.REACT_APP_BASE_URL + "/api/",
   timeout: 60000,
@@ -82,6 +82,13 @@ ApiService.setGrantStatus = (status, id) => {
 ApiService.fetchAllKeywords = () => {
     return fetch({
         url: `/fetch-keywords`,
+        method: 'GET',
+    })
+}
+
+ApiService.fetchAllSearchHistory = (page) => {
+    return fetch({
+        url: `/fetch-history?page=${page}`,
         method: 'GET',
     })
 }

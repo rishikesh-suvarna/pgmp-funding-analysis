@@ -5,7 +5,7 @@ import SearchInput from "../components/SearchInput";
 import { Modal } from "react-bootstrap";
 import moment from "moment";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Grants from "../components/Grants";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
@@ -247,15 +247,16 @@ const Home = () => {
 
   return (
     <main>
-      <section className="pt-2">
-        <div className="container">
-          {errors ? (
+      <Navbar />
+      {errors ? (
+        <section className="">
+          <div className="container">
             <div className="alert alert-danger mb-0" role="alert">
               {errors?.message}
             </div>
-          ) : null}
-        </div>
-      </section>
+          </div>
+        </section>
+      ) : null}
       <SearchInput
         query={state.query}
         setQuery={setQuery}
@@ -308,7 +309,7 @@ const Home = () => {
                     Relevance: High to Low
                   </option>
                   <option value={"relevance_asc"}>
-                  Relevance: Low to High
+                    Relevance: Low to High
                   </option>
                   <option value={"funding_amount_desc"}>
                     Amount: High to Low
@@ -324,7 +325,11 @@ const Home = () => {
                   </option>
                 </select>
               </div>
-              <button disabled={!state.data.length} onClick={exportData} className="btn btn-success">
+              <button
+                disabled={!state.data.length}
+                onClick={exportData}
+                className="btn btn-success"
+              >
                 Export Data
               </button>
             </div>
@@ -407,17 +412,14 @@ const Home = () => {
                     <b>Grant Agency</b>: {modalData.api_service}
                   </p>
                 </div>
-                {
-                  modalData.keywords
-                  ?
-                    <div className="col-lg-6">
-                      <p>
-                        <b>Keyword</b>: {modalData.keywords.map(k => k.keyword).join(',')}
-                      </p>
-                    </div>
-                  :
-                  null
-                }
+                {modalData.keywords ? (
+                  <div className="col-lg-6">
+                    <p>
+                      <b>Keyword</b>:{" "}
+                      {modalData.keywords.map((k) => k.keyword).join(",")}
+                    </p>
+                  </div>
+                ) : null}
               </div>
               <small className="mb-3 d-inline-block">
                 Approximately:{" "}
@@ -442,17 +444,25 @@ const Home = () => {
                   <span className="badge bg-success">CLOSED</span>
                 </p>
               )}
-              {
-                !modalData.relevance_score
-                ?
-                  <p className="relevance_score">
-                    <span className={`badge bg-secondary`}>Keyword Relevance Score: N/A</span>
-                  </p>
-                :
-                  <p className="relevance_score">
-                    <span className={`badge ${modalData.relevance_score > 20 ? 'bg-primary' : 'bg-danger'}`}>Keyword Relevance Score: {modalData.relevance_score}%</span>
-                  </p>
-              }
+              {!modalData.relevance_score ? (
+                <p className="relevance_score">
+                  <span className={`badge bg-secondary`}>
+                    Keyword Relevance Score: N/A
+                  </span>
+                </p>
+              ) : (
+                <p className="relevance_score">
+                  <span
+                    className={`badge ${
+                      modalData.relevance_score > 20
+                        ? "bg-primary"
+                        : "bg-danger"
+                    }`}
+                  >
+                    Keyword Relevance Score: {modalData.relevance_score}%
+                  </span>
+                </p>
+              )}
             </div>
             <div className="card-footer">
               <div className="d-flex align-items-center justify-content-between">
