@@ -5,6 +5,8 @@ const euService = require("../services/EU");
 const gtrService = require("../services/GTR");
 const nsfService = require("../services/NSF");
 const { logger } = require("../utils/logger");
+// const LIMIT = process.env.NODE_ENV === "development" ? 100 : 10000;
+
 
 const saveDatatoDatabase = async (singleKeyword, k, data) => {
   try {
@@ -29,9 +31,9 @@ const saveDatatoDatabase = async (singleKeyword, k, data) => {
     } else {
       logger.log({
         level: "error",
-        message: `Fetched data error ${error}`,
+        message: `Data Fetching error from API `,
       });
-      console.error(`Fetched data error ${error}`);
+      console.error(`Data Fetching error from API `);
     }
   } catch (error) {
     logger.log({
@@ -63,7 +65,6 @@ exports.euServiceQueue = async (singleKeyword, k, startPage = 1) => {
   try {
     let page = startPage; //Default 1 passed in params
     const BATCH_SIZE = 10;
-    const LIMIT = process.env.NODE_ENV === "development" ? 10 : 10000;
   
     let [s_history, created] = await search_history.findOrCreate({
       where: {
@@ -94,8 +95,19 @@ exports.euServiceQueue = async (singleKeyword, k, startPage = 1) => {
       s_history.save()
   
       page++;
+
+      if(process.env.NODE_ENV === "development" && page > 10) {
+        console.log(`EU Service fetching completed for keyword: ${singleKeyword}`);
+        s_history.is_completed = true;
+        s_history.save();
+        logger.log({
+          level: 'info',
+          message: `EU Service fetching completed for keyword: ${singleKeyword}`
+        })
+        break;
+      }
   
-      if (page > LIMIT || (value && value.length < BATCH_SIZE)) {
+      if (value && value.length < BATCH_SIZE){
         console.log(`EU Service fetching completed for keyword: ${singleKeyword}`);
         s_history.is_completed = true;
         s_history.save();
@@ -119,7 +131,6 @@ exports.nsfServiceQueue = async (singleKeyword, k, startPage = 1) => {
   try {
     let page = startPage;
     const BATCH_SIZE = 20;
-    const LIMIT = process.env.NODE_ENV === "development" ? 10 : 10000;
   
     let [s_history, created] = await search_history.findOrCreate({
       where: {
@@ -152,8 +163,21 @@ exports.nsfServiceQueue = async (singleKeyword, k, startPage = 1) => {
       s_history.save()
   
       page++;
+
+      if(process.env.NODE_ENV === "development" && page > 10) {
+        console.log(
+          `NSF Service fetching completed for keyword: ${singleKeyword}`
+        );
+        s_history.is_completed = true;
+        s_history.save();
+        logger.log({
+          level: 'info',
+          message: `NSF Service fetching completed for keyword: ${singleKeyword}`
+        })
+        break;
+      }
   
-      if (page > LIMIT || (value && value.length < BATCH_SIZE)) {
+      if (value && value.length < BATCH_SIZE) {
         console.log(
           `NSF Service fetching completed for keyword: ${singleKeyword}`
         );
@@ -179,7 +203,6 @@ exports.gtrServiceQueue = async (singleKeyword, k, startPage = 1) => {
   try {
     let page = startPage;
     const BATCH_SIZE = 10;
-    const LIMIT = process.env.NODE_ENV === "development" ? 10 : 10000;
   
     let [s_history, created] = await search_history.findOrCreate({
       where: {
@@ -213,8 +236,21 @@ exports.gtrServiceQueue = async (singleKeyword, k, startPage = 1) => {
       s_history.save()
   
       page++;
+
+      if(process.env.NODE_ENV === "development" && page > 10) {
+        console.log(
+          `GTR Service fetching completed for keyword: ${singleKeyword}`
+        );
+        s_history.is_completed = true;
+        s_history.save();
+        logger.log({
+          level: 'info',
+          message: `GTR Service fetching completed for keyword: ${singleKeyword}`
+        })
+        break;
+      }
   
-      if (page > LIMIT || (value && value.length < BATCH_SIZE)) {
+      if (value && value.length < BATCH_SIZE) {
         console.log(
           `GTR Service fetching completed for keyword: ${singleKeyword}`
         );
